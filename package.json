@@ -4,7 +4,8 @@
   "description": "This is my personal website.",
   "main": "index.html",
   "scripts": {
-    "watch": "nodemon -e scss -x \"node-sass --include-path scss style.scss style.css && node-sass --include-path scss keyboards/keyboards-style.scss keyboards/keyboards-style.css\""
+    "build": "sass style.scss style.css",
+    "watch": "sass --watch style.scss:style.css"
   },
   "repository": {
     "type": "git",
@@ -18,10 +19,6 @@
   },
   "homepage": "https://github.com/igotnocans/igotnocans.github.io#readme",
   "dependencies": {
-    "npm-watch": "^0.11.0",
-    "sass": "^1.43.2"
-  },
-  "devDependencies": {
-    "node-sass": "^6.0.1"
+    "sass": "^1.77.6"
   }
 }

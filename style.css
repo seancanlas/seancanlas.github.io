@@ -1,62 +1,263 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro|Source+Serif+Pro");
-body {
-  font-family: "Source Sans Pro", sans-serif;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-size: 22px;
-  min-width: 100%;
-  min-height: 100%;
-  height: 100%;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: #090d16;
+  color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.main-container {
+  position: relative;
   width: 100%;
-  background: #263238; }
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  z-index: 1;
+}
+.main-container .glow-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(40px);
+  animation: pulse-glow 8s infinite alternate ease-in-out;
+}
 
-h1, h2 {
-  font-family: "Source Serif Pro", serif; }
-
-h1 {
-  font-weight: 900;
-  font-size: 2.3em;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  margin-top: 2rem; }
-
-h2 {
-  font-size: 1.35em;
-  margin-top: 0;
-  margin-bottom: 1em; }
-
-a, a:hover, a:active, a:visited, a:focus {
-  text-decoration: none; }
-
-p {
-  font-weight: 300;
-  color: #ffffff;
-  font-size: 0.95em;
-  margin-bottom: 2rem;
-  margin-top: 2rem; }
-
-p strong {
-  font-weight: 400; }
-
-svg {
-  height: 36px;
-  width: 36px;
-  fill: #37474f; }
-
-svg:hover {
-  fill: #fff;
-  transition: fill .4s ease; }
-
-#first-box {
-  color: #ffffff;
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
+.card {
+  background-color: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
   width: 100%;
-  top: 10%;
+  max-width: 480px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(255, 255, 255, 0.05) inset;
   text-align: center;
-  position: fixed; }
+  animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(255, 255, 255, 0.1) inset;
+}
 
-#profile-pic {
-  height: 11%;
-  width: 11%;
-  border-radius: 50%; }
+.card-header {
+  margin-bottom: 2rem;
+}
+.card-header .avatar-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+.card-header .avatar-container #profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  padding: 4px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.4s ease, transform 0.4s ease;
+}
+.card-header .avatar-container #profile-pic:hover {
+  border-color: #38bdf8;
+  transform: rotate(3deg) scale(1.05);
+}
+.card-header .avatar-container .status-indicator {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 16px;
+  height: 16px;
+  background-color: #34d399;
+  border: 3px solid #0d1527;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #34d399;
+  animation: status-pulse 2s infinite ease-in-out;
+}
+.card-header .name {
+  font-family: "Playfair Display", serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.25rem;
+}
+.card-header .title {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #38bdf8;
+  margin-bottom: 0;
+}
+
+.card-body {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.75rem 0;
+  margin-bottom: 1.75rem;
+}
+.card-body .skills-section {
+  margin-bottom: 1.5rem;
+}
+.card-body .skills-section:last-child {
+  margin-bottom: 0;
+}
+.card-body .skills-section h3 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  padding-left: 0.25rem;
+}
+
+.badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.badge {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  border: 1px solid transparent;
+}
+.badge.framework {
+  background-color: rgba(56, 189, 248, 0.08);
+  color: #7dd3fc;
+  border-color: rgba(56, 189, 248, 0.15);
+}
+.badge.framework:hover {
+  background-color: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: translateY(-1px);
+}
+.badge.language {
+  background-color: rgba(52, 211, 153, 0.08);
+  color: #6ee7b7;
+  border-color: rgba(52, 211, 153, 0.15);
+}
+.badge.language:hover {
+  background-color: rgba(52, 211, 153, 0.15);
+  border-color: rgba(52, 211, 153, 0.3);
+  transform: translateY(-1px);
+}
+
+.card-footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.card-footer .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  text-decoration: none;
+}
+.card-footer .social-links a svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+.card-footer .social-links a:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+  transform: translateY(-3px);
+}
+.card-footer .social-links a:hover svg {
+  transform: scale(1.1);
+}
+.card-footer .footer-info .copyright {
+  font-size: 0.7rem;
+  color: #64748b;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulse-glow {
+  from {
+    width: 550px;
+    height: 550px;
+    opacity: 0.8;
+  }
+  to {
+    width: 650px;
+    height: 650px;
+    opacity: 1.2;
+  }
+}
+@keyframes status-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
+@media (max-width: 480px) {
+  .card {
+    padding: 1.75rem;
+    border-radius: 20px;
+  }
+  .card-header .name {
+    font-size: 1.85rem;
+  }
+  .badge-container {
+    justify-content: center;
+  }
+  .card-body .skills-section h3 {
+    text-align: center;
+    padding-left: 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
