@@ -27,6 +27,7 @@ export interface Project {
   url: string
   repo?: string
   featured: boolean
+  status: 'live' | 'building'
   category: string
   stack: Array<{ name: string; brand: string }>
   architecture?: string

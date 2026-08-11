@@ -82,11 +82,12 @@ export const projects: Project[] = [
     title: 'MapleLineCards',
     tagline: 'Canadian Trading Card Game (TCG) Single Aggregator & Search Interface',
     description: 'A specialized search engine and aggregator built for Canadian TCG collectors. Aggregates live card availability and pricing from stores across Canada across One Piece, Pokémon, Magic: The Gathering, Lorcana, and Yu-Gi-Oh!',
-    image: '/images/maplelinecards-1.png',
-    images: ['/images/maplelinecards-1.png', '/images/maplelinecards-3.png', '/images/maplelinecards-2.png'],
+    image: '/images/maplelinecards-1.webp',
+    images: ['/images/maplelinecards-1.webp', '/images/maplelinecards-3.webp', '/images/maplelinecards-2.webp'],
     url: 'https://maplelinecards.ca',
     repo: undefined,
     featured: true,
+    status: 'live',
     category: 'Featured Passion Project',
     stack: [
       { name: 'PHP 8.3', brand: 'brand-php' },
@@ -121,6 +122,53 @@ export const projects: Project[] = [
       'Custom React filter components with real-time feedback and dynamic category pills',
     ],
     timeline: '2023–Present',
+    role: 'Founder & Full-Stack Engineer',
+  },
+  {
+    id: 'makeyoucraveit',
+    title: 'Make You Crave It',
+    tagline: 'Ingredient-Based Recipe Aggregator & Search Platform',
+    description: 'A recipe discovery platform built around what is already in your kitchen: tell it your ingredients and it surfaces matching recipes aggregated from around the web, with full source attribution back to the original authors.',
+    image: '/images/makeyoucraveit-1.webp',
+    images: ['/images/makeyoucraveit-1.webp', '/images/makeyoucraveit-2.webp', '/images/makeyoucraveit-3.webp'],
+    url: 'https://makeyoucraveit.com',
+    repo: undefined,
+    featured: false,
+    status: 'building',
+    category: 'Active Build',
+    stack: [
+      { name: 'Python 3.12', brand: 'brand-python' },
+      { name: 'FastAPI', brand: 'brand-fastapi' },
+      { name: 'React 19', brand: 'brand-react' },
+      { name: 'TypeScript', brand: 'brand-ts' },
+      { name: 'PostgreSQL 16', brand: 'brand-pg' },
+      { name: 'Redis', brand: 'brand-redis' },
+      { name: 'Docker', brand: 'brand-docker' },
+    ],
+    architecture: `graph TD
+    A[React 19 SPA] --> F[nginx Reverse Proxy]
+    F --> B[FastAPI Backend]
+    B --> C[(PostgreSQL 16)]
+    B --> D[(Redis Cache)]
+    E[Python Scraper Service] --> C
+    G[Cloudflare Tunnel] --> F`,
+    metrics: {
+      'Status': 'Active Build — Pre-Launch',
+      'Core Services': '7 Containerized Services',
+      'CI Gates': '6 Automated Pipeline Checks',
+      'Target Domain': 'makeyoucraveit.com',
+    },
+    challenges: [
+      'Enforced version parity for the shared ingredient-parser-nlp dependency between backend and scraper via a dedicated CI job',
+      'Built a fully offline-testable scraping pipeline — mock transport and HTML fixtures replace live network calls in CI',
+      'Automated placeholder-secret verification and health-checked deploys on a self-hosted runner behind a Cloudflare Tunnel',
+    ],
+    highlights: [
+      'FastAPI backend that runs Alembic migrations automatically before Uvicorn accepts traffic',
+      'React 19 SPA for ingredient/pantry-based recipe search, with dish, recipe, and franchise browsing',
+      'Python scraper service with a fixture-based offline test mode, decoupled from live scraping in CI',
+    ],
+    timeline: 'Aug 2026–Present',
     role: 'Founder & Full-Stack Engineer',
   },
 ]

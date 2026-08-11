@@ -42,6 +42,8 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const { localizedHref } = useLocale()
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -53,6 +55,7 @@ export function Navigation() {
         top: offsetPosition,
         behavior: 'smooth',
       })
+      window.location.hash = localizedHref('#' + sectionId)
     }
     setIsMobileMenuOpen(false)
   }

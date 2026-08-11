@@ -45,9 +45,11 @@ export function Hero() {
             >
               <div className="relative w-8 h-8 rounded-full overflow-hidden border border-brand-maple/40 shrink-0 bg-black">
                 <img
-                  src="/images/maplelinecards-logo.png"
+                  src="/images/maplelinecards-logo.webp"
                   alt="MapleLineCards Logo"
                   className="w-full h-full object-cover object-center"
+                  width="32"
+                  height="32"
                 />
               </div>
               <div className="flex items-center gap-2 pr-1">
@@ -162,6 +164,10 @@ export function Hero() {
                         src="/images/profile.jpg"
                         alt="Sean Canlas"
                         className="w-full h-full object-cover object-top"
+                        loading="eager"
+                        fetchPriority="high"
+                        width="160"
+                        height="160"
                       />
                     </div>
                   </div>
