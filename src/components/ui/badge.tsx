@@ -2,7 +2,7 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  variant?: 'default' | 'secondary' | 'destructive' | 'outline' | 'brand-ts' | 'brand-php' | 'brand-react' | 'brand-node' | 'brand-pg' | 'brand-maple' | 'brand-symfony' | 'brand-docker'
+  variant?: 'default' | 'secondary' | 'destructive' | 'outline' | 'brand-ts' | 'brand-php' | 'brand-react' | 'brand-node' | 'brand-pg' | 'brand-maple' | 'brand-symfony' | 'brand-docker' | 'brand-python' | 'brand-fastapi' | 'brand-redis'
 }
 
 const badgeVariants = {
@@ -18,6 +18,9 @@ const badgeVariants = {
   'brand-maple': 'bg-brand-maple/10 text-brand-maple border border-brand-maple/20',
   'brand-symfony': 'bg-brand-symfony/10 text-brand-symfony border border-brand-symfony/20',
   'brand-docker': 'bg-brand-docker/10 text-brand-docker border border-brand-docker/20',
+  'brand-python': 'bg-brand-python/10 text-brand-python border border-brand-python/20',
+  'brand-fastapi': 'bg-brand-fastapi/10 text-brand-fastapi border border-brand-fastapi/20',
+  'brand-redis': 'bg-brand-redis/10 text-brand-redis border border-brand-redis/20',
 } as const
 
 function Badge({ className, variant = 'default', ...props }: BadgeProps) {
