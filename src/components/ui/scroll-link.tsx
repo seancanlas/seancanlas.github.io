@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import { cn } from '@/lib/utils'
+import { useLocale } from '@/i18n/LanguageContext'
 
 interface ScrollLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
@@ -14,10 +15,14 @@ export function ScrollLink({
   onClick,
   ...props
 }: ScrollLinkProps) {
+  const { localizedHref } = useLocale()
+  const localized = localizedHref(href)
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (href.startsWith('#')) {
       e.preventDefault()
-      const target = document.querySelector(href) as HTMLElement | null
+      const targetId = href.replace(/^#/, '').replace(/^\/(en|fr)\//, '')
+      const target = document.getElementById(targetId)
       if (target) {
         const headerOffset = 80
         const elementPosition = target.getBoundingClientRect().top
@@ -30,13 +35,14 @@ export function ScrollLink({
 
         target.focus({ preventScroll: true })
       }
+      window.location.hash = localized
     }
     onClick?.(e)
   }
 
   return (
     <a
-      href={href}
+      href={localized}
       onClick={handleClick}
       className={cn(className)}
       {...props}
