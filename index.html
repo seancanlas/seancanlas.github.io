@@ -5,21 +5,29 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Sean Canlas — Full-Stack Software Engineer specializing in PHP/Symfony, TypeScript/React, PostgreSQL, and modern DevOps. Builder of MapleLineCards.ca" />
-    <meta name="theme-color" content="#090d16" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="canonical" href="https://seancanlas.com/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://seancanlas.com/" />
     <meta property="og:title" content="Sean Canlas | Software Engineer" />
     <meta property="og:description" content="Full-Stack Software Engineer — PHP/Symfony, TypeScript/React, PostgreSQL. Builder of MapleLineCards.ca" />
-    <meta property="og:image" content="https://seancanlas.com/og-image.jpg" />
+    <meta property="og:image" content="https://seancanlas.com/og-image.png" />
+    <meta property="og:image:alt" content="Sean Canlas — Full-Stack Software Engineer" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Sean Canlas" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://seancanlas.com/" />
     <meta property="twitter:title" content="Sean Canlas | Software Engineer" />
     <meta property="twitter:description" content="Full-Stack Software Engineer — PHP/Symfony, TypeScript/React, PostgreSQL. Builder of MapleLineCards.ca" />
-    <meta property="twitter:image" content="https://seancanlas.com/og-image.jpg" />
+    <meta property="twitter:image" content="https://seancanlas.com/og-image.png" />
     <meta property="twitter:site" content="@seancanlas" />
     <meta property="twitter:creator" content="@seancanlas" />
 
@@ -34,9 +42,28 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@300..700&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@300..700&display=swap" media="print" onload="this.media='all'" />
 
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sean Canlas",
+      "jobTitle": "Full-Stack Software Engineer",
+      "url": "https://seancanlas.com",
+      "sameAs": [
+        "https://github.com/seancanlas",
+        "https://ca.linkedin.com/in/seancanlas"
+      ],
+      "knowsAbout": ["PHP", "Symfony", "TypeScript", "React", "PostgreSQL", "NodeJS", "Docker"]
+    }
+    </script>
+
     <title>Sean Canlas | Software Engineer</title>
   </head>
   <body>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded focus:shadow-lg">
+      Skip to main content
+    </a>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
