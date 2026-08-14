@@ -85,7 +85,6 @@ story: 'Deepened theoretical and practical knowledge in distributed computing, d
       close: 'Close',
       overview: 'Overview & Objective',
       challenges: 'Technical Challenges Solved',
-      archLabel: 'Tech Stack Architecture',
       archLabel: 'Tech Stack Highlights',
       statusLive: 'Live',
       statusBuilding: 'In Development',
