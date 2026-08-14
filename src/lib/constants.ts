@@ -28,7 +28,7 @@ export const milestones: Milestone[] = [
     subtitle: 'Algorithms, data structures, Object-Oriented Programming, and systems fundamentals',
     icon: 'dawson',
     tech: ['C++', 'Java', 'Assembly', 'SQL', 'Data Structures'],
-    story: 'Rigorous 3-year applied Computer Science program. Mastered core software engineering principles, low-level memory management, object-oriented design, and database systems.',
+    story: 'Diploma in Computer Science (CEGEP) completed 2010–2014. This foundational program provided rigorous training in algorithms, data structures, object-oriented programming, and systems fundamentals, with an additional semester to accommodate a core course requirement.',
   },
   {
     year: '2014–2018',
@@ -42,11 +42,11 @@ export const milestones: Milestone[] = [
   {
     year: 'Oct 2018–Present',
     era: 'Professional Career',
-    title: 'Full-Stack Software Engineer',
+    title: 'Full-Stack Software Developer',
     subtitle: 'PHP/Symfony, Twig, React, TypeScript, PostgreSQL, and NodeJS',
     icon: 'code',
     tech: ['PHP 8.3', 'Symfony 7', 'Twig 3', 'NodeJS', 'TypeScript', 'React 18', 'PostgreSQL', 'Docker'],
-    story: 'Engineering robust enterprise backend APIs and rich React/TypeScript interfaces. Proud creator of MapleLineCards.ca — a high-traffic Canadian TCG marketplace.',
+    story: 'Developing robust enterprise backend APIs and rich React/TypeScript interfaces. Proud creator of MapleLineCards.ca — a high-traffic Canadian TCG marketplace.',
   },
 ]
 
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     url: 'https://makeyoucraveit.com',
     repo: undefined,
     featured: false,
-    status: 'building',
+    status: 'live',
     category: 'Active Build',
     stack: [
       { name: 'Python 3.12', brand: 'brand-python' },
@@ -153,7 +153,7 @@ export const projects: Project[] = [
     E[Python Scraper Service] --> C
     G[Cloudflare Tunnel] --> F`,
     metrics: {
-      'Status': 'Active Build — Pre-Launch',
+      'Status': 'Live',
       'Core Services': '7 Containerized Services',
       'CI Gates': '6 Automated Pipeline Checks',
       'Target Domain': 'makeyoucraveit.com',
