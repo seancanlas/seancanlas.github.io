@@ -33,7 +33,7 @@ export const translations = {
       badge: 'Background & Milestones',
       heading: 'Career & Evolution',
       intro: 'From discovering HTML/CSS customization in 2001 to leading web capstones in high school, completing computer science degrees at Dawson College and Concordia University, and developing backend systems professionally since October 2018.',
-      philosophy: 'Developing Philosophy',
+      philosophy: 'Development Philosophy',
       philosophyText: 'I believe software should be built with intention — prioritize clean architecture, strict static typing, performant indexing, and fast, intuitive user experiences.',
       ms_myspace: { era: 'Early Spark', title: 'Custom HTML/CSS & Web Exploration', subtitle: 'AsianAvenue & MySpace layout tinkering — first realization that text creates software', story: 'Fascinated by how typing raw text in a document translated to customized web pages. Spent hours tweaking hex codes and layout tables. Took a break during teenager years to explore gaming and high school life.' },
       ms_robot: { era: 'High School (Grade 11)', title: 'Personal Capstone & Robotics Web Lead', subtitle: 'Built the school robotics team website and personal project', story: 'Re-ignited the coding passion during Grade 11. Designed and deployed the official website for the robotics team while completing a custom web portal for the year-end capstone personal project.' },
@@ -86,7 +86,7 @@ story: 'Deepened theoretical and practical knowledge in distributed computing, d
       overview: 'Overview & Objective',
       challenges: 'Technical Challenges Solved',
       archLabel: 'Tech Stack Architecture',
-      developingLabel: 'Developing Highlights',
+      archLabel: 'Tech Stack Highlights',
       statusLive: 'Live',
       statusBuilding: 'In Development',
       projects: {
@@ -221,7 +221,7 @@ story: 'Deepened theoretical and practical knowledge in distributed computing, d
       ms_robot: { era: 'Lycée (11e année)', title: 'Projet de Fin d\'Études & Responsable Web Robotique', subtitle: 'Construction du site web de l\'équipe de robotique scolaire et projet personnel', story: 'A ravivé la passion pour le codage en 11e année. A conçu et déployé le site web officiel de l\'équipe de robotique tout en réalisant un portail web personnalisé pour le projet de fin d\'études.' },
       ms_dawson: { era: 'Collège Dawson', title: 'Diplôme en Informatique (CEGEP)', subtitle: 'Algorithmes, structures de données, Programmation Orientée Objet et fondamentaux des systèmes', story: 'Programme rigoureux de 3 ans en informatique appliquée. Maîtrise des principes fondamentaux du génie logiciel, de la gestion de la mémoire de bas niveau, de la conception orientée objet et des systèmes de bases de données.' },
       ms_concordia: { era: 'Université Concordia', title: 'Baccalauréat en Informatique (B.Comp.Sc)', subtitle: 'Génie logiciel, systèmes distribués, architectures web et compilateurs', story: 'Approfondissement des connaissances théoriques et pratiques en informatique distribuée, conception de bases de données, systèmes d\'exploitation et architecture d\'applications web modernes.' },
-      ms_code: { era: 'Carrière Professionnelle', title: 'Développeur Logiciel Full-Stack', subtitle: 'PHP/Symfony, Twig, React, TypeScript, PostgreSQL et NodeJS', story: 'Développement d\'API backend d\'entreprise robustes et d\'interfaces React/TypeScript riches. Créateur fier de MapleLineCards.ca — un marché de JCC canadien à fort trafic.' },
+      ms_code: { era: 'Carrière Professionnelle', title: 'Développeur Logiciel', subtitle: 'PHP/Symfony, Twig, React, TypeScript, PostgreSQL et NodeJS', story: 'Ingénierie d\'API backend d\'entreprise robustes et d\'interfaces React/TypeScript riches. Créateur fier de MapleLineCards.ca — un marché de JCC canadien à fort trafic.' },
     },
     stack: {
       badge: 'Pile Principale & Expertise',
