@@ -222,11 +222,11 @@ export function Portfolio() {
               </div>
             </div>
 
-            {/* Key Engineering Highlights */}
-            <div className="space-y-3">
+            {/* Key Developing Highlights */}
+<div className="space-y-3">
               <h4 className="text-fluid-sm font-bold text-text-primary flex items-center gap-2">
                 <Zap className="w-4 h-4 text-brand-maple" />
-                {t('portfolio.engineeringLabel')}
+                {t('portfolio.developingLabel')}
               </h4>
               <ul className="space-y-2 text-fluid-xs text-text-secondary">
                 {[1, 2, 3].map(n => (

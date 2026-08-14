@@ -34,7 +34,7 @@ export const milestones: Milestone[] = [
     year: '2014–2018',
     era: 'Concordia University',
     title: 'Bachelor of Computer Science (B.Comp.Sc)',
-    subtitle: 'Software engineering, distributed systems, web architectures, and compilers',
+    subtitle: 'Software developing, distributed systems, web architectures, and compilers',
     icon: 'concordia',
     tech: ['Data Structures and Algorithms', 'Java', 'PHP'],
     story: 'Deepened theoretical and practical knowledge in distributed computing, database design, operating systems, and modern web application architecture.',
