@@ -33,37 +33,9 @@ export function Hero() {
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Column: Personal Info & Headline */}
+{/* Left Column: Personal Info & Headline */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
             
-            {/* Status Pill with MapleLineCards Logo */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-bg-elevated/80 border border-border-muted backdrop-blur shadow-sm hover:border-border-focus transition-all"
-            >
-              <div className="relative w-8 h-8 rounded-full overflow-hidden border border-brand-maple/40 shrink-0 bg-black">
-                <img
-                  src="/images/maplelinecards-logo.webp"
-                  alt="MapleLineCards Logo"
-                  className="w-full h-full object-cover object-center"
-                  width="32"
-                  height="32"
-                />
-              </div>
-              <div className="flex items-center gap-2 pr-1">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-online opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-status-online" />
-                </span>
-                <span className="text-fluid-xs font-medium text-text-secondary">
-                  {t('hero.statusBuilding')}{' '}
-                  <strong className="text-text-primary">{t('hero.statusMapleLineCards')}</strong>
-                </span>
-              </div>
-            </motion.div>
-
             {/* Main Headline */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
