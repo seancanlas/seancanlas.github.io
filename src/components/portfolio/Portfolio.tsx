@@ -124,7 +124,7 @@ export function Portfolio() {
           <div className="space-y-4">
 
             {/* Main Display Image */}
-            <div className="relative aspect-video sm:aspect-widescreen rounded-2xl overflow-hidden bg-bg-base border border-border-muted group shadow-inner">
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-bg-base border border-border-muted group shadow-inner">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={`${active.id}-${selectedImageIndex}`}
