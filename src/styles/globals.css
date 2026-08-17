@@ -63,6 +63,10 @@
   --duration-base: 250ms;
   --duration-slow: 400ms;
 
+  /* === Aspect Ratios & Modal Sizes === */
+  --aspect-widescreen: 21 / 9;
+  --max-height-modal: 85vh;
+
   /* === Fluid Typography Scale === */
   --text-fluid-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem);
   --text-fluid-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);

@@ -90,16 +90,20 @@ export function Portfolio() {
               </p>
             </div>
 
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto shrink-0">
               <a
                 href={active.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
                 <Button
                   size="lg"
                   variant={isLive ? undefined : 'secondary'}
-                  className={isLive ? 'bg-brand-maple hover:bg-brand-maple/90 text-white font-semibold' : 'font-semibold'}
+                  className={cn(
+                    'w-full sm:w-auto',
+                    isLive ? 'bg-brand-maple hover:bg-brand-maple/90 text-white font-semibold' : 'font-semibold'
+                  )}
                 >
                   {p('visitLabel')}
                   <ExternalLink className="w-4 h-4 ml-2" />
@@ -108,6 +112,7 @@ export function Portfolio() {
               <Button
                 size="lg"
                 variant="secondary"
+                className="w-full sm:w-auto"
                 onClick={() => setIsModalOpen(true)}
               >
                 {t('portfolio.architectureButton')}
@@ -119,7 +124,7 @@ export function Portfolio() {
           <div className="space-y-4">
 
             {/* Main Display Image */}
-            <div className="relative aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden bg-bg-base border border-border-muted group shadow-inner">
+            <div className="relative aspect-video sm:aspect-widescreen rounded-2xl overflow-hidden bg-bg-base border border-border-muted group shadow-inner">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={`${active.id}-${selectedImageIndex}`}
@@ -142,14 +147,14 @@ export function Portfolio() {
                 <>
                   <button
                     onClick={() => setSelectedImageIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length)}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-bg-deep/80 backdrop-blur border border-border-muted flex items-center justify-center text-text-primary opacity-0 group-hover:opacity-100 transition-opacity hover:bg-bg-hover"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-bg-deep/80 backdrop-blur border border-border-muted flex items-center justify-center text-text-primary opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity hover:bg-bg-hover"
                     aria-label="Previous screenshot"
                   >
                     <ChevronLeft className="w-5 h-5" />
                   </button>
                   <button
                     onClick={() => setSelectedImageIndex((prev) => (prev + 1) % screenshots.length)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-bg-deep/80 backdrop-blur border border-border-muted flex items-center justify-center text-text-primary opacity-0 group-hover:opacity-100 transition-opacity hover:bg-bg-hover"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-bg-deep/80 backdrop-blur border border-border-muted flex items-center justify-center text-text-primary opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity hover:bg-bg-hover"
                     aria-label="Next screenshot"
                   >
                     <ChevronRight className="w-5 h-5" />
@@ -171,7 +176,7 @@ export function Portfolio() {
                     key={idx}
                     onClick={() => setSelectedImageIndex(idx)}
                     className={cn(
-                      'relative aspect-[16/9] rounded-xl overflow-hidden border-2 transition-all text-left p-1 bg-bg-base',
+                      'relative aspect-video rounded-xl overflow-hidden border-2 transition-all text-left p-1 bg-bg-base',
                       selectedImageIndex === idx
                         ? 'border-brand-maple shadow-lg shadow-brand-maple/20'
                         : 'border-border-muted opacity-60 hover:opacity-100 hover:border-text-secondary'
@@ -246,7 +251,7 @@ export function Portfolio() {
 
       {/* Case Study Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto p-6 sm:p-8 bg-bg-elevated border-border-muted">
+        <DialogContent className="max-w-3xl max-h-modal overflow-y-auto p-6 sm:p-8 bg-bg-elevated border-border-muted">
           <DialogHeader className="mb-4">
           <DialogTitle className="text-fluid-2xl font-extrabold text-text-primary">
             {p('architectureTitle')}

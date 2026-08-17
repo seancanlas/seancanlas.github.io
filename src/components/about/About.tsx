@@ -38,7 +38,7 @@ export function About() {
         </div>
 
         {/* Timeline List */}
-        <div className="relative pl-6 sm:pl-8 before:absolute before:left-2 before:top-0 before:h-full before:w-0.5 before:bg-border-muted/80 space-y-10 my-8">
+        <div className="relative pl-8 before:absolute before:left-2 before:top-0 before:h-full before:w-0.5 before:bg-border-muted/80 space-y-10 my-8">
           {milestones.map((milestone, idx) => {
             const Icon = milestoneIcons[milestone.icon] || <Code2 className="w-5 h-5 text-brand-ts" />
 
@@ -52,7 +52,7 @@ export function About() {
                 className="relative group"
               >
                 {/* Timeline Point Dot */}
-                <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-8 h-8 rounded-full bg-bg-base border-2 border-border-muted flex items-center justify-center group-hover:border-brand-ts transition-colors shadow-md">
+                <div className="absolute -left-10 top-1.5 w-8 h-8 rounded-full bg-bg-base border-2 border-border-muted flex items-center justify-center group-hover:border-brand-ts transition-colors shadow-md">
                   {Icon}
                 </div>
 

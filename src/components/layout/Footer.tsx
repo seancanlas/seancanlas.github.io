@@ -44,7 +44,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border-subtle bg-bg-base/50" role="contentinfo">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-12 lg:py-16">
+      <div className="mx-auto max-w-7xl px-2.5 sm:px-8 lg:px-12 py-12 lg:py-16">
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

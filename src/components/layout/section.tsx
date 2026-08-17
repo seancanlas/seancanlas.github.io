@@ -10,7 +10,7 @@ export function Section({ id, className, children, ...props }: SectionProps) {
   return (
     <section
       id={id}
-      className={cn('relative w-full py-20 sm:py-28 lg:py-32 px-6 sm:px-8 lg:px-12', className)}
+      className={cn('relative w-full py-20 sm:py-28 lg:py-32 px-0 sm:px-8 lg:px-12', className)}
       {...props}
     >
       <div className="mx-auto max-w-7xl">{children}</div>
@@ -33,7 +33,7 @@ export function Container({ size = 'lg', className, children, ...props }: Contai
 
   return (
     <div
-      className={cn('mx-auto px-4 sm:px-6 lg:px-8', sizes[size], className)}
+      className={cn('mx-auto px-2.5 sm:px-6 lg:px-8', sizes[size], className)}
       {...props}
     >
       {children}

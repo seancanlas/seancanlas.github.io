@@ -74,7 +74,7 @@ export function Navigation() {
         )}
         role="banner"
       >
-        <nav className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12" aria-label="Main navigation">
+        <nav className="mx-auto max-w-7xl px-2.5 sm:px-8 lg:px-12" aria-label="Main navigation">
           <div className="flex h-16 items-center justify-between">
             <ScrollLink
               href="#hero"

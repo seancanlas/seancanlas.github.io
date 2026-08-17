@@ -30,7 +30,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 w-full">
+      <div className="mx-auto max-w-7xl px-2.5 sm:px-8 lg:px-12 w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
 {/* Left Column: Personal Info & Headline */}
