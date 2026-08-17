@@ -36,7 +36,7 @@ export function Footer() {
   const { t } = useLocale()
 
   const footerNavItems = [
-    { href: '#portfolio', labelKey: 'nav.featuredProject' },
+    { href: '#portfolio', labelKey: 'nav.featuredProjects' },
     { href: '#stack', labelKey: 'nav.techStack' },
     { href: '#about', labelKey: 'nav.careerJourney' },
     { href: '#contact', labelKey: 'nav.getInTouch' },

@@ -179,7 +179,7 @@ export const socialLinks = [
 ]
 
 export const navLinks = [
-  { label: 'Featured Project', href: '#portfolio' },
+  { label: 'Featured Projects', href: '#portfolio' },
   { label: 'Tech Stack', href: '#stack' },
   { label: 'Career Journey', href: '#about' },
   { label: 'Get in Touch', href: '#contact' },

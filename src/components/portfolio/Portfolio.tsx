@@ -199,7 +199,7 @@ export function Portfolio() {
 
           {/* Metrics Grid */}
           {metrics.length > 0 && (
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
               {metrics.map((m, idx) => (
                 <div key={idx} className="p-4 rounded-2xl bg-bg-base/80 border border-border-subtle text-center lg:text-left space-y-1">
                   <div className="text-fluid-xs font-mono text-text-muted uppercase tracking-wider">{m.label}</div>

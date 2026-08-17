@@ -1,7 +1,7 @@
 export const translations = {
   en: {
     nav: {
-      featuredProject: 'Featured Project',
+      featuredProjects: 'Featured Projects',
       techStack: 'Tech Stack',
       careerJourney: 'Career Journey',
       getInTouch: 'Get in Touch',
@@ -183,7 +183,7 @@ story: 'Deepened theoretical and practical knowledge in distributed computing, d
   },
   fr: {
     nav: {
-      featuredProject: 'Projet en Vedette',
+      featuredProjects: 'Projets en Vedette',
       techStack: 'Pile Technologique',
       careerJourney: 'Parcours Professionnel',
       getInTouch: 'Contactez-Moi',

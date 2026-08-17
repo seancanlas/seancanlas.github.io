@@ -14,7 +14,7 @@ export function Navigation() {
   const [activeSection, setActiveSection] = React.useState<string>('hero')
 
   const navItems = [
-    { href: '#portfolio', labelKey: 'nav.featuredProject' },
+    { href: '#portfolio', labelKey: 'nav.featuredProjects' },
     { href: '#stack', labelKey: 'nav.techStack' },
     { href: '#about', labelKey: 'nav.careerJourney' },
     { href: '#contact', labelKey: 'nav.getInTouch' },
