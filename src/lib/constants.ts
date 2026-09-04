@@ -51,29 +51,39 @@ export const milestones: Milestone[] = [
 ]
 
 export const techStack: TechItem[] = [
-  // OpenCode — primary AI-assisted coding tool
+  // AI & IDE Tools
   { name: 'OpenCode', category: 'tool', brand: 'brand-ts', proficiency: 95, icon: 'sparkles' },
+  { name: 'Claude Code', category: 'tool', brand: 'brand-ts', proficiency: 95, icon: 'sparkles' },
+  { name: 'PhpStorm', category: 'tool', brand: 'brand-php', proficiency: 95, icon: 'php' },
 
-  // Primary Stack
-  { name: 'PHP 8.3', category: 'language', brand: 'brand-php', proficiency: 98, icon: 'php' },
-  { name: 'Symfony 7', category: 'framework', brand: 'brand-symfony', proficiency: 95, icon: 'symfony' },
-  { name: 'Twig 3', category: 'framework', brand: 'brand-php', proficiency: 95, icon: 'twig' },
-  { name: 'TypeScript 5', category: 'language', brand: 'brand-ts', proficiency: 95, icon: 'typescript' },
-  { name: 'React 18', category: 'framework', brand: 'brand-react', proficiency: 92, icon: 'react' },
-  { name: 'NodeJS', category: 'framework', brand: 'brand-node', proficiency: 90, icon: 'node' },
-  { name: 'PostgreSQL 16', category: 'database', brand: 'brand-pg', proficiency: 92, icon: 'postgresql' },
+  // PHP Ecosystem
+  { name: 'PHP', category: 'language', brand: 'brand-php', proficiency: 98, icon: 'php' },
+  { name: 'Laravel', category: 'framework', brand: 'brand-php', proficiency: 85, icon: 'laravel' },
+  { name: 'Symfony', category: 'framework', brand: 'brand-symfony', proficiency: 95, icon: 'symfony' },
 
-  // Secondary & Supporting
-  { name: 'JavaScript (ES2024)', category: 'language', brand: 'brand-js', proficiency: 95, icon: 'javascript' },
-  { name: 'Laravel 11', category: 'framework', brand: 'brand-php', proficiency: 85, icon: 'laravel' },
-  { name: 'Vue.js 3', category: 'framework', brand: 'brand-vue', proficiency: 80, icon: 'vue' },
-  { name: 'MySQL 8', category: 'database', brand: 'brand-mysql', proficiency: 88, icon: 'mysql' },
+  // JavaScript Ecosystem
+  { name: 'Node.js', category: 'framework', brand: 'brand-node', proficiency: 90, icon: 'node' },
+  { name: 'Vue', category: 'framework', brand: 'brand-vue', proficiency: 80, icon: 'vue' },
+  { name: 'React', category: 'framework', brand: 'brand-react', proficiency: 92, icon: 'react' },
+
+  // Languages
+  { name: 'JavaScript', category: 'language', brand: 'brand-js', proficiency: 95, icon: 'javascript' },
+  { name: 'TypeScript', category: 'language', brand: 'brand-ts', proficiency: 95, icon: 'typescript' },
+
+  // Databases
+  { name: 'MySQL', category: 'database', brand: 'brand-mysql', proficiency: 88, icon: 'mysql' },
+  { name: 'PostgreSQL', category: 'database', brand: 'brand-pg', proficiency: 92, icon: 'postgresql' },
   { name: 'Redis', category: 'database', brand: 'brand-redis', proficiency: 85, icon: 'redis' },
+
+  // Templates & CSS
+  { name: 'Twig', category: 'framework', brand: 'brand-php', proficiency: 95, icon: 'twig' },
+  { name: 'Tailwind CSS', category: 'framework', brand: 'brand-ts', proficiency: 95, icon: 'tailwind' },
+
+  // DevOps & Infrastructure
   { name: 'Docker', category: 'tool', brand: 'brand-docker', proficiency: 90, icon: 'docker' },
+  { name: 'Linux / Nginx', category: 'tool', brand: 'brand-linux', proficiency: 85, icon: 'linux' },
   { name: 'GitLab CI/CD', category: 'tool', brand: 'brand-gitlab', proficiency: 88, icon: 'gitlab' },
   { name: 'GitHub Actions', category: 'tool', brand: 'brand-github', proficiency: 88, icon: 'github' },
-  { name: 'Linux / Nginx', category: 'tool', brand: 'brand-linux', proficiency: 85, icon: 'linux' },
-  { name: 'Tailwind CSS', category: 'framework', brand: 'brand-ts', proficiency: 95, icon: 'tailwind' },
 ]
 
 export const projects: Project[] = [

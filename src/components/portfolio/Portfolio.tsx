@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Badge, type BadgeProps } from '@/components/ui/badge'
 import { Section, Container } from '@/components/layout/section'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
-import { ExternalLink, Sparkles, Layers, Zap, Database, Server, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Hammer } from 'lucide-react'
+import { ExternalLink, Layers, Zap, Database, Server, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Hammer } from 'lucide-react'
 import { useLocale } from '@/i18n/LanguageContext'
 
 export function Portfolio() {
@@ -38,10 +38,6 @@ export function Portfolio() {
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-          <Badge variant="brand-maple" className="px-3.5 py-1 inline-flex items-center gap-1.5 text-xs">
-            <Sparkles className="w-3.5 h-3.5 text-brand-maple" />
-            {t('portfolio.badge')}
-          </Badge>
           <h2 className="text-fluid-3xl sm:text-fluid-4xl font-extrabold tracking-tight text-text-primary">
             {t('portfolio.heading')}
           </h2>

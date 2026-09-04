@@ -3,9 +3,8 @@
 import * as React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { techStack } from '@/lib/constants'
-import { Badge } from '@/components/ui/badge'
 import { Section, Container } from '@/components/layout/section'
-import { Code2, Database, Wrench, Sparkles, Layers, Cpu } from 'lucide-react'
+import { Code2, Database, Wrench, Layers, Cpu } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useLocale } from '@/i18n/LanguageContext'
 import { translations } from '@/i18n/translations'
@@ -23,24 +22,25 @@ const categoryIcons: Record<Category, React.ReactNode> = {
 
 const techKeyMap: Record<string, string> = {
   'OpenCode': 'OpenCode',
-  'PHP 8.3': 'PHP83',
-  'Symfony 7': 'Symfony7',
-  'Twig 3': 'Twig3',
-  'TypeScript 5': 'TypeScript5',
-  'React 18': 'React18',
-  'NodeJS': 'NodeJS',
-  'PostgreSQL 16': 'PostgreSQL16',
-  'JavaScript (ES2024)': 'JavaScript',
-  'Laravel 11': 'Laravel11',
-  'Vue.js 3': 'Vue3',
-  'Java 17/21': 'Java',
-  'MySQL 8': 'MySQL8',
+  'Claude Code': 'ClaudeCode',
+  'PhpStorm': 'PhpStorm',
+  'PHP': 'PHP',
+  'Laravel': 'Laravel',
+  'Symfony': 'Symfony',
+  'Node.js': 'NodeJS',
+  'Vue': 'Vue3',
+  'React': 'React',
+  'JavaScript': 'JavaScript',
+  'TypeScript': 'TypeScript',
+  'MySQL': 'MySQL',
+  'PostgreSQL': 'PostgreSQL',
   'Redis': 'Redis',
+  'Twig': 'Twig3',
+  'Tailwind CSS': 'TailwindCSS',
   'Docker': 'Docker',
+  'Linux / Nginx': 'LinuxNginx',
   'GitLab CI/CD': 'GitLabCI',
   'GitHub Actions': 'GitHubActions',
-  'Linux / Nginx': 'LinuxNginx',
-  'Tailwind CSS': 'TailwindCSS',
 }
 
 export function Stack() {
@@ -58,10 +58,6 @@ export function Stack() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <Badge variant="brand-ts" className="mb-3 px-3 py-1 inline-flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-brand-react" />
-            {t('stack.badge')}
-          </Badge>
           <h2 className="text-fluid-3xl sm:text-fluid-4xl font-extrabold tracking-tight text-text-primary mb-4 whitespace-nowrap">
             {t('stack.heading')}
           </h2>
@@ -138,16 +134,6 @@ export function Stack() {
             })}
           </AnimatePresence>
         </motion.div>
-
-        {/* Primary Language Focus Note */}
-        <div className="mt-12 p-6 rounded-2xl glass border border-border-muted text-center max-w-2xl mx-auto space-y-2">
-          <p className="text-fluid-sm font-medium text-text-primary">
-            {t('stack.focusLabel')} {t('stack.focusText')}
-          </p>
-          <p className="text-fluid-xs text-text-muted">
-            {t('stack.focusNote')}
-          </p>
-        </div>
 
       </Container>
     </Section>

@@ -92,6 +92,14 @@ html.light {
   --color-text-primary: oklch(0.12 0 0);
   --color-text-secondary: oklch(0.35 0.01 260);
   --color-text-muted: oklch(0.5 0.01 260);
+
+  /* Lighter, smaller shadows in light mode so white cards don't get
+     heavy black halos. The base tokens still use black for dark mode. */
+  --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
+  --shadow-md: 0 2px 6px -1px oklch(0 0 0 / 0.07);
+  --shadow-lg: 0 4px 12px -2px oklch(0 0 0 / 0.08);
+  --shadow-xl: 0 6px 16px -3px oklch(0 0 0 / 0.09);
+  --shadow-glow: 0 0 30px -6px oklch(0.55 0.22 260 / 0.15);
 }
 
 @layer base {

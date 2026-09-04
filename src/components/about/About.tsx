@@ -3,9 +3,8 @@
 import * as React from 'react'
 import { motion } from 'framer-motion'
 import { milestones } from '@/lib/constants'
-import { Badge } from '@/components/ui/badge'
 import { Section, Container } from '@/components/layout/section'
-import { Calendar, GraduationCap, Code2, Bot, Globe, Sparkles, Terminal } from 'lucide-react'
+import { GraduationCap, Code2, Bot, Globe, Terminal } from 'lucide-react'
 import { useLocale } from '@/i18n/LanguageContext'
 
 const milestoneIcons: Record<string, React.ReactNode> = {
@@ -25,10 +24,6 @@ export function About() {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <Badge variant="brand-php" className="px-3.5 py-1 inline-flex items-center gap-1.5 text-xs">
-            <Calendar className="w-3.5 h-3.5 text-brand-php" />
-            {t('about.badge')}
-          </Badge>
           <h2 className="text-fluid-3xl sm:text-fluid-4xl font-extrabold tracking-tight text-text-primary">
             {t('about.heading')}
           </h2>
@@ -90,17 +85,6 @@ export function About() {
               </motion.div>
             )
           })}
-        </div>
-
-        {/* Current Philosophy Footer Box */}
-        <div className="mt-16 p-8 rounded-3xl glass border border-border-muted text-center max-w-2xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 text-brand-react font-semibold text-fluid-sm">
-            <Sparkles className="w-4 h-4" />
-            {t('about.philosophy')}
-          </div>
-          <p className="text-fluid-sm text-text-secondary leading-relaxed">
-            {t('about.philosophyText')}
-          </p>
         </div>
 
       </Container>

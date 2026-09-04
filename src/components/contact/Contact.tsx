@@ -10,9 +10,8 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
-import { Badge } from '@/components/ui/badge'
 import { Section, Container } from '@/components/layout/section'
-import { Send, MessageSquare } from 'lucide-react'
+import { Send } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useLocale } from '@/i18n/LanguageContext'
 
@@ -94,10 +93,6 @@ export function Contact() {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <Badge variant="brand-ts" className="px-3.5 py-1 inline-flex items-center gap-1.5 text-xs">
-            <MessageSquare className="w-3.5 h-3.5 text-brand-ts" />
-            {t('contact.badge')}
-          </Badge>
           <h2 className="text-fluid-3xl sm:text-fluid-4xl font-extrabold tracking-tight text-text-primary">
             {t('contact.heading')}
           </h2>

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { ScrollLink } from '@/components/ui/scroll-link'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { ArrowRight, Terminal, Sparkles } from 'lucide-react'
+import { ArrowRight, Terminal } from 'lucide-react'
 import { useLocale } from '@/i18n/LanguageContext'
 
 export function Hero() {
@@ -151,10 +151,9 @@ export function Hero() {
                 {/* Terminal Code Body (bottom) */}
                 <div className="p-5 font-mono text-xs sm:text-fluid-xs leading-relaxed space-y-3 text-text-secondary overflow-x-auto">
                   <div>
-                    <span className="text-brand-ts">import</span> &#123; <span className="text-brand-react">Engineer</span> &#125; <span className="text-brand-ts">from</span> <span className="text-emerald-400">'@seancanlas/core'</span>
+                    <span className="text-emerald-400">&gt;</span> <span className="text-brand-ts">import</span> &#123; <span className="text-brand-react">Engineer</span> &#125; <span className="text-brand-ts">from</span> <span className="text-emerald-400">'@seancanlas/core'</span>
                   </div>
 
-                  <div className="text-text-muted">{t('hero.terminalComment')}</div>
                   <div>
                     <span className="text-brand-ts">export const</span> <span className="text-text-primary font-semibold">seanCanlas</span>: <span className="text-brand-react">Engineer</span> = &#123;
                   </div>
@@ -170,33 +169,42 @@ export function Hero() {
                       <span className="text-text-muted">experience:</span> <span className="text-amber-300">{t('hero.terminalExperience')}</span>,
                     </div>
                     <div>
-                      <span className="text-text-muted">backend:</span> [<span className="text-emerald-400">'PHP 8.3'</span>, <span className="text-emerald-400">'Symfony 7'</span>, <span className="text-emerald-400">'NodeJS'</span>, <span className="text-emerald-400">'Twig 3'</span>],
+                      <span className="text-text-muted">backend:</span> [<span className="text-emerald-400">{t('hero.terminalBackend')}</span>],
                     </div>
                     <div>
-                      <span className="text-text-muted">frontend:</span> [<span className="text-emerald-400">'React 18'</span>, <span className="text-emerald-400">'TypeScript'</span>, <span className="text-emerald-400">'Tailwind'</span>],
+                      <span className="text-text-muted">frontend:</span> [<span className="text-emerald-400">{t('hero.terminalFrontend')}</span>],
                     </div>
                     <div>
-                      <span className="text-text-muted">database:</span> [<span className="text-emerald-400">'PostgreSQL 16'</span>, <span className="text-emerald-400">'Redis'</span>],
+                      <span className="text-text-muted">languages:</span> [<span className="text-emerald-400">{t('hero.terminalLanguages')}</span>],
                     </div>
                     <div>
-                      <span className="text-text-muted">flagshipProject:</span> &#123;
+                      <span className="text-text-muted">database:</span> [<span className="text-emerald-400">{t('hero.terminalDatabase')}</span>],
+                    </div>
+                    <div>
+                      <span className="text-text-muted">projects:</span> [
                     </div>
                     <div className="pl-4">
-                      <span className="text-text-muted">name:</span> <span className="text-emerald-400">'MapleLineCards'</span>,
+                      <span className="text-text-muted">&#123;</span>
                       <br />
-                      <span className="text-text-muted">url:</span> <span className="text-brand-react underline">'https://maplelinecards.ca'</span>
+                      <span className="text-text-muted">name:</span> <span className="text-emerald-400">{t('hero.terminalProjectsName')}</span>,
+                      <br />
+                      <span className="text-text-muted">url:</span> <span className="text-brand-react underline">{t('hero.terminalProjectsUrl')}</span>
+                      <br />
+                      <span className="text-text-muted">&#125;,</span>
                     </div>
-                    <div>&#125;</div>
+                    <div className="pl-4">
+                      <span className="text-text-muted">&#123;</span>
+                      <br />
+                      <span className="text-text-muted">name:</span> <span className="text-emerald-400">{t('hero.terminalProjectsName2')}</span>,
+                      <br />
+                      <span className="text-text-muted">url:</span> <span className="text-brand-react underline">{t('hero.terminalProjectsUrl2')}</span>
+                      <br />
+                      <span className="text-text-muted">&#125;</span>
+                    </div>
+                    <div>]</div>
                   </div>
 
                   <div>&#125;;</div>
-
-                  <div className="pt-2 border-t border-border-subtle/50 text-text-muted flex items-center justify-between text-[11px]">
-                    <span className="flex items-center gap-1">
-                      <Sparkles className="w-3 h-3 text-brand-react" /> {t('hero.terminalStatus')}
-                    </span>
-                    <span className="text-emerald-400">{t('hero.terminalReady')}</span>
-                  </div>
                 </div>
               </div>
 
