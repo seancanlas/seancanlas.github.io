@@ -2,13 +2,15 @@
 
 import * as React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { ScrollLink } from '@/components/ui/scroll-link'
 import { useLocale } from '@/i18n/LanguageContext'
+import { useTheme, setThemeGlobal } from '@/hooks/useTheme'
 
 export function Navigation() {
   const { t } = useLocale()
+  const theme = useTheme()
   const [isScrolled, setIsScrolled] = React.useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
   const [activeSection, setActiveSection] = React.useState<string>('hero')
@@ -103,12 +105,24 @@ export function Navigation() {
               ))}
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <button
-                onClick={() => scrollToSection('contact')}
-                className="hidden sm:flex w-full items-center justify-center gap-2 px-4 py-2 text-fluid-sm font-medium text-white bg-brand-ts rounded-xl hover:bg-brand-ts/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-ts focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep"
+                onClick={() => setThemeGlobal(theme === 'dark' ? 'light' : 'dark')}
+                className="p-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-bg-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-ts focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep"
+                aria-label={theme === 'dark' ? t('footer.themeToggle.lightAria') : t('footer.themeToggle.darkAria')}
               >
-                {t('nav.getInTouch')}
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={theme}
+                    initial={{ opacity: 0, rotate: -45, scale: 0.85 }}
+                    animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                    exit={{ opacity: 0, rotate: 45, scale: 0.85 }}
+                    transition={{ duration: 0.2 }}
+                    className="inline-flex"
+                  >
+                    {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                  </motion.span>
+                </AnimatePresence>
               </button>
 
               <button
@@ -154,12 +168,6 @@ export function Navigation() {
                   {t(item.labelKey)}
                 </ScrollLink>
               ))}
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-full mt-4 px-4 py-3 text-fluid-base font-medium text-white bg-brand-ts rounded-xl hover:bg-brand-ts/90 transition-colors"
-              >
-                {t('nav.getInTouch')}
-              </button>
             </div>
           </motion.div>
         )}
