@@ -8,6 +8,7 @@ import { Sun, Moon, Github, Linkedin, Mail } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useLocale } from '@/i18n/LanguageContext'
 import { LanguageSwitcher } from './LanguageSwitcher'
+import { useTheme, setThemeGlobal } from '@/hooks/useTheme'
 
 const iconMap: Record<string, React.ReactNode> = {
   github: <Github className="w-4 h-4" />,
@@ -16,21 +17,10 @@ const iconMap: Record<string, React.ReactNode> = {
 }
 
 export function Footer() {
-  const [theme, setTheme] = React.useState<'light' | 'dark'>('dark')
-
-  React.useEffect(() => {
-    const stored = localStorage.getItem('theme') as 'light' | 'dark' | null
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const initial = stored || (prefersDark ? 'dark' : 'light')
-    setTheme(initial)
-    document.documentElement.classList.toggle('light', initial === 'light')
-  }, [])
+  const theme = useTheme()
 
   const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark'
-    setTheme(newTheme)
-    localStorage.setItem('theme', newTheme)
-    document.documentElement.classList.toggle('light', newTheme === 'light')
+    setThemeGlobal(theme === 'dark' ? 'light' : 'dark')
   }
 
   const { t } = useLocale()
