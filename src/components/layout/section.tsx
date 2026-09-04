@@ -11,10 +11,7 @@ export function Section({ id, className, children, ...props }: SectionProps) {
     <section
       id={id}
       className={cn(
-        // scroll-mt offsets the fixed navbar (h-16 = 64px) plus enough
-        // breathing room that the previous section is fully scrolled
-        // off-screen when anchor-navigating to this one.
-        'relative w-full scroll-mt-24 py-12 sm:py-16 lg:py-20 px-0 sm:px-8 lg:px-12',
+        'relative w-full py-12 sm:py-16 lg:py-20 px-0 sm:px-8 lg:px-12',
         className
       )}
       {...props}

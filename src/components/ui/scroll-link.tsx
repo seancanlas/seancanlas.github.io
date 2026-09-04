@@ -24,9 +24,17 @@ export function ScrollLink({
       const targetId = href.replace(/^#/, '').replace(/^\/(en|fr)\//, '')
       const target = document.getElementById(targetId)
       if (target) {
-        // scrollIntoView respects the section's `scroll-margin-top`, which
-        // is set on the Section component to clear the fixed navbar.
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        // Measure the actual fixed header at runtime and scroll so the
+        // section's top edge sits flush against the bottom of the header.
+        // Using getBoundingClientRect + window.scrollTo with the real
+        // measured offset (instead of a hardcoded guess) avoids the
+        // previous section's bottom peeking through.
+        const header = document.querySelector<HTMLElement>('header[role="banner"]')
+        const headerHeight = header ? header.getBoundingClientRect().height : 64
+        const targetTop = target.getBoundingClientRect().top + window.pageYOffset
+        const scrollY = Math.max(0, targetTop - headerHeight)
+
+        window.scrollTo({ top: scrollY, behavior: 'smooth' })
         target.focus({ preventScroll: true })
       }
       window.location.hash = localized

@@ -49,9 +49,17 @@ export function Navigation() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      // scrollIntoView respects the section's `scroll-margin-top`, which
-      // is set on the Section component to clear the fixed navbar.
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      // Measure the actual fixed header at runtime and scroll so the
+      // section's top edge sits flush against the bottom of the header.
+      // Using getBoundingClientRect + window.scrollTo with the real
+      // measured offset (instead of a hardcoded guess) avoids the
+      // previous section's bottom peeking through.
+      const header = document.querySelector<HTMLElement>('header[role="banner"]')
+      const headerHeight = header ? header.getBoundingClientRect().height : 64
+      const targetTop = element.getBoundingClientRect().top + window.pageYOffset
+      const scrollY = Math.max(0, targetTop - headerHeight)
+
+      window.scrollTo({ top: scrollY, behavior: 'smooth' })
       window.location.hash = localizedHref('#' + sectionId)
     }
     setIsMobileMenuOpen(false)
