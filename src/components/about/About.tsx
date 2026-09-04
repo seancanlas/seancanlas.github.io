@@ -57,7 +57,7 @@ export function About() {
                 </div>
 
                 {/* Milestone Content Card */}
-                <div className="rounded-2xl glass p-6 sm:p-7 border border-border-muted hover:border-brand-ts/40 transition-all duration-300 space-y-4 shadow-xl">
+                <div className="rounded-2xl glass p-6 sm:p-7 border border-border-muted hover:border-brand-ts/40 transition-all duration-300 space-y-2 shadow-xl">
                   
                   {/* Top Bar: Year & Subtitle */}
                   <div className="flex flex-wrap items-center justify-between gap-2">
@@ -76,27 +76,15 @@ export function About() {
                     <h3 className="text-fluid-lg font-bold text-text-primary group-hover:text-brand-ts transition-colors">
                       {milestone.icon ? t(`about.ms_${milestone.icon}.title`) : milestone.title}
                     </h3>
-                    <p className="text-fluid-sm font-medium text-text-secondary mt-1">
+                    <p className="text-md font-medium text-text-secondary">
                       {milestone.icon ? t(`about.ms_${milestone.icon}.subtitle`) : milestone.subtitle}
                     </p>
                   </div>
 
                   {/* Story Text */}
-                  <p className="text-fluid-xs text-text-secondary leading-relaxed pt-2 border-t border-border-subtle/60">
+                  <p className="text-sm text-text-secondary leading-relaxed">
                     {t(`about.ms_${milestone.icon}.story`)}
                   </p>
-
-                  {/* Tech Tags */}
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {milestone.tech.map((t, i) => (
-                      <span
-                        key={i}
-                        className="text-[11px] font-mono px-2.5 py-0.5 rounded-md bg-bg-elevated text-text-secondary border border-border-subtle"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
 
                 </div>
               </motion.div>

@@ -9,7 +9,7 @@ export const milestones: Milestone[] = [
     title: 'Custom HTML/CSS & Web Exploration',
     subtitle: 'AsianAvenue & MySpace layout tinkering — first realization that text creates software',
     icon: 'myspace',
-    tech: ['HTML4', 'CSS2', 'Inline Styles', 'Table Layouts'],
+    tech: ['HTML', 'CSS', 'Inline Styles', 'Table Layouts'],
     story: 'Fascinated by how typing raw text in a document translated to customized web pages. Spent hours tweaking hex codes and layout tables. Took a break during teenager years to explore gaming and high school life.',
   },
   {
@@ -18,7 +18,7 @@ export const milestones: Milestone[] = [
     title: 'Personal Capstone & Robotics Web Lead',
     subtitle: 'Built the school robotics team website and personal project',
     icon: 'robot',
-    tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
+    tech: ['HTML', 'CSS', 'JavaScript', 'PHP'],
     story: 'Re-ignited the coding passion during Grade 11. Designed and deployed the official website for the robotics team while completing a custom web portal for the year-end capstone personal project.',
   },
   {
@@ -34,7 +34,7 @@ export const milestones: Milestone[] = [
     year: '2014–2018',
     era: 'Concordia University',
     title: 'Bachelor of Computer Science (B.Comp.Sc)',
-    subtitle: 'Software developing, distributed systems, web architectures, and compilers',
+    subtitle: 'Software development, distributed systems, web architectures, and compilers',
     icon: 'concordia',
     tech: ['Data Structures and Algorithms', 'Java', 'PHP'],
     story: 'Deepened theoretical and practical knowledge in distributed computing, database design, operating systems, and modern web application architecture.',
@@ -43,9 +43,9 @@ export const milestones: Milestone[] = [
     year: 'Oct 2018–Present',
     era: 'Professional Career',
     title: 'Full-Stack Software Developer',
-    subtitle: 'PHP/Symfony, Twig, React, TypeScript, PostgreSQL, and NodeJS',
+    subtitle: 'PHP/Symfony, Twig, React, TypeScript, PostgreSQL, Laravel, and Node.js',
     icon: 'code',
-    tech: ['PHP 8.3', 'Symfony 7', 'Twig 3', 'NodeJS', 'TypeScript', 'React 18', 'PostgreSQL', 'Docker'],
+    tech: ['PHP', 'Symfony', 'Twig', 'Laravel', 'Node.js', 'TypeScript', 'React', 'PostgreSQL', 'Docker'],
     story: 'Developing robust enterprise backend APIs and rich React/TypeScript interfaces. Proud creator of MapleLineCards.ca — a high-traffic Canadian TCG marketplace.',
   },
 ]

@@ -3,12 +3,11 @@
 import * as React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { techStack } from '@/lib/constants'
-import { Badge, type BadgeProps } from '@/components/ui/badge'
+import { Badge } from '@/components/ui/badge'
 import { Section, Container } from '@/components/layout/section'
-import { Code2, Database, Wrench, Sparkles, Layers, Cpu, CheckCircle2 } from 'lucide-react'
+import { Code2, Database, Wrench, Sparkles, Layers, Cpu } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useLocale } from '@/i18n/LanguageContext'
-import { translations } from '@/i18n/translations'
 
 const CATEGORIES = ['all', 'language', 'framework', 'database', 'tool'] as const
 type Category = typeof CATEGORIES[number]
@@ -21,30 +20,8 @@ const categoryIcons: Record<Category, React.ReactNode> = {
   tool: <Wrench className="w-4 h-4" />,
 }
 
-const techKeyMap: Record<string, string> = {
-  'OpenCode': 'OpenCode',
-  'PHP 8.3': 'PHP83',
-  'Symfony 7': 'Symfony7',
-  'Twig 3': 'Twig3',
-  'TypeScript 5': 'TypeScript5',
-  'React 18': 'React18',
-  'NodeJS': 'NodeJS',
-  'PostgreSQL 16': 'PostgreSQL16',
-  'JavaScript (ES2024)': 'JavaScript',
-  'Laravel 11': 'Laravel11',
-  'Vue.js 3': 'Vue3',
-  'Java 17/21': 'Java',
-  'MySQL 8': 'MySQL8',
-  'Redis': 'Redis',
-  'Docker': 'Docker',
-  'GitLab CI/CD': 'GitLabCI',
-  'GitHub Actions': 'GitHubActions',
-  'Linux / Nginx': 'LinuxNginx',
-  'Tailwind CSS': 'TailwindCSS',
-}
-
 export function Stack() {
-  const { t, locale } = useLocale()
+  const { t } = useLocale()
   const [activeCategory, setActiveCategory] = React.useState<Category>('all')
 
   const filteredStack = React.useMemo(() => {
@@ -62,7 +39,7 @@ export function Stack() {
             <Sparkles className="w-3.5 h-3.5 text-brand-react" />
             {t('stack.badge')}
           </Badge>
-          <h2 className="text-fluid-3xl sm:text-fluid-4xl font-extrabold tracking-tight text-text-primary mb-4">
+          <h2 className="text-fluid-3xl sm:text-fluid-4xl font-extrabold tracking-tight text-text-primary mb-4 whitespace-nowrap">
             {t('stack.heading')}
           </h2>
           <p className="text-fluid-base text-text-secondary leading-relaxed">
@@ -104,16 +81,7 @@ export function Stack() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           <AnimatePresence mode="popLayout">
-            {filteredStack.map((item) => {
-              const suffix = techKeyMap[item.name]
-              const td = suffix
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                ? (translations as any)[locale]?.stack?.[`td_${suffix}`] ?? (translations as any).en.stack?.[`td_${suffix}`]
-                : undefined
-              const d = td?.desc ?? 'Core development tool used across production web projects.'
-              const h: string[] = td?.highlights ? [...td.highlights] : ['Production Proven', 'Clean Code']
-
-              return (
+            {filteredStack.map((item) => (
                 <motion.div
                   key={item.name}
                   layout
@@ -123,50 +91,14 @@ export function Stack() {
                   transition={{ duration: 0.25 }}
                   className="group relative rounded-2xl glass p-5 flex flex-col justify-between hover:border-brand-ts/40 transition-all duration-300 hover:shadow-xl hover:shadow-brand-ts/5"
                 >
-                  <div>
-                    {/* Card Header: Icon & Name */}
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-bg-elevated border border-border-muted flex items-center justify-center font-mono font-bold text-fluid-base text-brand-ts group-hover:border-brand-ts/50 group-hover:bg-brand-ts/10 transition-colors">
-                          {item.name.charAt(0)}
-                        </div>
-                        <div>
-                          <h3 className="text-fluid-base font-bold text-text-primary group-hover:text-brand-ts transition-colors">
-                            {item.name}
-                          </h3>
-                          <span className="text-fluid-xs text-text-muted capitalize">
-                            {item.category}
-                          </span>
-                        </div>
-                      </div>
-
-                      <Badge variant={item.brand as BadgeProps['variant']} className="text-[11px] font-mono">
-                        {item.proficiency}%
-                      </Badge>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-fluid-xs text-text-secondary leading-relaxed mb-4">
-                      {d}
-                    </p>
-                  </div>
-
-                  {/* Highlights Bullet Tags */}
-                  <div className="pt-3 border-t border-border-subtle/60 flex flex-wrap gap-1.5">
-                    {h.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-md bg-bg-elevated text-text-muted border border-border-subtle"
-                      >
-                        <CheckCircle2 className="w-2.5 h-2.5 text-brand-ts" />
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
+                  <h3 className="text-fluid-base font-bold text-text-primary group-hover:text-brand-ts transition-colors">
+                    {item.name}
+                  </h3>
+                  <span className="text-fluid-xs text-text-muted capitalize">
+                    {item.category}
+                  </span>
                 </motion.div>
-              )
-            })}
+              ))}
           </AnimatePresence>
         </motion.div>
 
