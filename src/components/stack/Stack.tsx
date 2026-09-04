@@ -4,7 +4,7 @@ import * as React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { techStack } from '@/lib/constants'
 import { Section, Container } from '@/components/layout/section'
-import { Code2, Database, Wrench, Layers, Cpu } from 'lucide-react'
+import { Code2, Database, Wrench, Layers, Cpu, Sparkles } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useLocale } from '@/i18n/LanguageContext'
 import { translations } from '@/i18n/translations'
@@ -28,20 +28,24 @@ const techKeyMap: Record<string, string> = {
   'Laravel': 'Laravel',
   'Symfony': 'Symfony',
   'Node.js': 'NodeJS',
-  'Vue': 'Vue3',
+  'Vue': 'Vue',
   'React': 'React',
   'JavaScript': 'JavaScript',
   'TypeScript': 'TypeScript',
   'MySQL': 'MySQL',
   'PostgreSQL': 'PostgreSQL',
   'Redis': 'Redis',
-  'Twig': 'Twig3',
+  'Twig': 'Twig',
   'Tailwind CSS': 'TailwindCSS',
   'Docker': 'Docker',
   'Linux / Nginx': 'LinuxNginx',
   'GitLab CI/CD': 'GitLabCI',
   'GitHub Actions': 'GitHubActions',
 }
+
+const AI_TOOLS = ['Claude Code', 'Codex', 'OpenCode']
+
+const AI_MODELS = ['Sonnet (various releases)', 'GPT 5.6', 'MiniMax M3', 'Muse Spark 1.3 Free', 'Nemotron 3.5 Lightning', 'DeepSeek V4 Flash']
 
 export function Stack() {
   const { t, locale } = useLocale()
@@ -116,9 +120,9 @@ export function Stack() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.25 }}
-                  className="group relative rounded-2xl glass p-5 flex flex-col justify-between hover:border-brand-ts/40 transition-all duration-300 hover:shadow-xl hover:shadow-brand-ts/5"
+                  className="group relative rounded-2xl glass p-5 flex h-full flex-col justify-start hover:border-brand-ts/40 transition-all duration-300 hover:shadow-xl hover:shadow-brand-ts/5"
                 >
-                  <div>
+                  <div className="min-h-12">
                     <h3 className="text-fluid-base font-bold text-text-primary group-hover:text-brand-ts transition-colors">
                       {item.name}
                     </h3>
@@ -134,6 +138,58 @@ export function Stack() {
             })}
           </AnimatePresence>
         </motion.div>
+
+        {/* AI Agentic Build Disclosure */}
+        <aside aria-labelledby="ai-build-heading" className="mt-10 rounded-2xl glass border border-border-muted p-6 sm:p-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
+            <div className="w-10 h-10 shrink-0 rounded-xl bg-bg-elevated border border-border-muted flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-brand-ts" aria-hidden="true" />
+            </div>
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <h3 id="ai-build-heading" className="text-fluid-base font-bold text-text-primary">
+                  {t('stack.aiTitle')}
+                </h3>
+                <p className="text-fluid-sm text-text-secondary leading-relaxed">
+                  {t('stack.aiBody')}
+                </p>
+              </div>
+              <div className="space-y-2">
+                <p className="text-fluid-xs font-semibold uppercase tracking-wider text-text-muted">
+                  {t('stack.aiToolsLabel')}
+                </p>
+                <ul className="flex flex-wrap gap-1.5" aria-label={t('stack.aiToolsLabel')}>
+                  {AI_TOOLS.map((tool) => (
+                    <li
+                      key={tool}
+                      className="inline-flex items-center text-fluid-xs px-2.5 py-1 rounded-md bg-bg-base/80 text-text-secondary border border-border-subtle"
+                    >
+                      {tool}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="space-y-2">
+                <p className="text-fluid-xs font-semibold uppercase tracking-wider text-text-muted">
+                  {t('stack.aiModelsLabel')}
+                </p>
+                <ul className="flex flex-wrap gap-1.5" aria-label={t('stack.aiModelsLabel')}>
+                  {AI_MODELS.map((model) => (
+                    <li
+                      key={model}
+                      className="inline-flex items-center text-fluid-xs px-2.5 py-1 rounded-md bg-bg-base/80 text-text-secondary border border-border-subtle"
+                    >
+                      {model}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-fluid-xs text-text-muted">
+                  {t('stack.aiModelsMore')}
+                </p>
+              </div>
+            </div>
+          </div>
+        </aside>
 
       </Container>
     </Section>
