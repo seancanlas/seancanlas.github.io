@@ -49,14 +49,9 @@ export function Navigation() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      const headerOffset = 80
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      })
+      // scrollIntoView respects the section's `scroll-margin-top`, which
+      // is set on the Section component to clear the fixed navbar.
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
       window.location.hash = localizedHref('#' + sectionId)
     }
     setIsMobileMenuOpen(false)

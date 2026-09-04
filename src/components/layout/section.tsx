@@ -10,7 +10,13 @@ export function Section({ id, className, children, ...props }: SectionProps) {
   return (
     <section
       id={id}
-      className={cn('relative w-full py-12 sm:py-16 lg:py-20 px-0 sm:px-8 lg:px-12', className)}
+      className={cn(
+        // scroll-mt offsets the fixed navbar (h-16 = 64px) so anchor
+        // navigation lands cleanly at the section's top edge instead of
+        // being hidden behind the header.
+        'relative w-full scroll-mt-20 py-12 sm:py-16 lg:py-20 px-0 sm:px-8 lg:px-12',
+        className
+      )}
       {...props}
     >
       <div className="mx-auto max-w-7xl">{children}</div>

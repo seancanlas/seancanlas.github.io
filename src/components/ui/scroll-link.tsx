@@ -24,15 +24,9 @@ export function ScrollLink({
       const targetId = href.replace(/^#/, '').replace(/^\/(en|fr)\//, '')
       const target = document.getElementById(targetId)
       if (target) {
-        const headerOffset = 80
-        const elementPosition = target.getBoundingClientRect().top
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
-        })
-
+        // scrollIntoView respects the section's `scroll-margin-top`, which
+        // is set on the Section component to clear the fixed navbar.
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
         target.focus({ preventScroll: true })
       }
       window.location.hash = localized
