@@ -114,7 +114,7 @@ export const projects: Project[] = [
     D --> B`,
     metrics: {
       'Live Products Index': '42,000+ Active Listings',
-      'Supported TCGs': 'One Piece, Pokémon, MTG, Lorcana, Yu-Gi-Oh',
+      'Supported TCGs': 'One Piece, Riftbound, Pokémon, MTG, Lorcana, Yu-Gi-Oh',
       'Canadian Stores': '20+ Integrated Retailers',
       'Response Latency': '< 100ms Query Time',
     },

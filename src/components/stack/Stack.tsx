@@ -8,6 +8,7 @@ import { Section, Container } from '@/components/layout/section'
 import { Code2, Database, Wrench, Sparkles, Layers, Cpu } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useLocale } from '@/i18n/LanguageContext'
+import { translations } from '@/i18n/translations'
 
 const CATEGORIES = ['all', 'language', 'framework', 'database', 'tool'] as const
 type Category = typeof CATEGORIES[number]
@@ -20,8 +21,30 @@ const categoryIcons: Record<Category, React.ReactNode> = {
   tool: <Wrench className="w-4 h-4" />,
 }
 
+const techKeyMap: Record<string, string> = {
+  'OpenCode': 'OpenCode',
+  'PHP 8.3': 'PHP83',
+  'Symfony 7': 'Symfony7',
+  'Twig 3': 'Twig3',
+  'TypeScript 5': 'TypeScript5',
+  'React 18': 'React18',
+  'NodeJS': 'NodeJS',
+  'PostgreSQL 16': 'PostgreSQL16',
+  'JavaScript (ES2024)': 'JavaScript',
+  'Laravel 11': 'Laravel11',
+  'Vue.js 3': 'Vue3',
+  'Java 17/21': 'Java',
+  'MySQL 8': 'MySQL8',
+  'Redis': 'Redis',
+  'Docker': 'Docker',
+  'GitLab CI/CD': 'GitLabCI',
+  'GitHub Actions': 'GitHubActions',
+  'Linux / Nginx': 'LinuxNginx',
+  'Tailwind CSS': 'TailwindCSS',
+}
+
 export function Stack() {
-  const { t } = useLocale()
+  const { t, locale } = useLocale()
   const [activeCategory, setActiveCategory] = React.useState<Category>('all')
 
   const filteredStack = React.useMemo(() => {
@@ -81,7 +104,15 @@ export function Stack() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           <AnimatePresence mode="popLayout">
-            {filteredStack.map((item) => (
+            {filteredStack.map((item) => {
+              const suffix = techKeyMap[item.name]
+              const td = suffix
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                ? (translations as any)[locale]?.stack?.[`td_${suffix}`] ?? (translations as any).en.stack?.[`td_${suffix}`]
+                : undefined
+              const d = td?.desc ?? 'Core development tool used across production web projects.'
+
+              return (
                 <motion.div
                   key={item.name}
                   layout
@@ -91,14 +122,20 @@ export function Stack() {
                   transition={{ duration: 0.25 }}
                   className="group relative rounded-2xl glass p-5 flex flex-col justify-between hover:border-brand-ts/40 transition-all duration-300 hover:shadow-xl hover:shadow-brand-ts/5"
                 >
-                  <h3 className="text-fluid-base font-bold text-text-primary group-hover:text-brand-ts transition-colors">
-                    {item.name}
-                  </h3>
-                  <span className="text-fluid-xs text-text-muted capitalize">
-                    {item.category}
-                  </span>
+                  <div>
+                    <h3 className="text-fluid-base font-bold text-text-primary group-hover:text-brand-ts transition-colors">
+                      {item.name}
+                    </h3>
+                    <span className="text-fluid-xs text-text-muted capitalize">
+                      {item.category}
+                    </span>
+                  </div>
+                  <p className="text-fluid-xs text-text-secondary leading-relaxed mt-3">
+                    {d}
+                  </p>
                 </motion.div>
-              ))}
+              )
+            })}
           </AnimatePresence>
         </motion.div>
 
