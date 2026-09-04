@@ -88,7 +88,7 @@ export function Contact() {
   }
 
   return (
-    <Section id="contact" className="bg-bg-deep relative">
+    <Section id="contact" className="bg-bg-deep relative border-b border-border-subtle">
       <Container>
         
         {/* Header */}

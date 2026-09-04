@@ -69,7 +69,7 @@ export function Navigation() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           isScrolled
-            ? 'bg-bg-deep/95 backdrop-blur-xl border-b border-border-subtle shadow-lg'
+            ? 'bg-bg-deep/95 backdrop-blur-xl border-b border-border-subtle'
             : 'bg-transparent'
         )}
         role="banner"

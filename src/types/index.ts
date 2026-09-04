@@ -24,6 +24,10 @@ export interface Project {
   description: string
   image: string
   images?: string[]
+  /** Optional light-theme variant of `image`. Falls back to `image`. */
+  imageLight?: string
+  /** Optional light-theme variant of `images`. Falls back to `images`. */
+  imagesLight?: string[]
   url: string
   repo?: string
   featured: boolean

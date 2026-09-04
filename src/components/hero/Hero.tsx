@@ -41,7 +41,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex flex-col items-center gap-3 w-full"
+              className="flex flex-col items-center gap-1 w-full"
             >
               <h1 id="hero-title" className="text-fluid-4xl sm:text-fluid-5xl font-extrabold tracking-tight text-text-primary">
                 {t('hero.name')}
@@ -69,16 +69,19 @@ export function Hero() {
               className="flex flex-wrap gap-2 justify-center lg:justify-start"
             >
               <Badge variant="brand-php" className="px-3 py-1 text-xs">
-                <span className="w-2 h-2 rounded-full bg-brand-php mr-1.5" /> PHP 8.3 / Symfony 7
+                <span className="w-2 h-2 rounded-full bg-brand-php mr-1.5" /> PHP
+              </Badge>
+              <Badge variant="brand-php" className="px-3 py-1 text-xs">
+                <span className="w-2 h-2 rounded-full bg-brand-php mr-1.5" /> Laravel
+              </Badge>
+              <Badge variant="brand-symfony" className="px-3 py-1 text-xs">
+                <span className="w-2 h-2 rounded-full bg-brand-symfony mr-1.5" /> Symfony
               </Badge>
               <Badge variant="brand-node" className="px-3 py-1 text-xs">
-                <span className="w-2 h-2 rounded-full bg-brand-node mr-1.5" /> NodeJS
+                <span className="w-2 h-2 rounded-full bg-brand-node mr-1.5" /> Node.js
               </Badge>
               <Badge variant="brand-ts" className="px-3 py-1 text-xs">
-                <span className="w-2 h-2 rounded-full bg-brand-ts mr-1.5" /> TypeScript / React 18
-              </Badge>
-              <Badge variant="brand-pg" className="px-3 py-1 text-xs">
-                <span className="w-2 h-2 rounded-full bg-brand-pg mr-1.5" /> PostgreSQL 16
+                <span className="w-2 h-2 rounded-full bg-brand-ts mr-1.5" /> TypeScript / React
               </Badge>
             </motion.div>
 
@@ -151,7 +154,7 @@ export function Hero() {
                 {/* Terminal Code Body (bottom) */}
                 <div className="p-5 font-mono text-xs sm:text-fluid-xs leading-relaxed space-y-3 text-text-secondary overflow-x-auto">
                   <div>
-                    <span className="text-emerald-400">&gt;</span> <span className="text-brand-ts">import</span> &#123; <span className="text-brand-react">Engineer</span> &#125; <span className="text-brand-ts">from</span> <span className="text-emerald-400">'@seancanlas/core'</span>
+                    <span className="text-brand-ts">import</span> &#123; <span className="text-brand-react">Engineer</span> &#125; <span className="text-brand-ts">from</span> <span className="text-emerald-400">'@seancanlas/core'</span>
                   </div>
 
                   <div>
@@ -164,6 +167,9 @@ export function Hero() {
                     </div>
                     <div>
                       <span className="text-text-muted">location:</span> <span className="text-emerald-400">{t('hero.terminalLocation')}</span>,
+                    </div>
+                    <div>
+                      <span className="text-text-muted">education:</span> <span className="text-emerald-400">{t('hero.terminalEducation')}</span>,
                     </div>
                     <div>
                       <span className="text-text-muted">experience:</span> <span className="text-amber-300">{t('hero.terminalExperience')}</span>,
@@ -188,7 +194,12 @@ export function Hero() {
                       <br />
                       <span className="text-text-muted">name:</span> <span className="text-emerald-400">{t('hero.terminalProjectsName')}</span>,
                       <br />
-                      <span className="text-text-muted">url:</span> <span className="text-brand-react underline">{t('hero.terminalProjectsUrl')}</span>
+                      <span className="text-text-muted">url:</span> <a
+                        href={t('hero.terminalProjectsUrl').replace(/^'/, '').replace(/'$/, '')}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-brand-react underline hover:text-brand-maple transition-colors"
+                      >{t('hero.terminalProjectsUrl')}</a>
                       <br />
                       <span className="text-text-muted">&#125;,</span>
                     </div>
@@ -197,7 +208,12 @@ export function Hero() {
                       <br />
                       <span className="text-text-muted">name:</span> <span className="text-emerald-400">{t('hero.terminalProjectsName2')}</span>,
                       <br />
-                      <span className="text-text-muted">url:</span> <span className="text-brand-react underline">{t('hero.terminalProjectsUrl2')}</span>
+                      <span className="text-text-muted">url:</span> <a
+                        href={t('hero.terminalProjectsUrl2').replace(/^'/, '').replace(/'$/, '')}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-brand-react underline hover:text-brand-maple transition-colors"
+                      >{t('hero.terminalProjectsUrl2')}</a>
                       <br />
                       <span className="text-text-muted">&#125;</span>
                     </div>

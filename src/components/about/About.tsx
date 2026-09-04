@@ -52,12 +52,12 @@ export function About() {
                 </div>
 
                 {/* Milestone Content Card */}
-                <div className="rounded-2xl glass p-6 sm:p-7 border border-border-muted hover:border-brand-ts/40 transition-all duration-300 space-y-2 shadow-xl">
+                <div className="rounded-2xl glass p-6 sm:p-7 border border-border-muted hover:border-brand-ts/40 transition-all duration-300 space-y-2">
                   
                   {/* Top Bar: Year & Subtitle */}
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center gap-3">
-                      <span className="text-fluid-xs font-mono font-bold px-3 py-1 rounded-full bg-brand-ts/10 text-brand-ts border border-brand-ts/20">
+                      <span className="text-fluid-xs font-mono font-bold px-3 py-1 rounded-full bg-text-muted/10 text-text-muted border border-border-muted">
                         {milestone.year}
                       </span>
                       <span className="text-fluid-xs font-semibold text-text-muted uppercase tracking-wider">

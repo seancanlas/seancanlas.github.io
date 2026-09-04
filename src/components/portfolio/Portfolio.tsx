@@ -10,9 +10,11 @@ import { Section, Container } from '@/components/layout/section'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { ExternalLink, Layers, Zap, Database, Server, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Hammer } from 'lucide-react'
 import { useLocale } from '@/i18n/LanguageContext'
+import { useTheme } from '@/hooks/useTheme'
 
 export function Portfolio() {
   const { t } = useLocale()
+  const theme = useTheme()
   const [activeId, setActiveId] = React.useState(projects[0]?.id)
   const active = projects.find(p => p.id === activeId) || projects[0]
   const [selectedImageIndex, setSelectedImageIndex] = React.useState(0)
@@ -25,7 +27,11 @@ export function Portfolio() {
     setSelectedImageIndex(0)
   }
 
-  const screenshots = active.images && active.images.length > 0 ? active.images : [active.image]
+  // Pick the screenshot set that matches the current theme. Projects without
+  // a light variant fall back to the dark (default) set.
+  const darkSet = active.images && active.images.length > 0 ? active.images : [active.image]
+  const lightSet = active.imagesLight && active.imagesLight.length > 0 ? active.imagesLight : darkSet
+  const screenshots = theme === 'light' ? lightSet : darkSet
   const screenshotTitles = [p('screenshot1'), p('screenshot2'), p('screenshot3')]
   const metrics = [1, 2, 3, 4]
     .map(n => ({ label: p(`metricLabel${n}`), value: p(`metricValue${n}`) }))
@@ -118,7 +124,7 @@ export function Portfolio() {
             <div className="relative aspect-video rounded-2xl overflow-hidden bg-bg-base border border-border-muted group shadow-inner">
               <AnimatePresence mode="wait">
                 <motion.img
-                  key={`${active.id}-${selectedImageIndex}`}
+                  key={`${active.id}-${selectedImageIndex}-${theme}`}
                   src={screenshots[selectedImageIndex]}
                   alt={`${active.title} — ${screenshotTitles[selectedImageIndex] || 'screenshot ' + (selectedImageIndex + 1)}`}
                   initial={{ opacity: 0, scale: 0.98 }}

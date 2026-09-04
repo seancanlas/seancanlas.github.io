@@ -53,7 +53,7 @@ export function Stack() {
   }, [activeCategory])
 
   return (
-    <Section id="stack" className="bg-bg-base/60 relative">
+    <Section id="stack" className="bg-bg-base/60 relative border-y border-border-subtle">
       <Container>
         
         {/* Section Header */}
