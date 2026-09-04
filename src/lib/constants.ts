@@ -163,7 +163,7 @@ export const projects: Project[] = [
       'Status': 'Live',
       'Core Services': '7 Containerized Services',
       'CI Gates': '6 Automated Pipeline Checks',
-      'Target Domain': 'craveitmakeit.com',
+      'Recipe Count': 'Over 300K Recipes',
     },
     challenges: [
       'Enforced version parity for the shared ingredient-parser-nlp dependency between backend and scraper via a dedicated CI job',

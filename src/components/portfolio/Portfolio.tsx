@@ -77,14 +77,9 @@ export function Portfolio() {
           {/* Top Bar: Title, Live Link, & Key Badges */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-border-subtle">
             <div className="space-y-2">
-              <div className="flex flex-wrap items-center gap-3">
-                <h3 className="text-fluid-2xl font-extrabold text-text-primary">
-                  {active.title}
-                </h3>
-                <Badge variant={isLive ? 'brand-maple' : 'secondary'} className="font-mono text-xs">
-                  {isLive ? active.url.replace(/^https?:\/\//, '') : t('portfolio.statusBuilding')}
-                </Badge>
-              </div>
+              <h3 className="text-fluid-2xl font-extrabold text-text-primary">
+                {active.title}
+              </h3>
               <p className="text-fluid-sm text-text-secondary max-w-2xl">
                 {p('tagline')}
               </p>
