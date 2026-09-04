@@ -90,21 +90,28 @@ export const projects: Project[] = [
     status: 'live',
     category: 'Featured Passion Project',
     stack: [
-      { name: 'PHP 8.3', brand: 'brand-php' },
-      { name: 'Symfony 7', brand: 'brand-symfony' },
+      { name: 'PHP 8.4', brand: 'brand-php' },
+      { name: 'Symfony 8', brand: 'brand-symfony' },
       { name: 'Twig 3', brand: 'brand-php' },
-      { name: 'NodeJS', brand: 'brand-node' },
-      { name: 'React', brand: 'brand-react' },
-      { name: 'TypeScript', brand: 'brand-ts' },
-      { name: 'PostgreSQL 16', brand: 'brand-pg' },
-      { name: 'Tailwind CSS', brand: 'brand-ts' },
+      { name: 'Doctrine ORM', brand: 'brand-php' },
+      { name: 'Node.js 26', brand: 'brand-node' },
+      { name: 'React 19', brand: 'brand-react' },
+      { name: 'TypeScript 6', brand: 'brand-ts' },
+      { name: 'Vite 8', brand: 'brand-ts' },
+      { name: 'Tailwind CSS 4', brand: 'brand-ts' },
+      { name: 'PostgreSQL 15', brand: 'brand-pg' },
+      { name: 'Redis 7', brand: 'brand-redis' },
+      { name: 'Playwright', brand: 'brand-node' },
       { name: 'Docker', brand: 'brand-docker' },
+      { name: 'nginx', brand: 'brand-docker' },
     ],
     architecture: `graph TD
-    A[React/TS Aggregator Interface] --> B[Symfony PHP API Backend]
-    B --> C[(PostgreSQL 16 Engine)]
-    B --> D[NodeJS Background Scrapers & WebSockets]
-    B --> E[External Pricing Feeds]`,
+    A[React 19 / TypeScript 6 SPA] --> B[Symfony 8 PHP API]
+    B --> C[(PostgreSQL 15 Engine)]
+    B --> D[Node.js 26 Playwright Scrapers]
+    B --> E[Mercure SSE Push Updates]
+    B --> F[(Redis 7 Cache)]
+    D --> B`,
     metrics: {
       'Live Products Index': '42,000+ Active Listings',
       'Supported TCGs': 'One Piece, Pokémon, MTG, Lorcana, Yu-Gi-Oh',
@@ -117,9 +124,9 @@ export const projects: Project[] = [
       'Designed a dense, fast, touch-friendly filter UX inspired by modern search interfaces',
     ],
     highlights: [
-      'High-performance Symfony backend paired with server-rendered Twig for SEO-critical pages',
-      'NodeJS asynchronous workers for continuous background inventory sync',
-      'Custom React filter components with real-time feedback and dynamic category pills',
+      'Symfony 8 API with Doctrine ORM, served behind nginx and pushed live via Mercure SSE',
+      'Node.js 26 + Playwright asynchronous workers for continuous background inventory sync',
+      'React 19 + Vite 8 SPA with Tailwind CSS 4 and dense, touch-friendly filter components',
     ],
     timeline: '2023–Present',
     role: 'Founder & Full-Stack Engineer',
