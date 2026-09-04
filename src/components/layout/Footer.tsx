@@ -46,7 +46,7 @@ export function Footer() {
               className="flex items-center gap-2 text-text-primary hover:text-brand-ts transition-colors mb-4"
               aria-label="Sean Canlas - Home"
             >
-              <span className="text-fluid-xl font-extrabold gradient-text">SC</span>
+              <span className="text-fluid-xl font-extrabold text-brand-ts">SC</span>
               <span className="text-fluid-base font-bold">Sean Canlas</span>
             </ScrollLink>
             <p className="text-text-secondary text-fluid-xs leading-relaxed max-w-xs">

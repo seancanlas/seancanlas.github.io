@@ -78,7 +78,7 @@ export function Navigation() {
               className="flex items-center gap-2 text-text-primary hover:text-brand-ts transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-ts focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep rounded-lg"
               aria-label="Sean Canlas - Home"
             >
-              <span className="text-fluid-xl font-bold gradient-text">SC</span>
+              <span className="text-fluid-xl font-bold text-brand-ts">SC</span>
               <span className="hidden sm:block text-fluid-sm font-medium">Sean Canlas</span>
             </ScrollLink>
 

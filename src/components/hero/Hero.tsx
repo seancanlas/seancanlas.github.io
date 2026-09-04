@@ -41,12 +41,12 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex flex-col items-center gap-1 w-full"
+              className="flex flex-col items-center gap-0.5 w-full"
             >
-              <h1 id="hero-title" className="text-fluid-4xl sm:text-fluid-5xl font-extrabold tracking-tight text-text-primary">
+              <h1 id="hero-title" className="text-fluid-4xl sm:text-fluid-5xl font-extrabold leading-[0.95] tracking-tight text-text-primary">
                 {t('hero.name')}
               </h1>
-              <p className="text-fluid-xl sm:text-fluid-2xl font-semibold bg-gradient-to-r from-brand-ts via-brand-react to-brand-maple bg-clip-text text-transparent">
+              <p className="text-fluid-xl sm:text-fluid-2xl font-semibold text-brand-ts">
                 {t('hero.title')}
               </p>
             </motion.div>
