@@ -112,6 +112,17 @@
   --color-brand-maple-soft: #FC6D2633;
   --color-brand-maple-border: #FC6D2666;
   --color-brand-maple-glow: #FC6D2666;
+  /* MapleLineCards project brand — red-500 to match the logo */
+  --color-brand-maplelinecards: #ef4444;
+  --color-brand-maplelinecards-soft: #ef444433;
+  --color-brand-maplelinecards-border: #ef444466;
+  /* CraveItMakeIt project brand — derived from
+     oklab(0.408394 0.0915778 0.0719866 / 0.9) which converts to
+     #7C2D12 at 90% alpha. Tailwind v4 alpha doesn't compile oklab()
+     values in CSS variables, so the hex equivalent is used. */
+  --color-brand-craveit: #7C2D12E6;
+  --color-brand-craveit-soft: #7C2D121F;
+  --color-brand-craveit-border: #7C2D124D;
   /* Python */
   --color-brand-python: #3776AB;
   --color-brand-python-soft: #3776AB33;

@@ -55,21 +55,31 @@ export function Portfolio() {
         {/* Project Switcher */}
         {projects.length > 1 && (
           <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
-            {projects.map(proj => (
-              <button
-                key={proj.id}
-                onClick={() => selectProject(proj.id)}
-                className={cn(
-                  'inline-flex items-center gap-2 px-4 py-2 rounded-full text-fluid-sm font-semibold border transition-all',
-                  activeId === proj.id
-                    ? 'bg-brand-maple text-white border-brand-maple shadow-md shadow-brand-maple/20'
-                    : 'bg-bg-base/60 text-text-secondary border-border-muted hover:border-text-secondary hover:text-text-primary'
-                )}
-              >
-                {proj.status === 'building' && <Hammer className="w-3.5 h-3.5" />}
-                {proj.title}
-              </button>
-            ))}
+            {projects.map(proj => {
+              const isActive = activeId === proj.id
+              // Per-project active brand: MapleLineCards → red-500,
+              // CraveItMakeIt → custom oklab orange.
+              const activeClass = proj.id === 'maplelinecards'
+                ? 'bg-red-500 text-white border-red-500 shadow-md shadow-red-500/20 hover:bg-red-500'
+                : proj.id === 'craveitmakeit'
+                  ? 'bg-brand-craveit text-white border-brand-craveit shadow-md shadow-brand-craveit/20 hover:bg-brand-craveit'
+                  : 'bg-brand-maple text-white border-brand-maple shadow-md shadow-brand-maple/20'
+              return (
+                <button
+                  key={proj.id}
+                  onClick={() => selectProject(proj.id)}
+                  className={cn(
+                    'inline-flex items-center gap-2 px-4 py-2 rounded-full text-fluid-sm font-semibold border transition-all',
+                    isActive
+                      ? activeClass
+                      : 'bg-bg-base/60 text-text-secondary border-border-muted hover:border-text-secondary hover:text-text-primary'
+                  )}
+                >
+                  {proj.status === 'building' && <Hammer className="w-3.5 h-3.5" />}
+                  {proj.title}
+                </button>
+              )
+            })}
           </div>
         )}
 
