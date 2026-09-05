@@ -62,7 +62,7 @@ export function Stack() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-fluid-3xl sm:text-fluid-4xl font-extrabold tracking-tight text-text-primary mb-4 whitespace-nowrap">
+          <h2 className="text-fluid-3xl sm:text-fluid-4xl font-extrabold tracking-tight text-text-primary mb-4 whitespace-normal break-normal text-balance sm:whitespace-nowrap">
             {t('stack.heading')}
           </h2>
           <p className="text-fluid-base text-text-secondary leading-relaxed">
