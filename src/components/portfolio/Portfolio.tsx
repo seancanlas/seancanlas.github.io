@@ -30,15 +30,17 @@ const fallbackAccent: ProjectAccent = {
  * JIT scanner can discover them statically (dynamic template literals like
  * `bg-${accent.bg}` are invisible to the scanner in the v4 alpha).
  */
-const accentClassMap: Record<string, { btn: string; border: string; shadow?: string }> = {
+const accentClassMap: Record<string, { btn: string; border: string; shadow?: string; hoverBg: string }> = {
   'red-500': {
     btn: 'bg-red-500 text-white',
     border: 'border-red-500',
     shadow: 'shadow-red-500',
+    hoverBg: 'hover:bg-red-500',
   },
   'brand-craveit': {
     btn: 'bg-brand-craveit text-white',
     border: 'border-brand-craveit',
+    hoverBg: 'hover:bg-brand-craveit',
   },
 }
 
@@ -48,6 +50,7 @@ const resolveAccentClasses = (accent: ProjectAccent) => {
     btn: map.btn,
     border: map.border,
     shadow: map.shadow,
+    hoverBg: map.hoverBg,
   }
 }
 
@@ -153,7 +156,7 @@ export function Portfolio() {
                   variant={isLive ? undefined : 'secondary'}
                   className={cn(
                     'w-full sm:w-auto',
-                    isLive ? cn('hover:opacity-75', accentClasses.btn) : 'font-semibold'
+                    isLive ? cn('hover:opacity-75', accentClasses.hoverBg, accentClasses.btn) : 'font-semibold'
                   )}
                 >
                   {p('visitLabel')}
@@ -344,7 +347,7 @@ export function Portfolio() {
                 {t('portfolio.close')}
               </Button>
               <a href={active.url} target="_blank" rel="noopener noreferrer">
-                <Button className={cn('hover:opacity-75', accentClasses.btn)}>
+                <Button className={cn('hover:opacity-75', accentClasses.hoverBg, accentClasses.btn)}>
                   {p('visitLabel')}
                   <ExternalLink className="w-4 h-4 ml-2" />
                 </Button>
