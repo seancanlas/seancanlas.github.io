@@ -4,6 +4,7 @@ import { Section, Container } from '@/components/layout/section'
 import { Sparkles } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useLocale } from '@/i18n/LanguageContext'
+import { Badge, getBrandVariant, type BadgeBrand } from '@/components/ui/badge'
 
 interface PanelDef {
   id: string
@@ -50,29 +51,6 @@ const PANELS: PanelDef[] = [
   },
 ]
 
-const BRAND_COLORS: Record<string, string> = {
-  'PHP': 'text-brand-php border-brand-php/40',
-  'Symfony': 'text-brand-symfony border-brand-symfony/40',
-  'Laravel': 'text-brand-php border-brand-php/40',
-  'Node.js': 'text-brand-node border-brand-node/40',
-  'TypeScript': 'text-brand-ts border-brand-ts/40',
-  'React': 'text-brand-react border-brand-react/40',
-  'Vue': 'text-brand-ts border-brand-ts/40',
-  'JavaScript': 'text-brand-ts border-brand-ts/40',
-  'Tailwind CSS': 'text-brand-ts border-brand-ts/40',
-  'Twig': 'text-brand-php border-brand-php/40',
-  'PostgreSQL': 'text-brand-pg border-brand-pg/40',
-  'MySQL': 'text-brand-php border-brand-php/40',
-  'Redis': 'text-brand-redis border-brand-redis/40',
-  'Docker': 'text-brand-docker border-brand-docker/40',
-  'Linux / Nginx': 'text-brand-docker border-brand-docker/40',
-  'GitLab CI/CD': 'text-brand-maple border-brand-maple/40',
-  'GitHub Actions': 'text-brand-maple border-brand-maple/40',
-  'PhpStorm': 'text-brand-php border-brand-php/40',
-  'Claude Code': 'text-brand-ts border-brand-ts/40',
-  'OpenCode': 'text-brand-ts border-brand-ts/40',
-}
-
 const AI_TOOLS = ['Claude Code', 'Codex', 'OpenCode']
 
 const AI_MODELS = [
@@ -108,8 +86,8 @@ export function Stack() {
               className={cn(
                 'bg-bg-elevated border border-border-muted rounded-2xl p-6 flex flex-col justify-between transition-all duration-200',
                 panel.highlight
-                  ? 'border-l-4 border-l-blue-500 shadow-lg shadow-blue-500/10 dark:border-l-blue-500 dark:shadow-lg dark:shadow-blue-500/10'
-                  : 'border-l-4 border-l-border-subtle dark:border-l-border-subtle'
+                  ? 'border-l-4 border-l-blue-500 shadow-lg shadow-blue-500/10'
+                  : 'border-l-4 border-l-border-subtle'
               )}
             >
               <div>
@@ -123,17 +101,15 @@ export function Stack() {
 
               <div className="mt-6 flex flex-wrap gap-2" aria-label={t(panel.titleKey)}>
                 {panel.stack.map((item) => {
-                  const brandClass = BRAND_COLORS[item] ?? 'text-text-secondary'
+                  const variant = getBrandVariant(item) as BadgeBrand | undefined
                   return (
-                    <span
+                    <Badge
                       key={item}
-                      className={cn(
-                        'rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-200 border bg-bg-hover dark:bg-neutral-800 text-text-primary dark:text-neutral-200 dark:border-neutral-700',
-                        brandClass
-                      )}
+                      variant={variant ?? 'secondary'}
+                      className="text-sm py-1.5"
                     >
                       {item}
-                    </span>
+                    </Badge>
                   )
                 })}
               </div>
@@ -163,31 +139,37 @@ export function Stack() {
                 <p className="text-fluid-xs font-semibold uppercase tracking-wider text-text-muted">
                   {t('stack.aiToolsLabel')}
                 </p>
-                <ul className="flex flex-wrap gap-1.5" aria-label={t('stack.aiToolsLabel')}>
-                  {AI_TOOLS.map((tool) => (
-                    <li
-                      key={tool}
-                      className="inline-flex items-center text-fluid-xs px-2.5 py-1 rounded-md bg-bg-base/80 text-text-secondary border border-border-subtle"
-                    >
-                      {tool}
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex flex-wrap gap-1.5" aria-label={t('stack.aiToolsLabel')}>
+                  {AI_TOOLS.map((tool) => {
+                    const variant = getBrandVariant(tool) as BadgeBrand | undefined
+                    return (
+                      <Badge
+                        key={tool}
+                        variant={variant ?? 'secondary'}
+                      >
+                        {tool}
+                      </Badge>
+                    )
+                  })}
+                </div>
               </div>
               <div className="space-y-2">
                 <p className="text-fluid-xs font-semibold uppercase tracking-wider text-text-muted">
                   {t('stack.aiModelsLabel')}
                 </p>
-                <ul className="flex flex-wrap gap-1.5" aria-label={t('stack.aiModelsLabel')}>
-                  {AI_MODELS.map((model) => (
-                    <li
-                      key={model}
-                      className="inline-flex items-center text-fluid-xs px-2.5 py-1 rounded-md bg-bg-base/80 text-text-secondary border border-border-subtle"
-                    >
-                      {model}
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex flex-wrap gap-1.5" aria-label={t('stack.aiModelsLabel')}>
+                  {AI_MODELS.map((model) => {
+                    const variant = getBrandVariant(model) as BadgeBrand | undefined
+                    return (
+                      <Badge
+                        key={model}
+                        variant={variant ?? 'secondary'}
+                      >
+                        {model}
+                      </Badge>
+                    )
+                  })}
+                </div>
                 <p className="text-fluid-xs text-text-muted">
                   {t('stack.aiModelsMore')}
                 </p>
