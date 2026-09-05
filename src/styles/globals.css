@@ -27,14 +27,16 @@
   --color-brand-laravel: #FF2D20;
   --color-brand-laravel-soft: #FF2D2033;
   --color-brand-laravel-border: #FF2D2066;
-  /* Symfony — official black-on-white (or white-on-black in dark mode) */
-  /* Background = solid black, text = white. The "soft" variant keeps a
-     solid black bg in dark mode for full brand recognition. In light
-     mode the bg flips to white/very light and the text flips to black. */
-  --color-brand-symfony: #000000;
-  --color-brand-symfony-soft: #000000;
-  --color-brand-symfony-border: #000000;
-  --color-brand-symfony-text: #FFFFFF;
+  /* Symfony / SensioLabs — official brand palette
+     Source: https://sensiolabs.com/ (logo SVG: "labs" = #82E83F, "sensio" = currentColor)
+     and design system CSS: primary-1 = #73D631 (green), primary-3 = #2A2A2A (soft black)
+     Symfony brand combines the signature SensioLabs green with a soft dark grey.
+     The text uses the signature SensioLabs green so it pops in both modes; the
+     background uses a green-tinted soft variant. */
+  --color-brand-symfony: #73D631;
+  --color-brand-symfony-soft: #73D63133;
+  --color-brand-symfony-border: #73D63166;
+  --color-brand-symfony-text: #73D631;
   /* Docker — official blue */
   --color-brand-docker: #2496ED;
   --color-brand-docker-soft: #2496ED33;
@@ -208,9 +210,9 @@ html.light {
   --color-brand-php-border: #777BB459;
   --color-brand-laravel-soft: #FF2D2026;
   --color-brand-laravel-border: #FF2D2059;
-  --color-brand-symfony-soft: #FFFFFF;
-  --color-brand-symfony-border: #00000066;
-  --color-brand-symfony-text: #000000;
+  --color-brand-symfony-soft: #73D63126;
+  --color-brand-symfony-border: #73D63159;
+  --color-brand-symfony-text: #4DA000;
   --color-brand-docker-soft: #2496ED26;
   --color-brand-docker-border: #2496ED59;
   --color-brand-ts-soft: #3178C626;
