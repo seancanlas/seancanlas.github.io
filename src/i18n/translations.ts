@@ -60,6 +60,24 @@ story: 'Deepened theoretical and practical knowledge in distributed computing, d
       focusPHP: 'PHP & Symfony',
       focusTS: 'React & TypeScript',
       focusPG: 'PostgreSQL',
+      panels: {
+        core: {
+          title: 'Core & API Stack (Daily Use)',
+          desc: 'Primary backend language and frameworks powering scalable, high-throughput APIs and services.',
+        },
+        frontend: {
+          title: 'Frontend & UI',
+          desc: 'Modern client libraries, component design systems, and responsive styling tools.',
+        },
+        data: {
+          title: 'Databases & Cache',
+          desc: 'Relational data stores, search indexing, and in-memory key-value caching.',
+        },
+        tools: {
+          title: 'DevOps & Tooling',
+          desc: 'Containerization, CI/CD automation, server infrastructure, and development workflows.',
+        },
+      },
       aiTitle: 'Built end-to-end with an AI agentic flow',
       aiBody: 'This website was designed, engineered, and refined entirely through supervised agentic coding sessions — every layout, component, and line of copy produced with AI assistance, then reviewed and polished by hand.',
       aiToolsLabel: 'Agentic tools',
@@ -175,7 +193,6 @@ story: 'Deepened theoretical and practical knowledge in distributed computing, d
       subjectHello: 'Just Saying Hello',
     },
     footer: {
-      description: 'Software Developer specializing in PHP/Symfony, NodeJS, React, TypeScript, and PostgreSQL. Creator of MapleLineCards.ca.',
       navigation: 'Navigation',
       profiles: 'Profiles',
       websiteSource: 'Website Source',
@@ -250,6 +267,24 @@ story: 'Deepened theoretical and practical knowledge in distributed computing, d
       focusPHP: 'PHP & Symfony',
       focusTS: 'React & TypeScript',
       focusPG: 'PostgreSQL',
+      panels: {
+        core: {
+          title: 'Core & API (Usage quotidien)',
+          desc: 'Langages et frameworks backend principaux alimentant des API et services performants.',
+        },
+        frontend: {
+          title: 'Frontend & UI',
+          desc: 'Bibliothèques client modernes, systèmes de conception et styles réactifs.',
+        },
+        data: {
+          title: 'Bases de données & Cache',
+          desc: 'Magasins de données relationnelles, indexation de recherche et mise en cache mémoire.',
+        },
+        tools: {
+          title: 'DevOps & Outils',
+          desc: 'Conteneurisation, automatisation CI/CD, infrastructure de serveurs et flux de travail.',
+        },
+      },
       aiTitle: 'Conçu de bout en bout avec un flux agentique IA',
       aiBody: 'Ce site a été conçu, développé et affiné entièrement lors de sessions de codage agentique supervisées — chaque mise en page, chaque composant et chaque ligne de texte produits avec l’assistance de l’IA, puis relus et polis à la main.',
       aiToolsLabel: 'Outils agentiques',
@@ -365,7 +400,6 @@ story: 'Deepened theoretical and practical knowledge in distributed computing, d
       subjectHello: 'Simple Bonjour',
     },
     footer: {
-      description: 'Développeur logiciel spécialisé en PHP/Symfony, NodeJS, React, TypeScript et PostgreSQL. Créateur de MapleLineCards.ca.',
       navigation: 'Navigation',
       profiles: 'Profils',
       websiteSource: 'Code Source du Site',

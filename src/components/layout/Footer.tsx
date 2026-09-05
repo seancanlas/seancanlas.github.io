@@ -49,9 +49,6 @@ export function Footer() {
               <span className="text-fluid-xl font-extrabold text-brand-ts">SC</span>
               <span className="text-fluid-base font-bold">Sean Canlas</span>
             </ScrollLink>
-            <p className="text-text-secondary text-fluid-xs leading-relaxed max-w-xs">
-              {t('footer.description')}
-            </p>
           </motion.div>
 
           <motion.div
