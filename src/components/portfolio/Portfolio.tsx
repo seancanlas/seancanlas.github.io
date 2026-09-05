@@ -4,6 +4,7 @@ import * as React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { projects } from '@/lib/constants'
+import type { ProjectAccent } from '@/types'
 import { Button } from '@/components/ui/button'
 import { Badge, type BadgeProps } from '@/components/ui/badge'
 import { Section, Container } from '@/components/layout/section'
@@ -11,6 +12,44 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { ExternalLink, Layers, Zap, Database, Server, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Hammer } from 'lucide-react'
 import { useLocale } from '@/i18n/LanguageContext'
 import { useTheme } from '@/hooks/useTheme'
+
+/**
+ * Fallback palette (MapleLineCards red) used when a project omits
+ * its `mainColour` field. Every project should eventually specify its own.
+ */
+const fallbackAccent: ProjectAccent = {
+  bg: 'red-500',
+  text: 'white',
+  border: 'red-500',
+  shadow: 'red-500',
+}
+
+/**
+ * Resolve the set of Tailwind utility classes for the active project's
+ * accent palette.  We build literal class-name strings so that Tailwind's
+ * JIT scanner can discover them statically (dynamic template literals like
+ * `bg-${accent.bg}` are invisible to the scanner in the v4 alpha).
+ */
+const accentClassMap: Record<string, { btn: string; border: string; shadow?: string }> = {
+  'red-500': {
+    btn: 'bg-red-500 text-white',
+    border: 'border-red-500',
+    shadow: 'shadow-red-500',
+  },
+  'brand-craveit': {
+    btn: 'bg-brand-craveit text-white',
+    border: 'border-brand-craveit',
+  },
+}
+
+const resolveAccentClasses = (accent: ProjectAccent) => {
+  const map = accentClassMap[accent.bg] ?? accentClassMap['red-500']
+  return {
+    btn: map.btn,
+    border: map.border,
+    shadow: map.shadow,
+  }
+}
 
 export function Portfolio() {
   const { t } = useLocale()
@@ -26,6 +65,11 @@ export function Portfolio() {
     setActiveId(id)
     setSelectedImageIndex(0)
   }
+
+  /** The active project's accent palette. */
+  const projectMainColour: ProjectAccent = active.mainColour ?? fallbackAccent
+  /** Literal Tailwind classes for the active project's accent. */
+  const accentClasses = resolveAccentClasses(projectMainColour)
 
   // Pick the screenshot set that matches the current theme. Projects without
   // a light variant fall back to the dark (default) set.
@@ -57,13 +101,13 @@ export function Portfolio() {
           <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
             {projects.map(proj => {
               const isActive = activeId === proj.id
-              // Per-project active brand: MapleLineCards → red-500,
-              // CraveItMakeIt → custom oklab orange.
-              const activeClass = proj.id === 'maplelinecards'
-                ? 'bg-red-500 text-white border-red-500 shadow-md shadow-red-500/20 hover:bg-red-500'
-                : proj.id === 'craveitmakeit'
-                  ? 'bg-brand-craveit text-white border-brand-craveit shadow-md shadow-brand-craveit/20 hover:bg-brand-craveit'
-                  : 'bg-brand-maple text-white border-brand-maple shadow-md shadow-brand-maple/20'
+              const accent = proj.mainColour ?? fallbackAccent
+              const projClasses = resolveAccentClasses(accent)
+              const projBtnClass = cn(
+                'shadow-md',
+                projClasses.btn,
+                projClasses.border,
+              )
               return (
                 <button
                   key={proj.id}
@@ -71,7 +115,7 @@ export function Portfolio() {
                   className={cn(
                     'inline-flex items-center gap-2 px-4 py-2 rounded-full text-fluid-sm font-semibold border transition-all',
                     isActive
-                      ? activeClass
+                      ? projBtnClass
                       : 'bg-bg-base/60 text-text-secondary border-border-muted hover:border-text-secondary hover:text-text-primary'
                   )}
                 >
@@ -97,7 +141,7 @@ export function Portfolio() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto shrink-0">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto shrink-0">
               <a
                 href={active.url}
                 target="_blank"
@@ -109,7 +153,7 @@ export function Portfolio() {
                   variant={isLive ? undefined : 'secondary'}
                   className={cn(
                     'w-full sm:w-auto',
-                    isLive ? 'bg-brand-maple hover:bg-brand-maple/90 text-white font-semibold' : 'font-semibold'
+                    isLive ? cn('hover:opacity-90', accentClasses.btn) : 'font-semibold'
                   )}
                 >
                   {p('visitLabel')}
@@ -185,7 +229,7 @@ export function Portfolio() {
                     className={cn(
                       'relative aspect-video rounded-xl overflow-hidden border-2 transition-all text-left p-1 bg-bg-base',
                       selectedImageIndex === idx
-                        ? 'border-brand-maple shadow-lg shadow-brand-maple/20'
+                        ? cn('shadow-lg', accentClasses.border)
                         : 'border-border-muted opacity-60 hover:opacity-100 hover:border-text-secondary'
                     )}
                   >
@@ -300,7 +344,7 @@ export function Portfolio() {
                 {t('portfolio.close')}
               </Button>
               <a href={active.url} target="_blank" rel="noopener noreferrer">
-                <Button className="bg-brand-maple hover:bg-brand-maple/90 text-white">
+                <Button className={cn('hover:opacity-90', accentClasses.btn)}>
                   {p('visitLabel')}
                   <ExternalLink className="w-4 h-4 ml-2" />
                 </Button>

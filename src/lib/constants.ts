@@ -143,9 +143,14 @@ export const projects: Project[] = [
     ],
     timeline: '2023–Present',
     role: 'Founder & Full-Stack Engineer',
+    mainColour: {
+      bg: 'red-500',
+      text: 'white',
+      border: 'red-500',
+      shadow: 'red-500',
+    },
   },
-  {
-    id: 'craveitmakeit',
+  {    id: 'craveitmakeit',
     title: 'Crave It Make It',
     tagline: 'Ingredient-Based Recipe Aggregator & Search Platform',
     description: 'A recipe discovery platform built around what is already in your kitchen: tell it your ingredients and it surfaces matching recipes aggregated from around the web, with full source attribution back to the original authors.',
@@ -188,8 +193,14 @@ export const projects: Project[] = [
       'React 19 SPA for ingredient/pantry-based recipe search, with dish, recipe, and franchise browsing',
       'Python scraper service with a fixture-based offline test mode, decoupled from live scraping in CI',
     ],
-    timeline: 'Aug 2026–Present',
+        timeline: 'Aug 2026–Present',
     role: 'Founder & Full-Stack Engineer',
+    mainColour: {
+      bg: 'brand-craveit',
+      text: 'white',
+      border: 'brand-craveit',
+      shadow: 'brand-craveit',
+    },
   },
 ]
 

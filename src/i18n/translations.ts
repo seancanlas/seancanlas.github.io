@@ -146,7 +146,7 @@ story: 'Deepened theoretical and practical knowledge in distributed computing, d
         craveitmakeit: {
           tagline: 'Ingredient-Based Recipe Aggregator & Search Platform',
           description: 'A recipe discovery platform built around what is already in your kitchen: tell it your ingredients and it surfaces matching recipes aggregated from around the web, with full source attribution back to the original authors. Built with Python, FastAPI, React 19, TypeScript, and PostgreSQL 16.',
-          visitLabel: 'Preview craveitmakeit.com',
+          visitLabel: 'Visit craveitmakeit.com',
           architectureTitle: 'Crave It Make It — Architecture Case Study',
           architectureDesc: 'How the scraper, API, and SPA fit together, and what ships before launch.',
           dbLabel: 'Data & Infrastructure Strategy',
@@ -353,7 +353,7 @@ story: 'Deepened theoretical and practical knowledge in distributed computing, d
         craveitmakeit: {
           tagline: 'Plateforme d\'Agrégation et de Recherche de Recettes par Ingrédients',
           description: "Une plateforme de découverte de recettes basée sur ce que vous avez déjà dans votre cuisine : indiquez vos ingrédients et elle affiche les recettes correspondantes agrégées sur le web, avec attribution complète de la source vers les auteurs originaux. Construit avec Python, FastAPI, React 19, TypeScript et PostgreSQL 16.",
-          visitLabel: 'Aperçu de craveitmakeit.com',
+          visitLabel: 'Visiter craveitmakeit.com',
           architectureTitle: 'Crave It Make It — Étude de Cas Architecture',
           architectureDesc: "Comment le scraper, l'API et le SPA s'articulent, et ce qui sera livré avant le lancement.",
           dbLabel: 'Stratégie de Données & Infrastructure',

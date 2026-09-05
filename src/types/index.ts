@@ -40,6 +40,25 @@ export interface Project {
   highlights?: string[]
   timeline: string
   role: string
+  /**
+   * Project accent palette — drives the active switcher button, the
+   * Visit button, the selected image border, and the modal Visit button.
+   * Falls back to the MapleLineCards palette when omitted.
+   */
+  mainColour?: ProjectAccent
+}
+
+export interface ProjectAccent {
+  /** Solid color used for the active button background & borders (e.g. 'red-500'). */
+  bg: string
+  /** Text color on top of `bg` (typically 'white'). */
+  text: string
+  /** Solid color for borders / accents (e.g. 'red-500'). */
+  border: string
+  /** Optional hover bg token. Defaults to `bg`. */
+  hoverBg?: string
+  /** Optional shadow color (e.g. 'red-500'). */
+  shadow?: string
 }
 
 export interface ContactFormData {
