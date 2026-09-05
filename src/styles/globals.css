@@ -27,10 +27,13 @@
   --color-brand-laravel: #FF2D20;
   --color-brand-laravel-soft: #FF2D2033;
   --color-brand-laravel-border: #FF2D2066;
-  /* Symfony — black/white (official) */
+  /* Symfony — official black-on-white (or white-on-black in dark mode) */
+  /* Background = solid black, text = white. The "soft" variant keeps a
+     solid black bg in dark mode for full brand recognition. In light
+     mode the bg flips to white/very light and the text flips to black. */
   --color-brand-symfony: #000000;
-  --color-brand-symfony-soft: #FFFFFF20;
-  --color-brand-symfony-border: #FFFFFF40;
+  --color-brand-symfony-soft: #000000;
+  --color-brand-symfony-border: #000000;
   --color-brand-symfony-text: #FFFFFF;
   /* Docker — official blue */
   --color-brand-docker: #2496ED;
@@ -205,8 +208,8 @@ html.light {
   --color-brand-php-border: #777BB459;
   --color-brand-laravel-soft: #FF2D2026;
   --color-brand-laravel-border: #FF2D2059;
-  --color-brand-symfony-soft: #0000001F;
-  --color-brand-symfony-border: #00000040;
+  --color-brand-symfony-soft: #FFFFFF;
+  --color-brand-symfony-border: #00000066;
   --color-brand-symfony-text: #000000;
   --color-brand-docker-soft: #2496ED26;
   --color-brand-docker-border: #2496ED59;

@@ -49,7 +49,7 @@ const badgeVariants: Record<NonNullable<BadgeProps['variant']>, string> = {
   // PHP ecosystem
   'brand-php': 'bg-brand-php-soft text-brand-php border border-brand-php-border',
   'brand-laravel': 'bg-brand-laravel-soft text-brand-laravel border border-brand-laravel-border',
-  'brand-symfony': 'bg-brand-symfony-soft text-brand-symfony border border-brand-symfony-border',
+  'brand-symfony': 'bg-brand-symfony-soft text-brand-symfony-text border border-brand-symfony-border',
   'brand-twig': 'bg-brand-twig-soft text-brand-twig border border-brand-twig-border',
   // JavaScript ecosystem
   'brand-ts': 'bg-brand-ts-soft text-brand-ts border border-brand-ts-border',
