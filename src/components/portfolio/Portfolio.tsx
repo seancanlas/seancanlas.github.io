@@ -104,7 +104,7 @@ export function Portfolio() {
               const accent = proj.mainColour ?? fallbackAccent
               const projClasses = resolveAccentClasses(accent)
               const projBtnClass = cn(
-                'shadow-md hover:opacity-90',
+                'shadow-md hover:opacity-75',
                 projClasses.btn,
                 projClasses.border,
               )
@@ -153,7 +153,7 @@ export function Portfolio() {
                   variant={isLive ? undefined : 'secondary'}
                   className={cn(
                     'w-full sm:w-auto',
-                    isLive ? cn('hover:opacity-90', accentClasses.btn) : 'font-semibold'
+                    isLive ? cn('hover:opacity-75', accentClasses.btn) : 'font-semibold'
                   )}
                 >
                   {p('visitLabel')}
@@ -344,7 +344,7 @@ export function Portfolio() {
                 {t('portfolio.close')}
               </Button>
               <a href={active.url} target="_blank" rel="noopener noreferrer">
-                <Button className={cn('hover:opacity-90', accentClasses.btn)}>
+                <Button className={cn('hover:opacity-75', accentClasses.btn)}>
                   {p('visitLabel')}
                   <ExternalLink className="w-4 h-4 ml-2" />
                 </Button>
