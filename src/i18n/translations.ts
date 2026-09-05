@@ -43,7 +43,7 @@ export const translations = {
       ms_dawson: { era: 'Dawson College', title: 'Diploma in Computer Science (CEGEP)', subtitle: 'Algorithms, data structures, Object-Oriented Programming, and systems fundamentals', story: 'Rigorous 3-year applied Computer Science program. Mastered core software development principles, low-level memory management, object-oriented design, and database systems.' },
       ms_concordia: { era: 'Concordia University', title: 'Bachelor of Computer Science (B.Comp.Sc)', subtitle: 'Software development, distributed systems, web architectures, and compilers',
 story: 'Deepened theoretical and practical knowledge in distributed computing, database design, operating systems, and modern web application architecture.' },
-      ms_code: { era: 'Professional Career', title: 'Full-Stack Software Developer', subtitle: 'PHP/Symfony, Twig, React, TypeScript, PostgreSQL, Laravel, and Node.js', story: 'Developing robust enterprise backend APIs and rich React/TypeScript interfaces. Proud creator of MapleLineCards.ca — a high-traffic Canadian TCG marketplace.' },
+      ms_code: { era: 'Professional Career', title: 'Full-Stack Software Developer', subtitle: 'PHP, Laravel, Symfony, Twig, PostgreSQL, and Node.js', story: 'Developing robust enterprise backend APIs with PHP, Laravel, and Symfony. Proud creator of MapleLineCards.ca — a high-traffic Canadian TCG marketplace.' },
     },
     stack: {
       badge: 'Core Stack & Expertise',
@@ -233,7 +233,7 @@ story: 'Deepened theoretical and practical knowledge in distributed computing, d
       ms_robot: { era: 'Lycée (11e année)', title: 'Projet de Fin d\'Études & Responsable Web Robotique', subtitle: 'Construction du site web de l\'équipe de robotique scolaire et projet personnel', story: 'A ravivé la passion pour le codage en 11e année. A conçu et déployé le site web officiel de l\'équipe de robotique tout en réalisant un portail web personnalisé pour le projet de fin d\'études.' },
       ms_dawson: { era: 'Collège Dawson', title: 'Diplôme en Informatique (CEGEP)', subtitle: 'Algorithmes, structures de données, Programmation Orientée Objet et fondamentaux des systèmes', story: 'Programme rigoureux de 3 ans en informatique appliquée. Maîtrise des principes fondamentaux du génie logiciel, de la gestion de la mémoire de bas niveau, de la conception orientée objet et des systèmes de bases de données.' },
       ms_concordia: { era: 'Université Concordia', title: 'Baccalauréat en Informatique (B.Comp.Sc)', subtitle: 'Génie logiciel, systèmes distribués, architectures web et compilateurs', story: 'Approfondissement des connaissances théoriques et pratiques en informatique distribuée, conception de bases de données, systèmes d\'exploitation et architecture d\'applications web modernes.' },
-      ms_code: { era: 'Carrière Professionnelle', title: 'Développeur Logiciel', subtitle: 'PHP/Symfony, Twig, React, TypeScript, PostgreSQL, Laravel et Node.js', story: 'Ingénierie d\'API backend d\'entreprise robustes et d\'interfaces React/TypeScript riches. Créateur fier de MapleLineCards.ca — un marché de JCC canadien à fort trafic.' },
+      ms_code: { era: 'Carrière Professionnelle', title: 'Développeur Logiciel', subtitle: 'PHP, Laravel, Symfony, Twig, PostgreSQL et Node.js', story: 'Ingénierie d\'API backend d\'entreprise robustes avec PHP, Laravel et Symfony. Créateur fier de MapleLineCards.ca — un marché de JCC canadien à fort trafic.' },
     },
     stack: {
       badge: 'Pile Principale & Expertise',

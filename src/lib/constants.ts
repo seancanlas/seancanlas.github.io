@@ -43,10 +43,10 @@ export const milestones: Milestone[] = [
     year: 'Oct 2018–Present',
     era: 'Professional Career',
     title: 'Full-Stack Software Developer',
-    subtitle: 'PHP/Symfony, Twig, React, TypeScript, PostgreSQL, Laravel, and Node.js',
+    subtitle: 'PHP, Laravel, Symfony, Twig, PostgreSQL, and Node.js',
     icon: 'code',
     tech: ['PHP', 'Symfony', 'Twig', 'Laravel', 'Node.js', 'TypeScript', 'React', 'PostgreSQL', 'Docker'],
-    story: 'Developing robust enterprise backend APIs and rich React/TypeScript interfaces. Proud creator of MapleLineCards.ca — a high-traffic Canadian TCG marketplace.',
+    story: 'Developing robust enterprise backend APIs with PHP, Laravel, and Symfony. Proud creator of MapleLineCards.ca — a high-traffic Canadian TCG marketplace.',
   },
 ]
 
