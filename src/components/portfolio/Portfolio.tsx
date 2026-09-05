@@ -104,7 +104,7 @@ export function Portfolio() {
               const accent = proj.mainColour ?? fallbackAccent
               const projClasses = resolveAccentClasses(accent)
               const projBtnClass = cn(
-                'shadow-md',
+                'shadow-md hover:opacity-90',
                 projClasses.btn,
                 projClasses.border,
               )
