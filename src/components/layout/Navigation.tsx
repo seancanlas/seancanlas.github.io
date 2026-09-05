@@ -111,7 +111,7 @@ export function Navigation() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setThemeGlobal(theme === 'dark' ? 'light' : 'dark')}
-                className="p-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-bg-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-ts focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-text-secondary hover:text-text-primary hover:bg-bg-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-ts focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep"
                 aria-label={theme === 'dark' ? t('footer.themeToggle.lightAria') : t('footer.themeToggle.darkAria')}
               >
                 <AnimatePresence mode="wait" initial={false}>
@@ -121,7 +121,7 @@ export function Navigation() {
                     animate={{ opacity: 1, rotate: 0, scale: 1 }}
                     exit={{ opacity: 0, rotate: 45, scale: 0.85 }}
                     transition={{ duration: 0.2 }}
-                    className="inline-flex"
+                    className="inline-flex items-center justify-center"
                   >
                     {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                   </motion.span>
@@ -130,7 +130,7 @@ export function Navigation() {
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg text-text-secondary hover:text-text-primary hover:bg-bg-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-ts"
+                className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-lg text-text-secondary hover:text-text-primary hover:bg-bg-hover transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-ts"
                 aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-menu"
