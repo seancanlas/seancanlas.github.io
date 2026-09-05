@@ -50,26 +50,26 @@ const PANELS: PanelDef[] = [
 ]
 
 const BRAND_COLORS: Record<string, string> = {
-  'PHP': 'text-brand-php bg-brand-php border-brand-php/30 hover:scale-105',
-  'Symfony': 'text-brand-symfony bg-brand-symfony border-brand-symfony/30 hover:scale-105',
-  'Laravel': 'text-brand-php bg-brand-php border-brand-php/30 hover:scale-105',
-  'Node.js': 'text-brand-node bg-brand-node border-brand-node/30 hover:scale-105',
-  'TypeScript': 'text-brand-ts bg-brand-ts border-brand-ts/30 hover:scale-105',
-  'React': 'text-brand-react bg-brand-react border-brand-react/30 hover:scale-105',
-  'Vue': 'text-brand-ts bg-brand-ts border-brand-ts/30 hover:scale-105',
-  'JavaScript': 'text-brand-ts bg-brand-ts border-brand-ts/30 hover:scale-105',
-  'Tailwind CSS': 'text-brand-ts bg-brand-ts border-brand-ts/30 hover:scale-105',
-  'Twig': 'text-brand-php bg-brand-php border-brand-php/30 hover:scale-105',
-  'PostgreSQL': 'text-brand-pg bg-brand-pg border-brand-pg/30 hover:scale-105',
-  'MySQL': 'text-brand-php bg-brand-php/80 border-brand-php/30 hover:scale-105',
-  'Redis': 'text-brand-redis bg-brand-redis border-brand-redis/30 hover:scale-105',
-  'Docker': 'text-brand-docker bg-brand-docker border-brand-docker/30 hover:scale-105',
-  'Linux / Nginx': 'text-brand-docker bg-brand-docker border-brand-docker/30 hover:scale-105',
-  'GitLab CI/CD': 'text-brand-maple bg-brand-maple border-brand-maple/30 hover:scale-105',
-  'GitHub Actions': 'text-brand-maple bg-brand-maple border-brand-maple/30 hover:scale-105',
-  'PhpStorm': 'text-brand-php bg-brand-php border-brand-php/30 hover:scale-105',
-  'Claude Code': 'text-brand-ts bg-brand-ts border-brand-ts/30 hover:scale-105',
-  'OpenCode': 'text-brand-ts bg-brand-ts border-brand-ts/30 hover:scale-105',
+  'PHP': 'text-brand-php border-brand-php/40',
+  'Symfony': 'text-brand-symfony border-brand-symfony/40',
+  'Laravel': 'text-brand-php border-brand-php/40',
+  'Node.js': 'text-brand-node border-brand-node/40',
+  'TypeScript': 'text-brand-ts border-brand-ts/40',
+  'React': 'text-brand-react border-brand-react/40',
+  'Vue': 'text-brand-ts border-brand-ts/40',
+  'JavaScript': 'text-brand-ts border-brand-ts/40',
+  'Tailwind CSS': 'text-brand-ts border-brand-ts/40',
+  'Twig': 'text-brand-php border-brand-php/40',
+  'PostgreSQL': 'text-brand-pg border-brand-pg/40',
+  'MySQL': 'text-brand-php border-brand-php/40',
+  'Redis': 'text-brand-redis border-brand-redis/40',
+  'Docker': 'text-brand-docker border-brand-docker/40',
+  'Linux / Nginx': 'text-brand-docker border-brand-docker/40',
+  'GitLab CI/CD': 'text-brand-maple border-brand-maple/40',
+  'GitHub Actions': 'text-brand-maple border-brand-maple/40',
+  'PhpStorm': 'text-brand-php border-brand-php/40',
+  'Claude Code': 'text-brand-ts border-brand-ts/40',
+  'OpenCode': 'text-brand-ts border-brand-ts/40',
 }
 
 const AI_TOOLS = ['Claude Code', 'Codex', 'OpenCode']
@@ -122,12 +122,12 @@ export function Stack() {
 
               <div className="mt-6 flex flex-wrap gap-2" aria-label={t(panel.titleKey)}>
                 {panel.stack.map((item) => {
-                  const brandClass = BRAND_COLORS[item] ?? 'text-neutral-200 bg-neutral-800 border-neutral-700'
+                  const brandClass = BRAND_COLORS[item] ?? 'text-neutral-200 border-neutral-700'
                   return (
                     <span
                       key={item}
                       className={cn(
-                        'rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-200 border',
+                        'rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-200 border bg-neutral-800',
                         brandClass
                       )}
                     >
