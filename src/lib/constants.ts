@@ -52,13 +52,13 @@ export const milestones: Milestone[] = [
 
 export const techStack: TechItem[] = [
   // AI & IDE Tools
-  { name: 'OpenCode', category: 'tool', brand: 'brand-ts', proficiency: 95, icon: 'sparkles' },
-  { name: 'Claude Code', category: 'tool', brand: 'brand-ts', proficiency: 95, icon: 'sparkles' },
-  { name: 'PhpStorm', category: 'tool', brand: 'brand-php', proficiency: 95, icon: 'php' },
+  { name: 'OpenCode', category: 'tool', brand: 'brand-opencode', proficiency: 95, icon: 'sparkles' },
+  { name: 'Claude Code', category: 'tool', brand: 'brand-claude', proficiency: 95, icon: 'sparkles' },
+  { name: 'PhpStorm', category: 'tool', brand: 'brand-jetbrains', proficiency: 95, icon: 'php' },
 
   // PHP Ecosystem
   { name: 'PHP', category: 'language', brand: 'brand-php', proficiency: 98, icon: 'php' },
-  { name: 'Laravel', category: 'framework', brand: 'brand-php', proficiency: 85, icon: 'laravel' },
+  { name: 'Laravel', category: 'framework', brand: 'brand-laravel', proficiency: 85, icon: 'laravel' },
   { name: 'Symfony', category: 'framework', brand: 'brand-symfony', proficiency: 95, icon: 'symfony' },
 
   // JavaScript Ecosystem
@@ -76,12 +76,13 @@ export const techStack: TechItem[] = [
   { name: 'Redis', category: 'database', brand: 'brand-redis', proficiency: 85, icon: 'redis' },
 
   // Templates & CSS
-  { name: 'Twig', category: 'framework', brand: 'brand-php', proficiency: 95, icon: 'twig' },
-  { name: 'Tailwind CSS', category: 'framework', brand: 'brand-ts', proficiency: 95, icon: 'tailwind' },
+  { name: 'Twig', category: 'framework', brand: 'brand-twig', proficiency: 95, icon: 'twig' },
+  { name: 'Tailwind CSS', category: 'framework', brand: 'brand-tailwind', proficiency: 95, icon: 'tailwind' },
 
   // DevOps & Infrastructure
   { name: 'Docker', category: 'tool', brand: 'brand-docker', proficiency: 90, icon: 'docker' },
-  { name: 'Linux / Nginx', category: 'tool', brand: 'brand-linux', proficiency: 85, icon: 'linux' },
+  { name: 'Linux', category: 'tool', brand: 'brand-linux', proficiency: 85, icon: 'linux' },
+  { name: 'Nginx', category: 'tool', brand: 'brand-nginx', proficiency: 85, icon: 'nginx' },
   { name: 'GitLab CI/CD', category: 'tool', brand: 'brand-gitlab', proficiency: 88, icon: 'gitlab' },
   { name: 'GitHub Actions', category: 'tool', brand: 'brand-github', proficiency: 88, icon: 'github' },
 ]
@@ -104,18 +105,18 @@ export const projects: Project[] = [
     stack: [
       { name: 'PHP 8.4', brand: 'brand-php' },
       { name: 'Symfony 8', brand: 'brand-symfony' },
-      { name: 'Twig 3', brand: 'brand-php' },
+      { name: 'Twig 3', brand: 'brand-twig' },
       { name: 'Doctrine ORM', brand: 'brand-php' },
       { name: 'Node.js 26', brand: 'brand-node' },
       { name: 'React 19', brand: 'brand-react' },
       { name: 'TypeScript 6', brand: 'brand-ts' },
       { name: 'Vite 8', brand: 'brand-ts' },
-      { name: 'Tailwind CSS 4', brand: 'brand-ts' },
+      { name: 'Tailwind CSS 4', brand: 'brand-tailwind' },
       { name: 'PostgreSQL 15', brand: 'brand-pg' },
       { name: 'Redis 7', brand: 'brand-redis' },
       { name: 'Playwright', brand: 'brand-node' },
       { name: 'Docker', brand: 'brand-docker' },
-      { name: 'nginx', brand: 'brand-docker' },
+      { name: 'Nginx', brand: 'brand-nginx' },
     ],
     architecture: `graph TD
     A[React 19 / TypeScript 6 SPA] --> B[Symfony 8 PHP API]

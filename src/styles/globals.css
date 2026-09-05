@@ -17,42 +17,116 @@
   --color-white: #fff;
   --color-black: #000;
 
-  --color-brand-php: oklch(0.58 0.24 285);
+  /* === Brand Colors (Simple Icons / official brand palettes) === */
+  /* PHP ecosystem — PHP's purple */
+  --color-brand-php: #777BB4;
   --color-brand-php-glow: oklch(0.68 0.28 285 / 0.4);
-  --color-brand-php-soft: oklch(0.58 0.24 285 / 0.15);
-  --color-brand-php-border: oklch(0.58 0.24 285 / 0.30);
-  --color-brand-symfony: oklch(0.55 0.22 25);
-  --color-brand-symfony-soft: oklch(0.55 0.22 25 / 0.15);
-  --color-brand-symfony-border: oklch(0.55 0.22 25 / 0.30);
-  --color-brand-docker: oklch(0.65 0.18 210);
-  --color-brand-docker-soft: oklch(0.65 0.18 210 / 0.15);
-  --color-brand-docker-border: oklch(0.65 0.18 210 / 0.30);
-  --color-brand-ts: oklch(0.55 0.22 260);
-  --color-brand-ts-soft: oklch(0.55 0.22 260 / 0.15);
-  --color-brand-ts-border: oklch(0.55 0.22 260 / 0.30);
-  --color-brand-node: oklch(0.65 0.20 142);
-  --color-brand-node-soft: oklch(0.65 0.20 142 / 0.15);
-  --color-brand-node-border: oklch(0.65 0.20 142 / 0.30);
-  --color-brand-react: oklch(0.65 0.20 195);
-  --color-brand-react-glow: oklch(0.72 0.22 195 / 0.35);
-  --color-brand-react-soft: oklch(0.65 0.20 195 / 0.15);
-  --color-brand-react-border: oklch(0.65 0.20 195 / 0.30);
-  --color-brand-pg: oklch(0.45 0.18 260);
-  --color-brand-pg-soft: oklch(0.45 0.18 260 / 0.20);
-  --color-brand-pg-border: oklch(0.45 0.18 260 / 0.35);
-  --color-brand-maple: oklch(0.62 0.22 35);
-  --color-brand-maple-glow: oklch(0.70 0.24 35 / 0.4);
-  --color-brand-maple-soft: oklch(0.62 0.22 35 / 0.15);
-  --color-brand-maple-border: oklch(0.62 0.22 35 / 0.30);
-  --color-brand-python: oklch(0.58 0.15 255);
-  --color-brand-python-soft: oklch(0.58 0.15 255 / 0.15);
-  --color-brand-python-border: oklch(0.58 0.15 255 / 0.30);
-  --color-brand-fastapi: oklch(0.62 0.14 185);
-  --color-brand-fastapi-soft: oklch(0.62 0.14 185 / 0.15);
-  --color-brand-fastapi-border: oklch(0.62 0.14 185 / 0.30);
-  --color-brand-redis: oklch(0.58 0.21 15);
-  --color-brand-redis-soft: oklch(0.58 0.21 15 / 0.15);
-  --color-brand-redis-border: oklch(0.58 0.21 15 / 0.30);
+  --color-brand-php-soft: #777BB433;
+  --color-brand-php-border: #777BB466;
+  /* Laravel — official red */
+  --color-brand-laravel: #FF2D20;
+  --color-brand-laravel-soft: #FF2D2033;
+  --color-brand-laravel-border: #FF2D2066;
+  /* Symfony — black/white (official) */
+  --color-brand-symfony: #000000;
+  --color-brand-symfony-soft: #FFFFFF20;
+  --color-brand-symfony-border: #FFFFFF40;
+  --color-brand-symfony-text: #FFFFFF;
+  /* Docker — official blue */
+  --color-brand-docker: #2496ED;
+  --color-brand-docker-soft: #2496ED33;
+  --color-brand-docker-border: #2496ED66;
+  /* TypeScript — official blue */
+  --color-brand-ts: #3178C6;
+  --color-brand-ts-soft: #3178C633;
+  --color-brand-ts-border: #3178C666;
+  /* Node.js — official green */
+  --color-brand-node: #5FA04E;
+  --color-brand-node-soft: #5FA04E33;
+  --color-brand-node-border: #5FA04E66;
+  /* React — official cyan */
+  --color-brand-react: #61DAFB;
+  --color-brand-react-soft: #61DAFB33;
+  --color-brand-react-border: #61DAFB66;
+  --color-brand-react-glow: #61DAFB59;
+  /* Vue — official green */
+  --color-brand-vue: #4FC08D;
+  --color-brand-vue-soft: #4FC08D33;
+  --color-brand-vue-border: #4FC08D66;
+  /* JavaScript — official yellow */
+  --color-brand-js: #F7DF1E;
+  --color-brand-js-soft: #F7DF1E33;
+  --color-brand-js-border: #F7DF1E66;
+  /* Tailwind CSS — official cyan */
+  --color-brand-tailwind: #06B6D4;
+  --color-brand-tailwind-soft: #06B6D433;
+  --color-brand-tailwind-border: #06B6D466;
+  /* Twig — template engine (uses PHP purple for consistency) */
+  --color-brand-twig: #777BB4;
+  --color-brand-twig-soft: #777BB433;
+  --color-brand-twig-border: #777BB466;
+  /* PostgreSQL — official blue */
+  --color-brand-pg: #4169E1;
+  --color-brand-pg-soft: #4169E133;
+  --color-brand-pg-border: #4169E166;
+  /* MySQL — official blue */
+  --color-brand-mysql: #4479A1;
+  --color-brand-mysql-soft: #4479A133;
+  --color-brand-mysql-border: #4479A166;
+  /* Redis — official red */
+  --color-brand-redis: #FF4438;
+  --color-brand-redis-soft: #FF443833;
+  --color-brand-redis-border: #FF443866;
+  /* Linux — official yellow (Tux) */
+  --color-brand-linux: #FCC624;
+  --color-brand-linux-soft: #FCC62433;
+  --color-brand-linux-border: #FCC62466;
+  /* Nginx — official green */
+  --color-brand-nginx: #009639;
+  --color-brand-nginx-soft: #00963933;
+  --color-brand-nginx-border: #00963966;
+  /* GitLab — official orange */
+  --color-brand-gitlab: #FC6D26;
+  --color-brand-gitlab-soft: #FC6D2633;
+  --color-brand-gitlab-border: #FC6D2666;
+  /* GitHub Actions — official blue */
+  --color-brand-github: #2088FF;
+  --color-brand-github-soft: #2088FF33;
+  --color-brand-github-border: #2088FF66;
+  /* JetBrains (PhpStorm) — black */
+  --color-brand-jetbrains: #000000;
+  --color-brand-jetbrains-soft: #FFFFFF20;
+  --color-brand-jetbrains-border: #FFFFFF40;
+  --color-brand-jetbrains-text: #FFFFFF;
+  /* Anthropic (Claude) — official orange */
+  --color-brand-anthropic: #D97757;
+  --color-brand-anthropic-soft: #D9775733;
+  --color-brand-anthropic-border: #D9775766;
+  /* Maple (used for site brand) */
+  --color-brand-maple: #FC6D26;
+  --color-brand-maple-soft: #FC6D2633;
+  --color-brand-maple-border: #FC6D2666;
+  --color-brand-maple-glow: #FC6D2666;
+  /* Python */
+  --color-brand-python: #3776AB;
+  --color-brand-python-soft: #3776AB33;
+  --color-brand-python-border: #3776AB66;
+  /* FastAPI */
+  --color-brand-fastapi: #009688;
+  --color-brand-fastapi-soft: #00968833;
+  --color-brand-fastapi-border: #00968866;
+  /* Claude (Anthropic) is used as Claude Code */
+  --color-brand-claude: #D97757;
+  --color-brand-claude-soft: #D9775733;
+  --color-brand-claude-border: #D9775766;
+  /* OpenAI (Codex) */
+  --color-brand-openai: #10A37F;
+  --color-brand-openai-soft: #10A37F33;
+  --color-brand-openai-border: #10A37F66;
+  /* OpenCode — community AI coding tool */
+  --color-brand-opencode: #7C3AED;
+  --color-brand-opencode-soft: #7C3AED33;
+  --color-brand-opencode-border: #7C3AED66;
   --color-status-online: oklch(0.65 0.18 145);
   --color-status-building: oklch(0.75 0.15 80);
 
@@ -124,29 +198,63 @@ html.light {
   --shadow-glow: 0 0 30px -6px oklch(0.55 0.22 260 / 0.15);
 
   /* Light mode: slightly more opaque soft brand backgrounds & borders
-     so they read clearly against a white surface. */
-  --color-brand-php-soft: oklch(0.58 0.24 285 / 0.12);
-  --color-brand-php-border: oklch(0.58 0.24 285 / 0.30);
-  --color-brand-symfony-soft: oklch(0.55 0.22 25 / 0.12);
-  --color-brand-symfony-border: oklch(0.55 0.22 25 / 0.30);
-  --color-brand-docker-soft: oklch(0.65 0.18 210 / 0.12);
-  --color-brand-docker-border: oklch(0.65 0.18 210 / 0.30);
-  --color-brand-ts-soft: oklch(0.55 0.22 260 / 0.12);
-  --color-brand-ts-border: oklch(0.55 0.22 260 / 0.30);
-  --color-brand-node-soft: oklch(0.65 0.20 142 / 0.12);
-  --color-brand-node-border: oklch(0.65 0.20 142 / 0.30);
-  --color-brand-react-soft: oklch(0.65 0.20 195 / 0.12);
-  --color-brand-react-border: oklch(0.65 0.20 195 / 0.30);
-  --color-brand-pg-soft: oklch(0.45 0.18 260 / 0.14);
-  --color-brand-pg-border: oklch(0.45 0.18 260 / 0.32);
-  --color-brand-maple-soft: oklch(0.62 0.22 35 / 0.12);
-  --color-brand-maple-border: oklch(0.62 0.22 35 / 0.30);
-  --color-brand-python-soft: oklch(0.58 0.15 255 / 0.12);
-  --color-brand-python-border: oklch(0.58 0.15 255 / 0.30);
-  --color-brand-fastapi-soft: oklch(0.62 0.14 185 / 0.12);
-  --color-brand-fastapi-border: oklch(0.62 0.14 185 / 0.30);
-  --color-brand-redis-soft: oklch(0.58 0.21 15 / 0.12);
-  --color-brand-redis-border: oklch(0.58 0.21 15 / 0.30);
+     so they read clearly against a white surface. Base tokens use ~20%
+     bg and ~40% border; here we bump to ~15% bg and ~35% border to
+     stay subtle while keeping legibility. */
+  --color-brand-php-soft: #777BB426;
+  --color-brand-php-border: #777BB459;
+  --color-brand-laravel-soft: #FF2D2026;
+  --color-brand-laravel-border: #FF2D2059;
+  --color-brand-symfony-soft: #0000001F;
+  --color-brand-symfony-border: #00000040;
+  --color-brand-symfony-text: #000000;
+  --color-brand-docker-soft: #2496ED26;
+  --color-brand-docker-border: #2496ED59;
+  --color-brand-ts-soft: #3178C626;
+  --color-brand-ts-border: #3178C659;
+  --color-brand-node-soft: #5FA04E26;
+  --color-brand-node-border: #5FA04E59;
+  --color-brand-react-soft: #61DAFB26;
+  --color-brand-react-border: #61DAFB59;
+  --color-brand-vue-soft: #4FC08D26;
+  --color-brand-vue-border: #4FC08D59;
+  --color-brand-js-soft: #F7DF1E26;
+  --color-brand-js-border: #F7DF1E59;
+  --color-brand-tailwind-soft: #06B6D426;
+  --color-brand-tailwind-border: #06B6D459;
+  --color-brand-twig-soft: #777BB426;
+  --color-brand-twig-border: #777BB459;
+  --color-brand-pg-soft: #4169E126;
+  --color-brand-pg-border: #4169E159;
+  --color-brand-mysql-soft: #4479A126;
+  --color-brand-mysql-border: #4479A159;
+  --color-brand-redis-soft: #FF443826;
+  --color-brand-redis-border: #FF443859;
+  --color-brand-linux-soft: #FCC62426;
+  --color-brand-linux-border: #FCC62459;
+  --color-brand-nginx-soft: #00963926;
+  --color-brand-nginx-border: #00963959;
+  --color-brand-gitlab-soft: #FC6D2626;
+  --color-brand-gitlab-border: #FC6D2659;
+  --color-brand-github-soft: #2088FF26;
+  --color-brand-github-border: #2088FF59;
+  --color-brand-jetbrains-soft: #0000001F;
+  --color-brand-jetbrains-border: #00000040;
+  --color-brand-jetbrains-text: #000000;
+  --color-brand-anthropic-soft: #D9775726;
+  --color-brand-anthropic-border: #D9775759;
+  --color-brand-claude-soft: #D9775726;
+  --color-brand-claude-border: #D9775759;
+  --color-brand-openai-soft: #10A37F26;
+  --color-brand-openai-border: #10A37F59;
+  --color-brand-opencode-soft: #7C3AED26;
+  --color-brand-opencode-border: #7C3AED59;
+  --color-brand-maple-soft: #FC6D2626;
+  --color-brand-maple-border: #FC6D2659;
+  --color-brand-python-soft: #3776AB26;
+  --color-brand-python-border: #3776AB59;
+  --color-brand-fastapi-soft: #00968826;
+  --color-brand-fastapi-border: #00968859;
 }
 
 /* Dark mode — activated by adding .dark class to <html> (defaults to dark when no .light) */
