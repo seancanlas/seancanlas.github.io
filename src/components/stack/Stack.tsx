@@ -39,7 +39,8 @@ const PANELS: PanelDef[] = [
     descKey: 'stack.panels.tools.desc',
     stack: [
       'Docker',
-      'Linux / Nginx',
+      'Linux',
+      'Nginx',
       'GitLab CI/CD',
       'GitHub Actions',
       'PhpStorm',
@@ -105,29 +106,29 @@ export function Stack() {
             <div
               key={panel.id}
               className={cn(
-                'bg-neutral-900 border border-neutral-800 rounded-2xl p-6 flex flex-col justify-between transition-all duration-200',
+                'bg-bg-elevated border border-border-muted rounded-2xl p-6 flex flex-col justify-between transition-all duration-200',
                 panel.highlight
-                  ? 'border-l-4 border-l-blue-500 shadow-lg shadow-blue-500/10'
-                  : 'border-l-4 border-l-neutral-800'
+                  ? 'border-l-4 border-l-blue-500 shadow-lg shadow-blue-500/10 dark:border-l-blue-500 dark:shadow-lg dark:shadow-blue-500/10'
+                  : 'border-l-4 border-l-border-subtle dark:border-l-border-subtle'
               )}
             >
               <div>
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-xl font-bold text-text-primary">
                   {t(panel.titleKey)}
                 </h3>
-                <p className="text-sm text-neutral-400 mt-2 leading-relaxed">
+                <p className="text-sm text-text-secondary mt-2 leading-relaxed">
                   {t(panel.descKey)}
                 </p>
               </div>
 
               <div className="mt-6 flex flex-wrap gap-2" aria-label={t(panel.titleKey)}>
                 {panel.stack.map((item) => {
-                  const brandClass = BRAND_COLORS[item] ?? 'text-neutral-200 border-neutral-700'
+                  const brandClass = BRAND_COLORS[item] ?? 'text-text-secondary'
                   return (
                     <span
                       key={item}
                       className={cn(
-                        'rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-200 border bg-neutral-800',
+                        'rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-200 border bg-bg-hover dark:bg-neutral-800 text-text-primary dark:text-neutral-200 dark:border-neutral-700',
                         brandClass
                       )}
                     >

@@ -102,6 +102,29 @@ html.light {
   --shadow-glow: 0 0 30px -6px oklch(0.55 0.22 260 / 0.15);
 }
 
+/* Dark mode — activated by adding .dark class to <html> (defaults to dark when no .light) */
+html.dark,
+html:not(.light) {
+  --color-bg-deep: oklch(0.08 0.02 260);
+  --color-bg-base: oklch(0.11 0.02 260);
+  --color-bg-elevated: oklch(0.14 0.02 260);
+  --color-bg-hover: oklch(0.17 0.02 260);
+
+  --color-border-subtle: oklch(1 0 0 / 0.06);
+  --color-border-muted: oklch(1 0 0 / 0.12);
+  --color-border-focus: oklch(0.65 0.22 260);
+
+  --color-text-primary: oklch(0.98 0 0);
+  --color-text-secondary: oklch(0.72 0.01 260);
+  --color-text-muted: oklch(0.52 0.01 260);
+
+  --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.3);
+  --shadow-md: 0 4px 12px -2px oklch(0 0 0 / 0.4);
+  --shadow-lg: 0 12px 32px -4px oklch(0 0 0 / 0.5);
+  --shadow-xl: 0 24px 48px -8px oklch(0 0 0 / 0.6);
+  --shadow-glow: 0 0 40px -4px oklch(0.55 0.22 260 / 0.25);
+}
+
 @layer base {
   * {
     box-sizing: border-box;

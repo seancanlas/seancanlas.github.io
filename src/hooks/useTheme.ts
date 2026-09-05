@@ -14,6 +14,7 @@ const getInitial = (): Theme => {
 const applyTheme = (theme: Theme) => {
   if (typeof document === 'undefined') return
   document.documentElement.classList.toggle('light', theme === 'light')
+  document.documentElement.classList.toggle('dark', theme === 'dark')
 }
 
 const subscribers = new Set<(theme: Theme) => void>()
