@@ -42,6 +42,11 @@ const accentClassMap: Record<string, { btn: string; border: string; shadow?: str
     border: 'border-brand-craveit',
     hoverBg: 'hover:bg-brand-craveit',
   },
+  'brand-fastapi': {
+    btn: 'bg-brand-fastapi text-white',
+    border: 'border-brand-fastapi',
+    hoverBg: 'hover:bg-brand-fastapi',
+  },
 }
 
 const resolveAccentClasses = (accent: ProjectAccent) => {

@@ -150,7 +150,66 @@ export const projects: Project[] = [
       shadow: 'red-500',
     },
   },
-  {    id: 'craveitmakeit',
+  {
+    id: 'gastimate',
+    title: 'Gastimate',
+    tagline: "Tomorrow's Gas Price, Today — Daily Fuel Forecast & Cheapest Stations",
+    description: 'A location-aware gas price predictor: a FastAPI + LightGBM engine forecasts tomorrow\u2019s average for your postal code, and a Next.js frontend pairs it with the 5 cheapest nearby GasBuddy stations, each linked out to Google Maps.',
+    image: '/images/gastimate-dark-1.webp',
+    images: ['/images/gastimate-dark-1.webp'],
+    imageLight: '/images/gastimate-light-1.webp',
+    imagesLight: ['/images/gastimate-light-1.webp'],
+    url: 'https://yeahokay.ca',
+    repo: undefined,
+    featured: true,
+    status: 'live',
+    category: 'Live Build',
+    stack: [
+      { name: 'Python 3.13', brand: 'brand-python' },
+      { name: 'FastAPI', brand: 'brand-fastapi' },
+      { name: 'PostgreSQL 15', brand: 'brand-pg' },
+      { name: 'Next.js 15', brand: 'brand-react' },
+      { name: 'React 19', brand: 'brand-react' },
+      { name: 'TypeScript', brand: 'brand-ts' },
+      { name: 'Tailwind CSS 4', brand: 'brand-tailwind' },
+      { name: 'Docker', brand: 'brand-docker' },
+    ],
+    architecture: `graph TD
+    A[Next.js 15 Static SPA] --> B[FastAPI on Render/Koyeb]
+    B --> C[(PostgreSQL 15 Predictions)]
+    D[Pipeline Container 30min Loop] --> E[GasBuddy Station Prices]
+    D --> F[yfinance WTI Brent RBOB FX]
+    D --> G[GDELT Oil News Sentiment]
+    D --> H[LightGBM Passthrough Model]
+    H --> C
+    B --> A`,
+    metrics: {
+      'Forecast Target': "Tomorrow's Regular Average ± Range",
+      'Nearby Stations': '5 Cheapest, Sorted Live',
+      'Pipeline Cadence': '30-Min Refresh Loop',
+      'Location Modes': 'Postal Code or Browser Geolocation',
+    },
+    challenges: [
+      'Encoded pump-price physics (partial passthrough, FX-extra, basis reversion, Quebec weekly cycle) with a LightGBM residual on top',
+      'Made station lists resilient: GasBuddy blocks datacenter hosts, so grid-cell caches serve stale-instead-of-none',
+      'Secured a static frontend with origin-bound public API keys, rate limiting, and CORS-gated preflights',
+    ],
+    highlights: [
+      'FastAPI cache-first estimator: serves stored predictions, runs the pipeline live only on cache miss',
+      'Next.js static export on Cloudflare Pages calling the API directly with a browser key',
+      'Single Docker image, two roles — uvicorn API and 30-minute forecast pipeline loop',
+    ],
+    timeline: 'Sep 2026–Present',
+    role: 'Founder & Full-Stack Engineer',
+    mainColour: {
+      bg: 'brand-fastapi',
+      text: 'white',
+      border: 'brand-fastapi',
+      shadow: 'brand-fastapi',
+    },
+  },
+  {
+    id: 'craveitmakeit',
     title: 'Crave It Make It',
     tagline: 'Ingredient-Based Recipe Aggregator & Search Platform',
     description: 'A recipe discovery platform built around what is already in your kitchen: tell it your ingredients and it surfaces matching recipes aggregated from around the web, with full source attribution back to the original authors.',
