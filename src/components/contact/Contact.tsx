@@ -116,7 +116,7 @@ export function Contact() {
                   aria-invalid={!!errors.name}
                 />
                 {errors.name && (
-                  <p className="text-fluid-xs text-red-400">{errors.name.message}</p>
+                  <p role="alert" className="text-fluid-xs text-red-400" aria-live="polite">{errors.name.message}</p>
                 )}
               </div>
 
@@ -130,7 +130,7 @@ export function Contact() {
                   aria-invalid={!!errors.email}
                 />
                 {errors.email && (
-                  <p className="text-fluid-xs text-red-400">{errors.email.message}</p>
+                  <p role="alert" className="text-fluid-xs text-red-400" aria-live="polite">{errors.email.message}</p>
                 )}
               </div>
             </div>
@@ -164,7 +164,7 @@ export function Contact() {
                   aria-invalid={!!errors.message}
                 />
               {errors.message && (
-                <p className="text-fluid-xs text-red-400">{errors.message.message}</p>
+                <p role="alert" className="text-fluid-xs text-red-400" aria-live="polite">{errors.message.message}</p>
               )}
             </div>
 
@@ -192,13 +192,14 @@ export function Contact() {
           </form>
 
           {submitStatus === 'success' && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-fluid-xs text-center font-medium"
-            >
-              {t('contact.success')}
-            </motion.div>
+            <div role="alert" aria-live="polite" className="mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-fluid-xs text-center font-medium">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                {t('contact.success')}
+              </motion.div>
+            </div>
           )}
 
         </div>

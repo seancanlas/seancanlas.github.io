@@ -42,13 +42,18 @@ const toastVariants = cva(
 const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> & VariantProps<typeof toastVariants>
->(({ className, variant, ...props }, ref) => (
-  <ToastPrimitives.Root
-    ref={ref}
-    className={cn(toastVariants({ variant }), className)}
-    {...props}
-  />
-))
+>(({
+    className,
+    variant,
+    ...props
+  }, ref) => (
+    <ToastPrimitives.Root
+      ref={ref}
+      className={cn(toastVariants({ variant }), 'hover:shadow-lg transition-all duration-200', className)}
+      {...props}
+    />
+  )
+)
 Toast.displayName = ToastPrimitives.Root.displayName
 
 const ToastAction = React.forwardRef<
@@ -58,7 +63,7 @@ const ToastAction = React.forwardRef<
   <ToastPrimitives.Action
     ref={ref}
     className={cn(
-      'inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 text-sm font-medium ring-offset-bg-deep transition-colors hover:bg-bg-hover focus:outline-none focus:ring-2 focus:ring-brand-ts focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group-[.destructive]:border-red-400 group-[.destructive]:hover:border-red-300 group-[.destructive]:hover:bg-red-300/20 group-[.destructive]:text-red-50',
+      'inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 text-sm font-medium ring-offset-bg-deep transition-all duration-200 hover:bg-bg-hover focus:outline-none focus:ring-2 focus:ring-brand-ts focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:scale-[1.05]',
       className
     )}
     {...props}
@@ -73,7 +78,7 @@ const ToastClose = React.forwardRef<
   <ToastPrimitives.Close
     ref={ref}
     className={cn(
-      'absolute right-2 top-2 rounded-md p-1 text-text-secondary opacity-0 transition-opacity hover:text-text-primary focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-[.destructive]:text-red-300 group-[.destructive]:hover:text-red-50 group-[.destructive]:focus:ring-red-400',
+      'absolute right-2 top-2 rounded-md p-1 text-text-secondary opacity-0 transition-all duration-200 hover:text-text-primary focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 hover:bg-bg-hover hover:scale-[1.1]',
       className
     )}
     toast-close=""
