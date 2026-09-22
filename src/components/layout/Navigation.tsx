@@ -15,11 +15,6 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
   const [activeSection, setActiveSection] = React.useState<string>('hero')
   const [lastScrollY, setLastScrollY] = React.useState(0)
-  const [isHovering, setIsHovering] = React.useState(false)
-  
-  // Spring animation values following Apple Design principles
-  const springConfig = { damping: 1.0, stiffness: 100, mass: 0.5 }
-  const momentumConfig = { damping: 0.8, stiffness: 100, mass: 0.5 }
 
   const navItems = [
     { href: '#about', labelKey: 'nav.careerJourney' },
@@ -36,7 +31,6 @@ export function Navigation() {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const scrollY = window.scrollY
-          const scrollDirection = scrollY > lastScrollY ? 'down' : 'up'
           
           setIsScrolled(scrollY > 50)
           setLastScrollY(scrollY)
