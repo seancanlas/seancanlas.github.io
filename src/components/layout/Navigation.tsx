@@ -14,6 +14,7 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = React.useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
   const [activeSection, setActiveSection] = React.useState<string>('hero')
+  const [lastScrollY, setLastScrollY] = React.useState(0)
 
   const navItems = [
     { href: '#about', labelKey: 'nav.careerJourney' },
@@ -23,26 +24,39 @@ export function Navigation() {
   ]
 
   React.useEffect(() => {
+    // Apple-style scroll handling with momentum awareness
+    let ticking = false
+    
     const handleScroll = () => {
-      const scrollY = window.scrollY
-      setIsScrolled(scrollY > 50)
-
-      const sections = ['hero', 'about', 'stack', 'portfolio', 'contact']
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section)
-            break
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY
+          
+          setIsScrolled(scrollY > 50)
+          setLastScrollY(scrollY)
+          
+          // Active section detection with Apple precision
+          const sections = ['hero', 'about', 'stack', 'portfolio', 'contact']
+          for (const section of sections) {
+            const element = document.getElementById(section)
+            if (element) {
+              const rect = element.getBoundingClientRect()
+              if (rect.top <= 120 && rect.bottom >= 120) {
+                setActiveSection(section)
+                break
+              }
+            }
           }
-        }
+          
+          ticking = false
+        })
+        ticking = true
       }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [lastScrollY])
 
   const { localizedHref } = useLocale()
 
