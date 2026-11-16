@@ -1,22 +1,3 @@
-export interface Milestone {
-  year: string
-  era: string
-  title: string
-  subtitle: string
-  icon: string
-  tech: string[]
-  story: string
-}
-
-export interface TechItem {
-  name: string
-  category: 'language' | 'framework' | 'database' | 'tool' | 'hobby'
-  brand: string
-  proficiency: number
-  icon: string
-  url?: string
-}
-
 export interface Project {
   id: string
   title: string
@@ -40,11 +21,7 @@ export interface Project {
   highlights?: string[]
   timeline: string
   role: string
-  /**
-   * Project accent palette — drives the active switcher button, the
-   * Visit button, the selected image border, and the modal Visit button.
-   * Falls back to the MapleLineCards palette when omitted.
-   */
+  /** Project accent palette used for switcher and action buttons. */
   mainColour?: ProjectAccent
 }
 
@@ -61,23 +38,8 @@ export interface ProjectAccent {
   shadow?: string
 }
 
-export interface ContactFormData {
-  name: string
-  email: string
-  subject: string
-  message: string
-  website?: string // honeypot
-}
-
-export interface NavLink {
-  label: string
-  href: string
-  external?: boolean
-}
-
 export interface SocialLink {
   label: string
   href: string
-  icon: React.ComponentType<{ className?: string }>
   external?: boolean
 }

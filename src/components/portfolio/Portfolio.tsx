@@ -1,7 +1,4 @@
-'use client'
-
 import * as React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { projects } from '@/lib/constants'
 import type { ProjectAccent } from '@/types'
@@ -10,7 +7,7 @@ import { Badge, type BadgeProps } from '@/components/ui/badge'
 import { Section, Container } from '@/components/layout/section'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { ExternalLink, Layers, Zap, Database, Server, CheckCircle2, ChevronLeft, ChevronRight, Image as ImageIcon, Hammer } from 'lucide-react'
-import { useLocale } from '@/i18n/LanguageContext'
+import { t, type Locale } from '@/i18n'
 import { useTheme } from '@/hooks/useTheme'
 
 /**
@@ -59,15 +56,15 @@ const resolveAccentClasses = (accent: ProjectAccent) => {
   }
 }
 
-export function Portfolio() {
-  const { t } = useLocale()
+export function Portfolio({ locale }: { locale: Locale }) {
   const theme = useTheme()
   const [activeId, setActiveId] = React.useState(projects[0]?.id)
   const active = projects.find(p => p.id === activeId) || projects[0]
   const [selectedImageIndex, setSelectedImageIndex] = React.useState(0)
   const [isModalOpen, setIsModalOpen] = React.useState(false)
 
-  const p = (key: string) => t(`portfolio.projects.${active.id}.${key}`)
+  const tr = (key: string) => t(locale, key)
+  const p = (key: string) => tr(`portfolio.projects.${active.id}.${key}`)
 
   const selectProject = (id: string) => {
     setActiveId(id)
@@ -97,10 +94,10 @@ export function Portfolio() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
           <h2 className="text-fluid-3xl sm:text-fluid-4xl font-extrabold tracking-tight text-text-primary">
-            {t('portfolio.heading')}
+            {tr('portfolio.heading')}
           </h2>
           <p className="text-fluid-base text-text-secondary leading-relaxed">
-            {t('portfolio.description')}
+            {tr('portfolio.description')}
           </p>
         </div>
 
@@ -174,7 +171,7 @@ export function Portfolio() {
                 className="w-full sm:w-auto"
                 onClick={() => setIsModalOpen(true)}
               >
-                {t('portfolio.architectureButton')}
+                {tr('portfolio.architectureButton')}
               </Button>
             </div>
           </div>
@@ -184,22 +181,16 @@ export function Portfolio() {
 
             {/* Main Display Image */}
             <div className="relative aspect-video rounded-2xl overflow-hidden bg-bg-base border border-border-muted group shadow-inner">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={`${active.id}-${selectedImageIndex}-${theme}`}
-                  src={screenshots[selectedImageIndex]}
-                  alt={`${active.title} — ${screenshotTitles[selectedImageIndex] || 'screenshot ' + (selectedImageIndex + 1)}`}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-full h-full object-cover object-top"
-                  loading="eager"
-                  fetchPriority="high"
-                  width="1200"
-                  height="540"
-                />
-              </AnimatePresence>
+              <img
+                key={`${active.id}-${selectedImageIndex}-${theme}`}
+                src={screenshots[selectedImageIndex]}
+                alt={`${active.title} — ${screenshotTitles[selectedImageIndex] || 'screenshot ' + (selectedImageIndex + 1)}`}
+                className="w-full h-full object-cover object-top animate-in"
+                loading="eager"
+                fetchPriority="high"
+                width="1200"
+                height="540"
+              />
 
               {/* Navigation Overlay Arrows */}
               {screenshots.length > 1 && (
@@ -207,14 +198,14 @@ export function Portfolio() {
                   <button
                     onClick={() => setSelectedImageIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length)}
                     className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-bg-deep/80 backdrop-blur border border-border-muted flex items-center justify-center text-text-primary opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity hover:bg-bg-hover"
-                    aria-label="Previous screenshot"
+                    aria-label={tr('portfolio.previousScreenshot')}
                   >
                     <ChevronLeft className="w-5 h-5" />
                   </button>
                   <button
                     onClick={() => setSelectedImageIndex((prev) => (prev + 1) % screenshots.length)}
                     className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-bg-deep/80 backdrop-blur border border-border-muted flex items-center justify-center text-text-primary opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity hover:bg-bg-hover"
-                    aria-label="Next screenshot"
+                    aria-label={tr('portfolio.nextScreenshot')}
                   >
                     <ChevronRight className="w-5 h-5" />
                   </button>
@@ -275,7 +266,7 @@ export function Portfolio() {
             <div className="space-y-3">
               <h4 className="text-fluid-sm font-bold text-text-primary flex items-center gap-2">
                 <Layers className="w-4 h-4 text-brand-ts" />
-                {t('portfolio.archLabel')}
+                {tr('portfolio.archLabel')}
               </h4>
               <div className="flex flex-wrap gap-2">
                 {active.stack.map((tech, idx) => (
@@ -290,7 +281,7 @@ export function Portfolio() {
 <div className="space-y-3">
               <h4 className="text-fluid-sm font-bold text-text-primary flex items-center gap-2">
                 <Zap className="w-4 h-4 text-brand-maple" />
-                {t('portfolio.developingLabel')}
+                {tr('portfolio.developingLabel')}
               </h4>
               <ul className="space-y-2 text-fluid-xs text-text-secondary">
                 {[1, 2, 3].map(n => (
@@ -323,7 +314,7 @@ export function Portfolio() {
           <div className="space-y-6 text-fluid-sm text-text-secondary leading-relaxed">
             <div>
               <h4 className="font-bold text-text-primary mb-2 flex items-center gap-2">
-                <Server className="w-4 h-4 text-brand-php" /> {t('portfolio.overview')}
+                <Server className="w-4 h-4 text-brand-php" /> {tr('portfolio.overview')}
               </h4>
               <p>{p('description')}</p>
             </div>
@@ -336,7 +327,7 @@ export function Portfolio() {
             </div>
 
             <div>
-              <h4 className="font-bold text-text-primary mb-2">{t('portfolio.challenges')}</h4>
+              <h4 className="font-bold text-text-primary mb-2">{tr('portfolio.challenges')}</h4>
               <ul className="space-y-2">
                 {[1, 2, 3].map(n => (
                   <li key={n} className="flex items-start gap-2">
@@ -349,7 +340,7 @@ export function Portfolio() {
 
             <div className="pt-4 border-t border-border-subtle flex justify-end gap-3">
               <Button variant="secondary" onClick={() => setIsModalOpen(false)}>
-                {t('portfolio.close')}
+                {tr('portfolio.close')}
               </Button>
               <a href={active.url} target="_blank" rel="noopener noreferrer">
                 <Button className={cn('hover:opacity-75', accentClasses.hoverBg, accentClasses.btn)}>

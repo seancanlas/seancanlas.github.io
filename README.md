@@ -1,124 +1,59 @@
 # Sean Canlas — Personal Website
 
-> **Full-Stack Software Engineer** — PHP/Symfony, TypeScript/React, PostgreSQL. Builder of [MapleLineCards.ca](https://maplelinecards.ca).
+Personal site for Sean Canlas, a software engineer in Canada. Static Astro site with two React islands and a small design system.
 
-## 🚀 Tech Stack
+## Stack
 
-- **Framework**: React 18 + TypeScript + Vite
-- **Styling**: Tailwind CSS v4 (CSS-first config)
-- **3D/Graphics**: Three.js + @react-three/fiber + @react-three/drei
-- **Animation**: Framer Motion + GSAP
-- **Forms**: React Hook Form + Zod
-- **UI Primitives**: Radix UI + Lucide React
+- **Framework**: Astro 7 (static output)
+- **UI islands**: React 18, TypeScript
+- **Styling**: Tailwind CSS 4 (CSS-first tokens in `src/styles/globals.css`)
+- **Components**: Radix Dialog, React Hook Form, Zod, Lucide
 - **Deployment**: GitHub Actions → GitHub Pages
-- **Package Manager**: pnpm
 
-## 🎨 Features
-
-- **Interactive Hero**: Three.js particle field with mouse parallax
-- **Timeline Journey**: MySpace (2006) → Robotics (2011) → Dawson (2013) → Concordia (2016) → Professional (2020+)
-- **3D Tech Stack Constellation**: 30+ orbiting skill orbs, filterable by category
-- **Portfolio**: MapleLineCards featured + 2 other projects with detailed case study modals
-- **Contact Form**: Formspree-ready with honeypot spam protection
-- **Accessibility**: WCAG AA compliant, reduced motion support, semantic HTML
-- **Performance**: Code splitting, lazy loading, optimized Three.js instancing
-
-## 📦 Quick Start
+## Development
 
 ```bash
-# Install pnpm if needed
-corepack enable pnpm
-
-# Install dependencies
-pnpm install
-
-# Start dev server
-pnpm dev
-
-# Type check
-pnpm typecheck
-
-# Lint
-pnpm lint
-
-# Production build
-pnpm build
-
-# Preview production build
-pnpm preview
+npm install
+npm run dev        # http://localhost:4321
+npm run check      # Astro + TypeScript diagnostics
+npm run lint
+npm run build
+npm run preview
 ```
 
-## 🏗️ Project Structure
+## Structure
 
 ```
 src/
+├── assets/                 # Source images processed by astro:assets
 ├── components/
-│   ├── ui/           # Primitive components (Button, Card, Dialog, etc.)
-│   ├── layout/       # Layout primitives (Section, Container, Grid)
-│   ├── hero/         # Hero section with Three.js background
-│   ├── about/        # Timeline journey component
-│   ├── stack/        # 3D tech stack visualization
-│   ├── portfolio/    # Project cards & modals
-│   └── contact/      # Contact form
-├── hooks/            # Custom React hooks
-├── lib/
-│   ├── constants.ts  # All content data (milestones, tech, projects)
-│   ├── utils.ts      # Utility functions (cn, etc.)
-│   └── three/        # Three.js shaders & utilities
-├── styles/
-│   └── globals.css   # Tailwind v4 + design tokens
-├── types/            # TypeScript types
-├── App.tsx           # Main app component
-└── main.tsx          # Entry point
+│   ├── contact/            # Contact form island
+│   ├── layout/             # Header, footer, theme and language controls
+│   ├── portfolio/          # Project showcase island
+│   ├── sections/           # Hero and background sections
+│   └── ui/                 # Buttons, badges, inputs, dialog, icons
+├── i18n/                   # EN/FR copy and translation helpers
+├── layouts/                # HTML shell and shared home page layout
+├── lib/                    # Project data, theme store, utilities
+├── pages/                  # /, /fr/, 404
+├── scripts/                # Header, mobile menu, scroll spy
+└── styles/                 # Tailwind entry and design tokens
 ```
 
-## 🎯 Design System
+## Content
 
-**Colors** (OKLCH): Midnight dark theme with brand accents
-- `--color-brand-ts`: TypeScript blue
-- `--color-brand-react`: React cyan  
-- `--color-brand-php`: PHP violet
-- `--color-brand-symfony`: Symfony red
-- `--color-brand-pg`: PostgreSQL blue
-- `--color-brand-maple`: Maple orange
+- **Copy**: `src/i18n/translations.ts` (English and French).
+- **Projects**: `src/lib/constants.ts` (cards, stack, screenshots, links).
+- **Hero image**: `src/assets/profile.jpg` (optimized at build time).
 
-**Typography**: Geist Variable (sans) + Geist Mono Variable (mono)
+## Routes
 
-**Spacing**: Fluid clamp-based scale
+- `/` — English
+- `/fr/` — French
+- `/404.html` — not found page
 
-## 🚀 Deployment
+Both locales share `src/layouts/HomePage.astro`. Language links point at real routes, not hash fragments.
 
-Automatic deployment to GitHub Pages on push to `main`:
+## Deployment
 
-1. Push to `main` branch
-2. GitHub Actions runs: install → typecheck → lint → build
-3. Artifact uploaded to GitHub Pages
-4. Live at `https://seancanlas.com`
-
-Custom domain configured via `CNAME` file.
-
-## 📝 Content Management
-
-All content lives in `src/lib/constants.ts`:
-- `milestones` — Career timeline
-- `techStack` — Skills with proficiency & categories
-- `projects` — Portfolio projects (MapleLineCards featured)
-- `socialLinks` — GitHub, LinkedIn, Twitter, Email
-
-## ♿ Accessibility
-
-- Semantic HTML5 structure
-- Proper heading hierarchy
-- Focus-visible states
-- ARIA labels on icon-only buttons
-- `prefers-reduced-motion` respected
-- Color contrast WCAG AA minimum
-- Keyboard navigation support
-
-## 📄 License
-
-MIT License — feel free to use as inspiration for your own portfolio!
-
----
-
-Built with ☕ and lots of `console.log()` by [Sean Canlas](https://seancanlas.com)
+Pushes to `main` run install, `astro check`, lint, and build, then publish `dist/` to GitHub Pages. The custom domain is set by `public/CNAME` (`seancanlas.com`). `public/robots.txt` and `public/sitemap.xml` are served as static files.

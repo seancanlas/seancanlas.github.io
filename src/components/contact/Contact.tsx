@@ -1,43 +1,41 @@
-'use client'
-
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { motion } from 'framer-motion'
-import { toast } from '@/hooks/use-toast'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Label } from '@/components/ui/label'
 import { Section, Container } from '@/components/layout/section'
 import { Send } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { useLocale } from '@/i18n/LanguageContext'
-
-const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  subject: z.enum(['general', 'maplelinecards', 'collaboration', 'hello'], {
-    required_error: 'Please select a subject',
-  }),
-  message: z.string().min(20, 'Message must be at least 20 characters').max(2000, 'Message too long'),
-  website: z.string().optional(), // honeypot
-})
-
-type ContactFormData = z.infer<typeof contactSchema>
+import { t, type Locale } from '@/i18n'
 
 const subjectOptions = [
-  { value: 'general', labelKey: 'subjectGeneral' as const },
-  { value: 'maplelinecards', labelKey: 'subjectMapleLineCards' as const },
-  { value: 'collaboration', labelKey: 'subjectCollaboration' as const },
-  { value: 'hello', labelKey: 'subjectHello' as const },
-]
+  { value: 'general', labelKey: 'contact.subjectGeneral' },
+  { value: 'maplelinecards', labelKey: 'contact.subjectMapleLineCards' },
+  { value: 'collaboration', labelKey: 'contact.subjectCollaboration' },
+  { value: 'hello', labelKey: 'contact.subjectHello' },
+] as const
 
-export function Contact() {
-  const { t } = useLocale()
+export function Contact({ locale }: { locale: Locale }) {
+  const tr = (key: string) => t(locale, key)
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'success' | 'error'>('idle')
+
+  const contactSchema = z.object({
+    name: z.string().min(2, tr('contact.validation.name')),
+    email: z.string().email(tr('contact.validation.email')),
+    subject: z.enum(['general', 'maplelinecards', 'collaboration', 'hello'], {
+      required_error: tr('contact.validation.subject'),
+    }),
+    message: z
+      .string()
+      .min(20, tr('contact.validation.messageMin'))
+      .max(2000, tr('contact.validation.messageMax')),
+    website: z.string().optional(), // honeypot
+  })
+
+  type ContactFormData = z.infer<typeof contactSchema>
 
   const {
     register,
@@ -47,18 +45,15 @@ export function Contact() {
     watch,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
-    defaultValues: {
-      subject: 'general',
-    },
+    defaultValues: { subject: 'general' },
   })
 
   const honeypotValue = watch('website')
 
   const onSubmit = async (data: ContactFormData) => {
     if (honeypotValue) {
-      // Honeypot triggered
       reset()
-      toast({ title: 'Message sent!', description: "I'll get back to you soon." })
+      setSubmitStatus('success')
       return
     }
 
@@ -72,138 +67,150 @@ export function Contact() {
         body: JSON.stringify(data),
       })
 
-      if (response.ok) {
-        setSubmitStatus('success')
-        reset()
-        toast({ title: 'Message sent!', description: t('contact.success') })
-      } else {
-        throw new Error('Form submission failed')
-      }
+      if (!response.ok) throw new Error('Form submission failed')
+
+      setSubmitStatus('success')
+      reset()
     } catch {
       setSubmitStatus('error')
-      toast({ title: t('contact.errorTitle'), description: t('contact.errorText'), variant: 'destructive' })
     } finally {
       setIsSubmitting(false)
     }
   }
 
+  const fieldClass = 'flex flex-col gap-2'
+  const errorClass = 'text-xs text-red-600 dark:text-red-400'
+
   return (
-    <Section id="contact" className="bg-bg-deep relative border-b border-border-subtle">
+    <Section id="contact" className="border-t border-border-subtle bg-bg-base">
       <Container>
-        
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <h2 className="text-fluid-3xl sm:text-fluid-4xl font-extrabold tracking-tight text-text-primary">
-            {t('contact.heading')}
-          </h2>
-          <p className="text-fluid-base text-text-secondary leading-relaxed">
-            {t('contact.intro')}
-          </p>
-        </div>
+        <div className="grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <h2 className="font-display text-3xl tracking-tight text-text-primary sm:text-4xl">
+              {tr('contact.heading')}
+            </h2>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-text-secondary">
+              {tr('contact.intro')}
+            </p>
+          </div>
 
-        <div>
+          <div className="lg:col-span-8">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-6 border border-border-subtle bg-bg-elevated p-6 sm:p-8"
+              noValidate
+            >
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div className={fieldClass}>
+                  <label htmlFor="name" className="text-sm font-medium text-text-primary">
+                    {tr('contact.name')}
+                  </label>
+                  <Input
+                    id="name"
+                    autoComplete="name"
+                    placeholder={tr('contact.namePlaceholder')}
+                    {...register('name')}
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? 'name-error' : undefined}
+                  />
+                  {errors.name && (
+                    <p id="name-error" role="alert" className={errorClass}>
+                      {errors.name.message}
+                    </p>
+                  )}
+                </div>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit(onSubmit)} className="glass p-6 sm:p-10 rounded-2xl border border-border-muted space-y-6" noValidate>
-
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="space-y-6">
-                <Label htmlFor="name">{t('contact.name')}</Label>
-                <Input
-                  id="name"
-                  placeholder={t('contact.namePlaceholder')}
-                  {...register('name')}
-                  aria-invalid={!!errors.name}
-                />
-                {errors.name && (
-                  <p role="alert" className="text-fluid-xs text-red-400" aria-live="polite">{errors.name.message}</p>
-                )}
+                <div className={fieldClass}>
+                  <label htmlFor="email" className="text-sm font-medium text-text-primary">
+                    {tr('contact.email')}
+                  </label>
+                  <Input
+                    id="email"
+                    type="email"
+                    autoComplete="email"
+                    placeholder={tr('contact.emailPlaceholder')}
+                    {...register('email')}
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? 'email-error' : undefined}
+                  />
+                  {errors.email && (
+                    <p id="email-error" role="alert" className={errorClass}>
+                      {errors.email.message}
+                    </p>
+                  )}
+                </div>
               </div>
 
-              <div className="space-y-6">
-                <Label htmlFor="email">{t('contact.email')}</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder={t('contact.emailPlaceholder')}
-                  {...register('email')}
-                  aria-invalid={!!errors.email}
-                />
-                {errors.email && (
-                  <p role="alert" className="text-fluid-xs text-red-400" aria-live="polite">{errors.email.message}</p>
-                )}
+              <div className={fieldClass}>
+                <label htmlFor="subject" className="text-sm font-medium text-text-primary">
+                  {tr('contact.subject')}
+                </label>
+                <select
+                  id="subject"
+                  {...register('subject')}
+                  className={cn(
+                    'h-11 w-full rounded-sm border border-border-muted bg-bg-base px-3 text-sm text-text-primary',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-elevated',
+                    'transition-colors duration-150'
+                  )}
+                >
+                  {subjectOptions.map((option) => (
+                    <option key={option.value} value={option.value} className="bg-bg-elevated text-text-primary">
+                      {tr(option.labelKey)}
+                    </option>
+                  ))}
+                </select>
               </div>
-            </div>
 
-              <div className="space-y-6">
-                <Label htmlFor="subject">{t('contact.subject')}</Label>
-              <select
-                id="subject"
-                {...register('subject')}
-                className={cn(
-                  'flex h-11 w-full appearance-none rounded-xl border border-border-muted bg-bg-base bg-[url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2394a3b8%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpolyline points=%226 9 12 15 18 9%22/%3E%3C/svg%3E"]] bg-no-repeat bg-[right_0.75rem_center] px-4 py-2 pr-10 text-fluid-xs text-text-primary',
-                  'focus:outline-none focus:ring-2 focus:ring-brand-ts focus:ring-offset-2 focus:ring-offset-bg-deep',
-                  'transition-all'
-                )}
-              >
-                {subjectOptions.map((opt) => (
-                  <option key={opt.value} value={opt.value} className="bg-bg-elevated text-text-primary">
-                    {t(`contact.${opt.labelKey}`)}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-<div className="space-y-6">
-                <Label htmlFor="message">{t('contact.message')}</Label>
+              <div className={fieldClass}>
+                <label htmlFor="message" className="text-sm font-medium text-text-primary">
+                  {tr('contact.message')}
+                </label>
                 <Textarea
                   id="message"
-                  placeholder={t('contact.messagePlaceholder')}
                   rows={5}
+                  placeholder={tr('contact.messagePlaceholder')}
                   {...register('message')}
                   aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? 'message-error' : undefined}
                 />
-              {errors.message && (
-                <p role="alert" className="text-fluid-xs text-red-400" aria-live="polite">{errors.message.message}</p>
-              )}
-            </div>
+                {errors.message && (
+                  <p id="message-error" role="alert" className={errorClass}>
+                    {errors.message.message}
+                  </p>
+                )}
+              </div>
 
-            {/* Honeypot field */}
-            <input
-              type="text"
-              tabIndex={-1}
-              autoComplete="off"
-              className="hidden"
-              aria-hidden="true"
-              {...register('website')}
-            />
+              {/* Honeypot */}
+              <input
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+                {...register('website')}
+              />
 
-              <Button
-                type="submit"
-                size="lg"
-                disabled={isSubmitting}
-                className="w-full"
-                style={{ color: '#fff' }}
-              >
-                {isSubmitting ? t('contact.sending') : t('contact.send')}
-                <Send className="w-4 h-4 ml-2" />
-              </Button>
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <Button type="submit" size="lg" disabled={isSubmitting}>
+                  {isSubmitting ? tr('contact.sending') : tr('contact.send')}
+                  <Send className="h-4 w-4" aria-hidden="true" />
+                </Button>
 
-          </form>
-
-          {submitStatus === 'success' && (
-            <div role="alert" aria-live="polite" className="mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-fluid-xs text-center font-medium">
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                {t('contact.success')}
-              </motion.div>
-            </div>
-          )}
-
+                {submitStatus === 'success' && (
+                  <p role="status" className="text-sm text-emerald-700 dark:text-emerald-400">
+                    {tr('contact.success')}
+                  </p>
+                )}
+                {submitStatus === 'error' && (
+                  <p role="alert" className="text-sm text-red-600 dark:text-red-400">
+                    {tr('contact.errorTitle')}. {tr('contact.errorText')}
+                  </p>
+                )}
+              </div>
+            </form>
+          </div>
         </div>
-
       </Container>
     </Section>
   )

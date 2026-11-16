@@ -1,0 +1,44 @@
+---
+import { socialLinks } from '@/lib/constants'
+import { t, type Locale } from '@/i18n'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const year = new Date().getFullYear()
+---
+
+<footer class="border-t border-border-subtle">
+  <div
+    class="mx-auto flex w-full max-w-6xl flex-col gap-4 px-5 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-8"
+  >
+    <p class="text-sm text-text-muted">
+      © {year} {t(locale, 'footer.copyright')}
+    </p>
+
+    <nav class="flex flex-wrap items-center gap-x-6 gap-y-3" aria-label="Elsewhere">
+      {
+        socialLinks.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-underline text-sm text-text-secondary hover:text-text-primary"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="https://github.com/seancanlas/seancanlas.github.io"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline text-sm text-text-secondary hover:text-text-primary"
+      >
+        {t(locale, 'footer.source')}
+      </a>
+    </nav>
+  </div>
+</footer>

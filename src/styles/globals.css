@@ -1,172 +1,148 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  /* === Colors (OKLCH) === */
-  --color-bg-deep: oklch(0.08 0.02 260);
-  --color-bg-base: oklch(0.11 0.02 260);
-  --color-bg-elevated: oklch(0.14 0.02 260);
-  --color-bg-hover: oklch(0.17 0.02 260);
+  /* Core surfaces: light is the default, dark overrides live on html.dark. */
+  --color-bg-deep: #f4f5f1;
+  --color-bg-base: #fbfbf8;
+  --color-bg-elevated: #ffffff;
+  --color-bg-hover: #eceee8;
 
-  --color-border-subtle: oklch(1 0 0 / 0.06);
-  --color-border-muted: oklch(1 0 0 / 0.12);
-  --color-border-focus: oklch(0.65 0.22 260);
+  --color-border-subtle: rgba(16, 20, 18, 0.1);
+  --color-border-muted: rgba(16, 20, 18, 0.18);
+  --color-border-focus: #0f4c5c;
 
-  --color-text-primary: oklch(0.98 0 0);
-  --color-text-secondary: oklch(0.72 0.01 260);
-  --color-text-muted: oklch(0.52 0.01 260);
+  --color-text-primary: #101412;
+  --color-text-secondary: #4b534e;
+  --color-text-muted: #656d68;
+
+  /* One accent, used for links, focus, and primary actions. */
+  --color-accent: #0f4c5c;
+  --color-accent-strong: #0a3a46;
+  --color-accent-soft: rgba(15, 76, 92, 0.1);
+  --color-accent-border: rgba(15, 76, 92, 0.3);
+
   --color-white: #fff;
   --color-black: #000;
 
-  /* === Brand Colors (Simple Icons / official brand palettes) === */
-  /* PHP ecosystem — PHP's purple */
-  --color-brand-php: #777BB4;
-  --color-brand-php-glow: oklch(0.68 0.28 285 / 0.4);
-  --color-brand-php-soft: #777BB433;
-  --color-brand-php-border: #777BB466;
-  /* Laravel — official red */
-  --color-brand-laravel: #FF2D20;
-  --color-brand-laravel-soft: #FF2D2033;
-  --color-brand-laravel-border: #FF2D2066;
-  /* Symfony / SensioLabs — official brand palette
-     Source: https://sensiolabs.com/ (logo SVG: "labs" = #82E83F, "sensio" = currentColor)
-     and design system CSS: primary-1 = #73D631 (green), primary-3 = #2A2A2A (soft black)
-     Symfony brand combines the signature SensioLabs green with a soft dark grey.
-     The text uses the signature SensioLabs green so it pops in both modes; the
-     background uses a green-tinted soft variant. */
-  --color-brand-symfony: #73D631;
-  --color-brand-symfony-soft: #73D63133;
-  --color-brand-symfony-border: #73D63166;
-  --color-brand-symfony-text: #73D631;
-  /* Docker — official blue */
-  --color-brand-docker: #2496ED;
-  --color-brand-docker-soft: #2496ED33;
-  --color-brand-docker-border: #2496ED66;
-  /* TypeScript — official blue */
-  --color-brand-ts: #3178C6;
-  --color-brand-ts-soft: #3178C633;
-  --color-brand-ts-border: #3178C666;
-  /* Node.js — official green */
-  --color-brand-node: #5FA04E;
-  --color-brand-node-soft: #5FA04E33;
-  --color-brand-node-border: #5FA04E66;
-  /* React — official cyan */
-  --color-brand-react: #61DAFB;
-  --color-brand-react-soft: #61DAFB33;
-  --color-brand-react-border: #61DAFB66;
-  --color-brand-react-glow: #61DAFB59;
-  /* Vue — official green */
-  --color-brand-vue: #4FC08D;
-  --color-brand-vue-soft: #4FC08D33;
-  --color-brand-vue-border: #4FC08D66;
-  /* JavaScript — official yellow */
-  --color-brand-js: #F7DF1E;
-  --color-brand-js-soft: #F7DF1E33;
-  --color-brand-js-border: #F7DF1E66;
-  /* Tailwind CSS — official cyan */
-  --color-brand-tailwind: #06B6D4;
-  --color-brand-tailwind-soft: #06B6D433;
-  --color-brand-tailwind-border: #06B6D466;
-  /* Twig — template engine (uses PHP purple for consistency) */
-  --color-brand-twig: #777BB4;
-  --color-brand-twig-soft: #777BB433;
-  --color-brand-twig-border: #777BB466;
-  /* PostgreSQL — official blue */
-  --color-brand-pg: #4169E1;
-  --color-brand-pg-soft: #4169E133;
-  --color-brand-pg-border: #4169E166;
-  /* MySQL — official blue */
-  --color-brand-mysql: #4479A1;
-  --color-brand-mysql-soft: #4479A133;
-  --color-brand-mysql-border: #4479A166;
-  /* Redis — official red */
-  --color-brand-redis: #FF4438;
-  --color-brand-redis-soft: #FF443833;
-  --color-brand-redis-border: #FF443866;
-  /* Linux — official yellow (Tux) */
-  --color-brand-linux: #FCC624;
-  --color-brand-linux-soft: #FCC62433;
-  --color-brand-linux-border: #FCC62466;
-  /* Nginx — official green */
+  /* === Brand colors (kept for the portfolio badges) === */
+  --color-brand-php: #777bb4;
+  --color-brand-php-soft: #777bb433;
+  --color-brand-php-border: #777bb466;
+  --color-brand-laravel: #ff2d20;
+  --color-brand-laravel-soft: #ff2d2033;
+  --color-brand-laravel-border: #ff2d2066;
+  --color-brand-symfony: #73d631;
+  --color-brand-symfony-soft: #73d63133;
+  --color-brand-symfony-border: #73d63166;
+  --color-brand-symfony-text: #4da000;
+  --color-brand-docker: #2496ed;
+  --color-brand-docker-soft: #2496ed33;
+  --color-brand-docker-border: #2496ed66;
+  --color-brand-ts: #3178c6;
+  --color-brand-ts-soft: #3178c633;
+  --color-brand-ts-border: #3178c666;
+  --color-brand-node: #5fa04e;
+  --color-brand-node-soft: #5fa04e33;
+  --color-brand-node-border: #5fa04e66;
+  --color-brand-react: #61dafb;
+  --color-brand-react-soft: #61dafb33;
+  --color-brand-react-border: #61dafb66;
+  --color-brand-vue: #4fc08d;
+  --color-brand-vue-soft: #4fc08d33;
+  --color-brand-vue-border: #4fc08d66;
+  --color-brand-js: #f7df1e;
+  --color-brand-js-soft: #f7df1e33;
+  --color-brand-js-border: #f7df1e66;
+  --color-brand-tailwind: #06b6d4;
+  --color-brand-tailwind-soft: #06b6d433;
+  --color-brand-tailwind-border: #06b6d466;
+  --color-brand-twig: #777bb4;
+  --color-brand-twig-soft: #777bb433;
+  --color-brand-twig-border: #777bb466;
+  --color-brand-pg: #4169e1;
+  --color-brand-pg-soft: #4169e133;
+  --color-brand-pg-border: #4169e166;
+  --color-brand-mysql: #4479a1;
+  --color-brand-mysql-soft: #4479a133;
+  --color-brand-mysql-border: #4479a166;
+  --color-brand-redis: #ff4438;
+  --color-brand-redis-soft: #ff443833;
+  --color-brand-redis-border: #ff443866;
+  --color-brand-linux: #fcc624;
+  --color-brand-linux-soft: #fcc62433;
+  --color-brand-linux-border: #fcc62466;
   --color-brand-nginx: #009639;
   --color-brand-nginx-soft: #00963933;
   --color-brand-nginx-border: #00963966;
-  /* GitLab — official orange */
-  --color-brand-gitlab: #FC6D26;
-  --color-brand-gitlab-soft: #FC6D2633;
-  --color-brand-gitlab-border: #FC6D2666;
-  /* GitHub Actions — official blue */
-  --color-brand-github: #2088FF;
-  --color-brand-github-soft: #2088FF33;
-  --color-brand-github-border: #2088FF66;
-  /* JetBrains (PhpStorm) — black */
+  --color-brand-gitlab: #fc6d26;
+  --color-brand-gitlab-soft: #fc6d2633;
+  --color-brand-gitlab-border: #fc6d2666;
+  --color-brand-github: #2088ff;
+  --color-brand-github-soft: #2088ff33;
+  --color-brand-github-border: #2088ff66;
   --color-brand-jetbrains: #000000;
-  --color-brand-jetbrains-soft: #FFFFFF20;
-  --color-brand-jetbrains-border: #FFFFFF40;
-  --color-brand-jetbrains-text: #FFFFFF;
-  /* Anthropic (Claude) — official orange */
-  --color-brand-anthropic: #D97757;
-  --color-brand-anthropic-soft: #D9775733;
-  --color-brand-anthropic-border: #D9775766;
-  /* Maple (used for site brand) */
-  --color-brand-maple: #FC6D26;
-  --color-brand-maple-soft: #FC6D2633;
-  --color-brand-maple-border: #FC6D2666;
-  --color-brand-maple-glow: #FC6D2666;
-  /* MapleLineCards project brand — red-500 to match the logo */
+  --color-brand-jetbrains-soft: #ffffff20;
+  --color-brand-jetbrains-border: #ffffff40;
+  --color-brand-jetbrains-text: #000000;
+  --color-brand-anthropic: #d97757;
+  --color-brand-anthropic-soft: #d9775733;
+  --color-brand-anthropic-border: #d9775766;
+  --color-brand-maple: #fc6d26;
+  --color-brand-maple-soft: #fc6d2633;
+  --color-brand-maple-border: #fc6d2666;
   --color-brand-maplelinecards: #ef4444;
   --color-brand-maplelinecards-soft: #ef444433;
   --color-brand-maplelinecards-border: #ef444466;
-  /* CraveItMakeIt project brand — derived from
-     oklab(0.408394 0.0915778 0.0719866 / 0.9) which converts to
-     #7C2D12 at 90% alpha. Tailwind v4 alpha doesn't compile oklab()
-     values in CSS variables, so the hex equivalent is used. */
-  --color-brand-craveit: #7C2D12E6;
-  --color-brand-craveit-soft: #7C2D121F;
-  --color-brand-craveit-border: #7C2D124D;
-  /* Python */
-  --color-brand-python: #3776AB;
-  --color-brand-python-soft: #3776AB33;
-  --color-brand-python-border: #3776AB66;
-  /* FastAPI */
+  --color-brand-craveit: #7c2d12e6;
+  --color-brand-craveit-soft: #7c2d121f;
+  --color-brand-craveit-border: #7c2d124d;
+  --color-brand-python: #3776ab;
+  --color-brand-python-soft: #3776ab33;
+  --color-brand-python-border: #3776ab66;
   --color-brand-fastapi: #009688;
   --color-brand-fastapi-soft: #00968833;
   --color-brand-fastapi-border: #00968866;
-  /* Claude (Anthropic) is used as Claude Code */
-  --color-brand-claude: #D97757;
-  --color-brand-claude-soft: #D9775733;
-  --color-brand-claude-border: #D9775766;
-  /* OpenAI (Codex) */
-  --color-brand-openai: #10A37F;
-  --color-brand-openai-soft: #10A37F33;
-  --color-brand-openai-border: #10A37F66;
-  /* OpenCode — community AI coding tool */
-  --color-brand-opencode: #7C3AED;
-  --color-brand-opencode-soft: #7C3AED33;
-  --color-brand-opencode-border: #7C3AED66;
+  --color-brand-claude: #d97757;
+  --color-brand-claude-soft: #d9775733;
+  --color-brand-claude-border: #d9775766;
+  --color-brand-openai: #10a37f;
+  --color-brand-openai-soft: #10a37f33;
+  --color-brand-openai-border: #10a37f66;
+  --color-brand-opencode: #7c3aed;
+  --color-brand-opencode-soft: #7c3aed33;
+  --color-brand-opencode-border: #7c3aed66;
+  --color-brand-rust: #ce422b;
+  --color-brand-rust-soft: #ce422b33;
+  --color-brand-rust-border: #ce422b66;
+  --color-brand-vitest: #6e9f18;
+  --color-brand-vitest-soft: #6e9f1833;
+  --color-brand-vitest-border: #6e9f1866;
+
   --color-status-online: oklch(0.65 0.18 145);
   --color-status-building: oklch(0.75 0.15 80);
 
-  --color-accent-primary: var(--color-brand-ts);
-  --color-accent-secondary: var(--color-brand-react);
-  --color-accent-accent: var(--color-brand-maple);
-
   /* === Fonts === */
   --font-sans: 'Geist', 'Geist Variable', system-ui, sans-serif;
+  --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
   --font-mono: 'Geist Mono', 'Geist Mono Variable', monospace;
 
+  --leading-display: 1.05;
+
   /* === Radii === */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
   --radius-full: 9999px;
 
   /* === Shadows === */
-  --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.3);
-  --shadow-md: 0 4px 12px -2px oklch(0 0 0 / 0.4);
-  --shadow-lg: 0 12px 32px -4px oklch(0 0 0 / 0.5);
-  --shadow-xl: 0 24px 48px -8px oklch(0 0 0 / 0.6);
-  --shadow-glow: 0 0 40px -4px oklch(0.55 0.22 260 / 0.25);
+  --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.04);
+  --shadow-md: 0 4px 12px -2px oklch(0 0 0 / 0.08);
+  --shadow-lg: 0 12px 32px -4px oklch(0 0 0 / 0.1);
+  --shadow-xl: 0 24px 48px -8px oklch(0 0 0 / 0.12);
+  --shadow-glow: 0 0 40px -4px oklch(0.55 0.22 260 / 0.12);
 
   /* === Transitions === */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -175,10 +151,10 @@
   --duration-base: 250ms;
   --duration-slow: 400ms;
 
-  /* === Modal Sizes === */
+  /* === Modal sizes === */
   --max-height-modal: 85vh;
 
-  /* === Fluid Typography Scale === */
+  /* === Fluid type, used by the portfolio section === */
   --text-fluid-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem);
   --text-fluid-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);
   --text-fluid-base: clamp(0.95rem, 0.9rem + 0.25vw, 1rem);
@@ -190,104 +166,27 @@
   --text-fluid-5xl: clamp(4rem, 3rem + 5vw, 7rem);
 }
 
-/* Light theme overrides when .light class is on <html> */
-html.light {
-  --color-bg-deep: oklch(0.98 0.01 260);
-  --color-bg-base: oklch(1 0 0);
-  --color-bg-elevated: oklch(0.97 0.01 260);
-  --color-bg-hover: oklch(0.95 0.01 260);
+html.dark {
+  --color-bg-deep: #0c100f;
+  --color-bg-base: #111614;
+  --color-bg-elevated: #171d1b;
+  --color-bg-hover: #1e2522;
 
-  --color-border-subtle: oklch(0.1 0 0 / 0.08);
-  --color-border-muted: oklch(0.15 0 0 / 0.15);
-  --color-border-focus: oklch(0.55 0.22 260);
+  --color-border-subtle: rgba(240, 244, 238, 0.08);
+  --color-border-muted: rgba(240, 244, 238, 0.16);
+  --color-border-focus: #7cc4b5;
 
-  --color-text-primary: oklch(0.12 0 0);
-  --color-text-secondary: oklch(0.35 0.01 260);
-  --color-text-muted: oklch(0.5 0.01 260);
+  --color-text-primary: #f1f4ee;
+  --color-text-secondary: #b1b9b2;
+  --color-text-muted: #818a84;
 
-  /* Lighter, smaller shadows in light mode so white cards don't get
-     heavy black halos. The base tokens still use black for dark mode. */
-  --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
-  --shadow-md: 0 2px 6px -1px oklch(0 0 0 / 0.07);
-  --shadow-lg: 0 4px 12px -2px oklch(0 0 0 / 0.08);
-  --shadow-xl: 0 6px 16px -3px oklch(0 0 0 / 0.09);
-  --shadow-glow: 0 0 30px -6px oklch(0.55 0.22 260 / 0.15);
+  --color-accent: #7cc4b5;
+  --color-accent-strong: #a3d9cd;
+  --color-accent-soft: rgba(124, 196, 181, 0.12);
+  --color-accent-border: rgba(124, 196, 181, 0.32);
 
-  /* Light mode: slightly more opaque soft brand backgrounds & borders
-     so they read clearly against a white surface. Base tokens use ~20%
-     bg and ~40% border; here we bump to ~15% bg and ~35% border to
-     stay subtle while keeping legibility. */
-  --color-brand-php-soft: #777BB426;
-  --color-brand-php-border: #777BB459;
-  --color-brand-laravel-soft: #FF2D2026;
-  --color-brand-laravel-border: #FF2D2059;
-  --color-brand-symfony-soft: #73D63126;
-  --color-brand-symfony-border: #73D63159;
-  --color-brand-symfony-text: #4DA000;
-  --color-brand-docker-soft: #2496ED26;
-  --color-brand-docker-border: #2496ED59;
-  --color-brand-ts-soft: #3178C626;
-  --color-brand-ts-border: #3178C659;
-  --color-brand-node-soft: #5FA04E26;
-  --color-brand-node-border: #5FA04E59;
-  --color-brand-react-soft: #61DAFB26;
-  --color-brand-react-border: #61DAFB59;
-  --color-brand-vue-soft: #4FC08D26;
-  --color-brand-vue-border: #4FC08D59;
-  --color-brand-js-soft: #F7DF1E26;
-  --color-brand-js-border: #F7DF1E59;
-  --color-brand-tailwind-soft: #06B6D426;
-  --color-brand-tailwind-border: #06B6D459;
-  --color-brand-twig-soft: #777BB426;
-  --color-brand-twig-border: #777BB459;
-  --color-brand-pg-soft: #4169E126;
-  --color-brand-pg-border: #4169E159;
-  --color-brand-mysql-soft: #4479A126;
-  --color-brand-mysql-border: #4479A159;
-  --color-brand-redis-soft: #FF443826;
-  --color-brand-redis-border: #FF443859;
-  --color-brand-linux-soft: #FCC62426;
-  --color-brand-linux-border: #FCC62459;
-  --color-brand-nginx-soft: #00963926;
-  --color-brand-nginx-border: #00963959;
-  --color-brand-gitlab-soft: #FC6D2626;
-  --color-brand-gitlab-border: #FC6D2659;
-  --color-brand-github-soft: #2088FF26;
-  --color-brand-github-border: #2088FF59;
-  --color-brand-jetbrains-soft: #0000001F;
-  --color-brand-jetbrains-border: #00000040;
-  --color-brand-jetbrains-text: #000000;
-  --color-brand-anthropic-soft: #D9775726;
-  --color-brand-anthropic-border: #D9775759;
-  --color-brand-claude-soft: #D9775726;
-  --color-brand-claude-border: #D9775759;
-  --color-brand-openai-soft: #10A37F26;
-  --color-brand-openai-border: #10A37F59;
-  --color-brand-opencode-soft: #7C3AED26;
-  --color-brand-opencode-border: #7C3AED59;
-  --color-brand-maple-soft: #FC6D2626;
-  --color-brand-maple-border: #FC6D2659;
-  --color-brand-python-soft: #3776AB26;
-  --color-brand-python-border: #3776AB59;
-  --color-brand-fastapi-soft: #00968826;
-  --color-brand-fastapi-border: #00968859;
-}
-
-/* Dark mode — activated by adding .dark class to <html> (defaults to dark when no .light) */
-html.dark,
-html:not(.light) {
-  --color-bg-deep: oklch(0.08 0.02 260);
-  --color-bg-base: oklch(0.11 0.02 260);
-  --color-bg-elevated: oklch(0.14 0.02 260);
-  --color-bg-hover: oklch(0.17 0.02 260);
-
-  --color-border-subtle: oklch(1 0 0 / 0.06);
-  --color-border-muted: oklch(1 0 0 / 0.12);
-  --color-border-focus: oklch(0.65 0.22 260);
-
-  --color-text-primary: oklch(0.98 0 0);
-  --color-text-secondary: oklch(0.72 0.01 260);
-  --color-text-muted: oklch(0.52 0.01 260);
+  --color-brand-symfony-text: #73d631;
+  --color-brand-jetbrains-text: #ffffff;
 
   --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.3);
   --shadow-md: 0 4px 12px -2px oklch(0 0 0 / 0.4);
@@ -297,17 +196,10 @@ html:not(.light) {
 }
 
 @layer base {
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    scroll-padding-top: 5rem;
     overflow-x: clip;
-    max-width: 100%;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -330,43 +222,20 @@ html:not(.light) {
     color: var(--color-text-primary);
     min-height: 100vh;
     line-height: 1.6;
-    overflow-x: hidden;
     overflow-x: clip;
-    max-width: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    background-color: var(--color-brand-ts);
-    color: var(--color-text-primary);
-  }
-
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--color-bg-base);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--color-border-muted);
-    border-radius: var(--radius-full);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-text-muted);
+    background-color: var(--color-accent);
+    color: #fff;
   }
 
   :focus-visible {
-    outline: none;
-    ring: 2px;
-    ring-color: var(--color-border-focus);
-    ring-offset: 2px;
-    ring-offset-color: var(--color-bg-deep);
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
   }
 
   img,
@@ -375,17 +244,55 @@ html:not(.light) {
   svg {
     max-width: 100%;
   }
-
-  #root {
-    max-width: 100%;
-    overflow-x: hidden;
-    overflow-x: clip;
-  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .glass {
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border-muted);
+  }
+
+  .link-underline {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    text-decoration-color: var(--color-border-muted);
+    transition:
+      color 150ms ease,
+      text-decoration-color 150ms ease;
+  }
+
+  .link-underline:hover {
+    color: var(--color-accent);
+    text-decoration-color: currentColor;
+  }
+
+  .theme-icon-sun {
+    display: none;
+  }
+
+  .menu-icon-close {
+    display: none;
+  }
+
+  [data-menu-toggle][aria-expanded='true'] .menu-icon-open {
+    display: none;
+  }
+
+  [data-menu-toggle][aria-expanded='true'] .menu-icon-close {
+    display: inline-flex;
+  }
+
+  html.dark .theme-icon-sun {
+    display: inline-flex;
+  }
+
+  html.dark .theme-icon-moon {
+    display: none;
   }
 
   .animate-in {
@@ -395,7 +302,7 @@ html:not(.light) {
   @keyframes animate-in {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(8px);
     }
     to {
       opacity: 1;
@@ -403,41 +310,36 @@ html:not(.light) {
     }
   }
 
-  .glass {
-    background: var(--color-bg-elevated);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--color-border-muted);
+  .hero-enter {
+    animation: hero-enter 700ms var(--ease-out) both;
   }
 
-  .glass-hover:hover {
-    border-color: var(--color-border-focus);
-    box-shadow: var(--shadow-glow);
+  .hero-enter-delay-1 {
+    animation-delay: 80ms;
   }
 
-  .gradient-text {
-    background: linear-gradient(135deg, var(--color-brand-ts), var(--color-brand-react), var(--color-brand-maple));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .hero-enter-delay-2 {
+    animation-delay: 160ms;
   }
 
-  .gradient-border {
-    position: relative;
+  .hero-enter-delay-3 {
+    animation-delay: 240ms;
   }
 
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, var(--color-brand-ts), var(--color-brand-react), var(--color-brand-maple));
-    z-index: -1;
-    opacity: 0;
-    transition: opacity var(--duration-base) var(--ease-out);
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  .gradient-border:hover::before {
-    opacity: 1;
+  @media (prefers-reduced-motion: reduce) {
+    .hero-enter {
+      animation: none;
+    }
   }
 }
