@@ -1,0 +1,23 @@
+---
+import Icon from '@/components/ui/Icon.astro'
+import { t, type Locale } from '@/i18n'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+---
+
+<button
+  type="button"
+  data-theme-toggle
+  data-label-light={t(locale, 'footer.themeToggle.light')}
+  data-label-dark={t(locale, 'footer.themeToggle.dark')}
+  aria-label={t(locale, 'footer.themeToggle.dark')}
+  aria-pressed="false"
+  class="inline-flex h-11 w-11 items-center justify-center rounded-sm text-text-secondary transition-colors duration-150 hover:bg-bg-hover hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep"
+>
+  <span class="theme-icon-moon inline-flex"><Icon name="moon" size={18} /></span>
+  <span class="theme-icon-sun"><Icon name="sun" size={18} /></span>
+</button>

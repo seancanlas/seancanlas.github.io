@@ -1,47 +1,17 @@
-import * as React from 'react'
+import { useEffect, useState } from 'react'
+import { currentTheme, type Theme } from '@/lib/theme'
 
-export type Theme = 'light' | 'dark'
+export type { Theme }
 
-const STORAGE_KEY = 'theme'
-
-const getInitial = (): Theme => {
-  if (typeof window === 'undefined') return 'dark'
-  const stored = localStorage.getItem(STORAGE_KEY) as Theme | null
-  if (stored === 'light' || stored === 'dark') return stored
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-}
-
-const applyTheme = (theme: Theme) => {
-  if (typeof document === 'undefined') return
-  document.documentElement.classList.toggle('light', theme === 'light')
-  document.documentElement.classList.toggle('dark', theme === 'dark')
-}
-
-const subscribers = new Set<(theme: Theme) => void>()
-
-const setThemeAndNotify = (theme: Theme) => {
-  if (typeof window === 'undefined') return
-  localStorage.setItem(STORAGE_KEY, theme)
-  applyTheme(theme)
-  subscribers.forEach((fn) => fn(theme))
-}
-
-// Called by the Footer's toggle button so all components stay in sync.
-export const setThemeGlobal = (theme: Theme) => setThemeAndNotify(theme)
-
+/** Reads the theme set on <html> by the inline boot script and tracks changes. */
 export function useTheme(): Theme {
-  const [theme, setTheme] = React.useState<Theme>(getInitial)
+  const [theme, setTheme] = useState<Theme>('light')
 
-  React.useEffect(() => {
-    // Re-sync on mount in case the Footer set the class before this hook ran.
-    setTheme(getInitial())
-    applyTheme(getInitial())
-
-    const onChange = (next: Theme) => setTheme(next)
-    subscribers.add(onChange)
-    return () => {
-      subscribers.delete(onChange)
-    }
+  useEffect(() => {
+    setTheme(currentTheme())
+    const onChange = (event: Event) => setTheme((event as CustomEvent<Theme>).detail)
+    window.addEventListener('themechange', onChange)
+    return () => window.removeEventListener('themechange', onChange)
   }, [])
 
   return theme

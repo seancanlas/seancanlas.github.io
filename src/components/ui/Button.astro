@@ -1,0 +1,27 @@
+---
+import { buttonClass, type ButtonVariantProps } from '@/components/ui/button-variants'
+
+interface Props extends ButtonVariantProps {
+  href?: string
+  class?: string
+  type?: 'button' | 'submit' | 'reset'
+  target?: string
+  rel?: string
+  ariaLabel?: string
+}
+
+const { href, variant, size, class: className, type = 'button', target, rel, ariaLabel } = Astro.props
+const classes = buttonClass({ variant, size, className })
+---
+
+{
+  href ? (
+    <a href={href} class={classes} target={target} rel={rel} aria-label={ariaLabel}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes} aria-label={ariaLabel}>
+      <slot />
+    </button>
+  )
+}

@@ -1,0 +1,39 @@
+---
+import sun from 'lucide-static/icons/sun.svg?raw'
+import moon from 'lucide-static/icons/moon.svg?raw'
+import menu from 'lucide-static/icons/menu.svg?raw'
+import x from 'lucide-static/icons/x.svg?raw'
+import arrowUpRight from 'lucide-static/icons/arrow-up-right.svg?raw'
+import send from 'lucide-static/icons/send.svg?raw'
+
+const icons = {
+  sun,
+  moon,
+  menu,
+  x,
+  'arrow-up-right': arrowUpRight,
+  send,
+}
+
+interface Props {
+  name: keyof typeof icons
+  class?: string
+  size?: number
+}
+
+const { name, class: className, size = 20 } = Astro.props
+---
+
+<span
+  class:list={['inline-flex shrink-0', className]}
+  style={`--icon-size:${size}px`}
+  set:html={icons[name]}
+  aria-hidden="true"
+/>
+
+<style>
+  span :global(svg) {
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+</style>
