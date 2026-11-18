@@ -14,22 +14,17 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
-    "@radix-ui/react-dialog": "^1.1.2",
-    "@radix-ui/react-slot": "^1.1.0",
-    "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.452.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.1",
-    "tailwind-merge": "^3.6.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
     "@astrojs/react": "^7.1.9",
     "@eslint/js": "^9.12.0",
-    "@tailwindcss/vite": "^4.3.5",
     "@types/node": "^26.1.1",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
@@ -40,8 +35,6 @@
     "globals": "^15.11.0",
     "lucide-static": "^1.73.0",
     "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.8",
-    "tailwindcss": "^4.3.5",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.8.1",
     "vite": "^8.3.8"

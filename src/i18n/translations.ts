@@ -80,6 +80,8 @@ export const translations = {
           tagline: 'Canadian TCG single aggregator and search interface',
           description:
             'A search engine for trading card game singles across Canadian stores. It aggregates live inventory and pricing, normalizes listings, and serves a dense filter interface. The API and workers now run on Rust with Axum and SQLx; the client is React 19 and TypeScript.',
+          relatedSiteDescription: 'Also available at tradingcardgames.ca: the same platform with a new domain, logo, and redesigned initial search page.',
+          screenshot4: 'TradingCardGames.ca initial search page',
           visitLabel: 'Visit MapleLineCards.ca',
           architectureTitle: 'MapleLineCards — Architecture',
           architectureDesc: 'How the Rust API, workers, and React client fit together.',
@@ -258,6 +260,8 @@ export const translations = {
           tagline: 'Agrégateur et interface de recherche de singles JCC canadiens',
           description:
             "Un moteur de recherche pour les singles de jeux de cartes collectionnables dans les boutiques canadiennes. Il agrège les inventaires et les prix en direct, normalise les annonces et sert une interface de filtrage dense. L'API et les workers tournent maintenant sur Rust avec Axum et SQLx ; le client est en React 19 et TypeScript.",
+          relatedSiteDescription: 'Également disponible sur tradingcardgames.ca : la même plateforme avec un nouveau domaine, un nouveau logo et une page de recherche initiale repensée.',
+          screenshot4: 'Page de recherche initiale de TradingCardGames.ca',
           visitLabel: 'Visiter MapleLineCards.ca',
           architectureTitle: 'MapleLineCards — Architecture',
           architectureDesc: "Comment l'API Rust, les workers et le client React s'articulent.",

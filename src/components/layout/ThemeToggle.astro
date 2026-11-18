@@ -16,8 +16,8 @@ const { locale } = Astro.props
   data-label-dark={t(locale, 'footer.themeToggle.dark')}
   aria-label={t(locale, 'footer.themeToggle.dark')}
   aria-pressed="false"
-  class="inline-flex h-11 w-11 items-center justify-center rounded-sm text-text-secondary transition-colors duration-150 hover:bg-bg-hover hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep"
+  class="icon-button"
 >
-  <span class="theme-icon-moon inline-flex"><Icon name="moon" size={18} /></span>
+  <span class="theme-icon-moon"><Icon name="moon" size={18} /></span>
   <span class="theme-icon-sun"><Icon name="sun" size={18} /></span>
 </button>

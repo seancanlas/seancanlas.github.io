@@ -25,13 +25,14 @@ const { name, class: className, size = 20 } = Astro.props
 ---
 
 <span
-  class:list={['inline-flex shrink-0', className]}
+  class:list={['icon', className]}
   style={`--icon-size:${size}px`}
   set:html={icons[name]}
   aria-hidden="true"
 />
 
 <style>
+  .icon { display: inline-flex; flex-shrink: 0; }
   span :global(svg) {
     width: var(--icon-size);
     height: var(--icon-size);

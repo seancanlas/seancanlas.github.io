@@ -10,6 +10,7 @@ export interface Project {
   /** Optional light-theme variant of `images`. Falls back to `images`. */
   imagesLight?: string[]
   url: string
+  relatedSite?: { name: string; url: string }
   repo?: string
   featured: boolean
   status: 'live' | 'building'
