@@ -878,3 +878,104 @@ textarea {
 .preview-link:hover {
   text-decoration-thickness: 2px;
 }
+
+/* Treat the screenshot and its controls as one instrument panel. */
+.project-preview {
+  background: var(--panel);
+  border-radius: 16px;
+}
+.preview-bar {
+  height: 42px;
+  padding-inline: 16px;
+  font-size: 12px;
+}
+.preview-controls > div {
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+  overflow: hidden;
+}
+.preview-controls button {
+  border-radius: 0;
+}
+.preview-controls button + button {
+  border-inline-start: 1px solid var(--line);
+}
+.preview-controls button:focus-visible {
+  outline-offset: -3px;
+}
+.preview-controls {
+  padding-block: 6px;
+  font-size: 12px;
+}
+.project-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  border-block: 1px solid var(--line);
+}
+.project-facts > div + div {
+  border-inline-start: 1px solid var(--line);
+  padding-inline-start: 16px;
+}
+.project-facts strong {
+  font-size: clamp(15px, 1.4vw, 19px);
+  letter-spacing: -.025em;
+  line-height: 1.35;
+}
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 4vw, 56px);
+}
+.section-heading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.work-section {
+  border-top: 0;
+}
+
+.experience-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.experience-list .experience {
+  position: relative;
+  padding: 0 0 26px 26px;
+  border: 0;
+  border-inline-start: 1px solid var(--line);
+}
+.experience-list .experience::before {
+  content: "";
+  position: absolute;
+  inset: 3px auto auto -5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid var(--muted);
+  background: var(--soft);
+}
+.experience-list .experience:last-child {
+  border-color: transparent;
+  padding-bottom: 0;
+}
+.experience-list .experience:last-child::before {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+.experience-list .experience > p:last-child {
+  font-size: 14px;
+  max-width: 56ch;
+}
+@media (min-width: 701px) {
+  .background-grid > div:first-child {
+    position: sticky;
+    top: 112px;
+    align-self: start;
+  }
+}
